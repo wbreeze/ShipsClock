@@ -4,7 +4,7 @@ It marks the day in periods of four hours.
 
 In the following screen shot
 - the short hand is an hour hand that circles the clock face once per day
-- the long hand is a minute hand that circles the clack face once per hour
+- the long hand is a minute hand that circles the clock face once per hour
 - the narrow hand with a triangle on the end is a "watch" hand that
   circles the clock face once every four hours
 - the six light ticks deliniate four hour watches. The hour hand is within
