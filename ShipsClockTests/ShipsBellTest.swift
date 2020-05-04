@@ -7,23 +7,22 @@
 //
 
 import XCTest
+@testable import ShipsClock
 
 class ShipsBellTest: XCTestCase {
     
-    let bellSystem = ShipsBell()
+    var bellSystem = ShipsBell()
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testHasBellMargins() throws {
+        for halfHour in (0...7) {
+            let currentTime = halfHour * 30 * 60
+            XCTAssertEqual(bellSystem.halfHourIndex(forTimeInSeconds: currentTime), halfHour)
+        }
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testHasWatchMargins() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        let testWatch = ShipsWatch.middleWatch
-        XCTAssertEqual(bellSystem.watchFor(timeInSeconds: testWatch.startTime), testWatch)
+    
+    func testPlayTheBell() throws {
+        bellSystem.initializeLastPlayed(forTimeInSeconds: 0)
+        bellSystem.maybeRing(forTimeInSeconds: 31 * 60)
+        sleep(3)
     }
 }
