@@ -13,12 +13,15 @@ import Foundation
  */
 class ShipsClock : ObservableObject {
     @Published var timeOfDayInSeconds = 0
+    
+    private var bell = ShipsBell()
     private var ticker: Timer?
     
     private let tickInterval = 1.0 // seconds
     
     init() {
         nextTime()
+        bell.initializeLastPlayed(forTimeInSeconds: timeOfDayInSeconds)
     }
     
     deinit {
@@ -31,6 +34,7 @@ class ShipsClock : ObservableObject {
     
     private func updateTime(timer: Timer) {
         nextTime()
+        bell.maybeRing(forTimeInSeconds: timeOfDayInSeconds)
     }
     
     private func nextTime() {
