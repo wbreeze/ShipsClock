@@ -32,6 +32,10 @@ class ShipsClock : ObservableObject {
         ticker = Timer.scheduledTimer(withTimeInterval: tickInterval, repeats: true, block: updateTime)
     }
     
+    func invalidateTimer() {
+        ticker?.invalidate()
+    }
+    
     private func updateTime(timer: Timer) {
         nextTime()
         bell.maybeRing(forTimeInSeconds: timeOfDayInSeconds)
