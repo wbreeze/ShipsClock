@@ -15,34 +15,52 @@ class ShipsClock : ObservableObject {
     @Published var timeOfDayInSeconds = 0
     
     private var bell = ShipsBell()
+    private var backgroundRinger: NotifierRinger
+    private var foregroundRinger: TimerRinger
     private var ticker: Timer?
     
     private let tickInterval = 1.0 // seconds
     
     init() {
-        nextTime()
-        bell.initializeLastPlayed(forTimeInSeconds: timeOfDayInSeconds)
+        timeOfDayInSeconds = ShipsClock.nextTime()
+        foregroundRinger = TimerRinger(bell: bell)
+        backgroundRinger = NotifierRinger(bell: bell)
     }
     
-    deinit {
-        ticker?.invalidate()
+    func prepareForStart() {
+        backgroundRinger.seekPermission()
+        foregroundRinger.initializeLastPlayed(forTimeInSeconds: timeOfDayInSeconds)
     }
     
-    func start() {
+    func prepareForShutdown() {
+        moveToBackground()
+        backgroundRinger.disableNotifications()
+    }
+    
+    func moveToForeground() {
+        backgroundRinger.disableNotifications()
+        foregroundRinger.initializeLastPlayed(forTimeInSeconds: ShipsClock.nextTime())
         ticker = Timer.scheduledTimer(withTimeInterval: tickInterval, repeats: true, block: updateTime)
     }
     
-    private func updateTime(timer: Timer) {
-        nextTime()
-        bell.maybeRing(forTimeInSeconds: timeOfDayInSeconds)
+    func moveToBackground() {
+        ticker?.invalidate()
+        backgroundRinger.scheduleBellNotificationsIfAuthorized()
     }
     
-    private func nextTime() {
+    private func updateTime(timer: Timer) {
+        timeOfDayInSeconds = ShipsClock.nextTime()
+        foregroundRinger.maybeRing(forTimeInSeconds: timeOfDayInSeconds)
+    }
+    
+    private static func nextTime() -> Int {
         let now = Date()
         let cal = Calendar.current
         let hms = cal.dateComponents([.hour, .minute, .second], from: now)
         if let hour = hms.hour, let minute = hms.minute, let second = hms.second {
-            timeOfDayInSeconds = (hour * 60 + minute) * 60 + second
+            return (hour * 60 + minute) * 60 + second
+        } else {
+            return 0
         }
     }
 }

@@ -14,49 +14,30 @@ struct ShipsBell {
     let fourHours = 4 * 60 * 60
     let soundsDir = "sounds"
     let bells = ["bell_eight", "bell_one", "bell_two", "bell_three", "bell_four", "bell_five", "bell_six", "bell_seven"]
-    
-    var lastPlayedIndex = 0
-    var audioSession : AVAudioSession
-    var audioPlayer: AVAudioPlayer?
-    
-    init() {
-        audioSession = AVAudioSession.sharedInstance()
-        do {
-            try audioSession.setCategory(.playback, mode: .default, options: .mixWithOthers)
-        } catch {
-            print("Failed to set audio session category.")
-        }
+
+    func soundFileName(bellIndex index: Int) -> String {
+        return soundFileBaseName(bellIndex: index) + ".wav"
     }
     
-    /*:
-     Play the bell sound for the given half hour interval
-     */
-    mutating func ring(soundFile sound: String) {
-        if let url = Bundle.main.url(forResource: soundsDir + "/" + sound, withExtension: "wav") {
-            do {
-                try audioPlayer = AVAudioPlayer(contentsOf: url)
-                try audioSession.setActive(true)
-                audioPlayer?.prepareToPlay()
-                audioPlayer?.play()
-            } catch let error as NSError {
-                print("Failed play audio \(error)")
-            }
-        }
+    func soundFileBaseName(bellIndex index: Int) -> String {
+        return soundsDir + "/" + bells[index % 8]
     }
     
     func halfHourIndex(forTimeInSeconds time: Int) -> Int {
         return (time % fourHours) / thirtyMinutes
     }
     
-    mutating func initializeLastPlayed(forTimeInSeconds time: Int) {
-        lastPlayedIndex = halfHourIndex(forTimeInSeconds: time)
+    struct HourStrike {
+        let timing: DateComponents
+        let bellSound: String
     }
     
-    mutating func maybeRing(forTimeInSeconds time: Int) {
-        let bellIndex = halfHourIndex(forTimeInSeconds: time)
-        if (bellIndex != lastPlayedIndex) {
-            ring(soundFile: bells[bellIndex])
-            lastPlayedIndex = bellIndex
+    func bellSchedule() -> [HourStrike] {
+        return (0...47).map { halfHour in
+            var dateComponents = DateComponents()
+            dateComponents.hour = halfHour / 2
+            dateComponents.minute = (halfHour % 2) * 30
+            return HourStrike(timing: dateComponents, bellSound: soundFileName(bellIndex: halfHour))
         }
     }
 }

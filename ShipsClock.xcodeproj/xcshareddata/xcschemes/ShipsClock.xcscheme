@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6FE9AFA8243F9CA8002B45BA"
-               BuildableName = "Ships Clock.app"
+               BuildableName = "ShipsClock.app"
                BlueprintName = "ShipsClock"
                ReferencedContainer = "container:ShipsClock.xcodeproj">
             </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6FE9AFA8243F9CA8002B45BA"
-            BuildableName = "Ships Clock.app"
+            BuildableName = "ShipsClock.app"
             BlueprintName = "ShipsClock"
             ReferencedContainer = "container:ShipsClock.xcodeproj">
          </BuildableReference>
@@ -82,7 +82,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6FE9AFA8243F9CA8002B45BA"
-            BuildableName = "Ships Clock.app"
+            BuildableName = "ShipsClock.app"
             BlueprintName = "ShipsClock"
             ReferencedContainer = "container:ShipsClock.xcodeproj">
          </BuildableReference>
