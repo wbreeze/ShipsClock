@@ -25,4 +25,15 @@ class ShipsBellTest: XCTestCase {
         bellSystem.maybeRing(forTimeInSeconds: 31 * 60)
         sleep(3)
     }
+    
+    func testBellList() throws {
+        bellSystem.initializeLastPlayed(forTimeInSeconds: 0)
+        let list = bellSystem.bellSchedule()
+        XCTAssertEqual(list.count, 48)
+        for halfHour in (0...47) {
+            XCTAssertEqual(list[halfHour].timing.hour, halfHour / 2)
+            XCTAssertEqual(list[halfHour].timing.minute, halfHour % 2 * 30)
+            XCTAssertEqual(list[halfHour].bellSound, bellSystem.soundFileName(bellIndex: halfHour % 8))
+        }
+    }
 }

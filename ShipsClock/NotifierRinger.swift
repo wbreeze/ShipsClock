@@ -9,13 +9,15 @@
 import Foundation
 import UIKit
 
-class NotifierRinger: NSObject, UNUserNotificationCenterDelegate {
-    var notificationID: String?
+class NotifierRinger: NSObject {
     var notificationCenter: UNUserNotificationCenter?
     let ringerCategoryID = UUID().uuidString
-    let silenceActionID = UUID().uuidString
-    let multiActionID = UUID().uuidString
+    var bell: ShipsBell
 
+    init(bell: ShipsBell) {
+        self.bell = bell
+    }
+    
     private func center() -> UNUserNotificationCenter {
         if let center = notificationCenter {
             return center
@@ -23,25 +25,6 @@ class NotifierRinger: NSObject, UNUserNotificationCenterDelegate {
             notificationCenter = UNUserNotificationCenter.current()
             return notificationCenter!
         }
-    }
-    
-    func registerNotificationActions() {
-        print("Register notification actions")
-
-        // Define the custom actions.
-        let silenceAction = UNNotificationAction(identifier: silenceActionID,
-                                                 title: "Silence",
-                                                 options: [])
-        let secondAction = UNNotificationAction(identifier: multiActionID,
-                                                 title: "Or this",
-                                                 options: [])
-
-        // Define the notification type
-        let shipsBellCategory = UNNotificationCategory(identifier: ringerCategoryID, actions: [silenceAction, secondAction], intentIdentifiers: [], hiddenPreviewsBodyPlaceholder: "Previews hidden", options: .customDismissAction)
-
-        // Set self as delegate and register the notification type.
-        center().delegate = self
-        center().setNotificationCategories([shipsBellCategory])
     }
     
     func seekPermission() {
@@ -53,61 +36,32 @@ class NotifierRinger: NSObject, UNUserNotificationCenterDelegate {
     }
     
     func disableNotifications() {
-        if let nid = notificationID {
-            print("Removing notification \(nid)")
-            center().removePendingNotificationRequests(withIdentifiers: [nid])
-        }
+        center().removeAllPendingNotificationRequests()
     }
     
-    func scheduleBellNotificationIfAuthorized() {
+    func scheduleBellNotificationsIfAuthorized() {
         center().getNotificationSettings { settings in
             if (settings.authorizationStatus == .authorized) {
-                self.scheduleBellNotification()
+                for period in self.bell.bellSchedule() {
+                    self.scheduleBellNotification(matching: period.timing, withSound: period.bellSound)
+                }
             }
         }
     }
     
-    fileprivate func scheduleBellNotification() {
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+    fileprivate func scheduleBellNotification(matching dateComponents: DateComponents, withSound sound: String) {
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         let content = UNMutableNotificationContent()
-        content.title = "Watch progress"
-        content.body = "One bell"
-        content.userInfo = ["aps" : [
-            "category" : ringerCategoryID,
-            "alert" : [
-                "title" : "Ships Bell",
-                "body" : "One bell"
-            ],
-            ],]
-        content.sound = UNNotificationSound(named: UNNotificationSoundName("sounds/bell_one.wav"))
+        content.sound = UNNotificationSound(named: UNNotificationSoundName(sound))
         content.categoryIdentifier = ringerCategoryID
-        notificationID = UUID().uuidString
-        let request = UNNotificationRequest(identifier: notificationID!,
+        let request = UNNotificationRequest(identifier: UUID().uuidString,
                     content: content, trigger: trigger)
 
         // Schedule the request with the system.
-        print("Adding notification")
         center().add(request) { (error) in
            if error != nil {
               print("Didn't add the notification, error \(String(describing: error))")
            }
         }
     }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter,
-                didReceive response: UNNotificationResponse,
-                withCompletionHandler completionHandler:
-                   @escaping () -> Void) {
-        print("Notification response \(String(describing: response))")
-        switch response.actionIdentifier {
-          case silenceActionID:
-             break
-          default:
-             scheduleBellNotification()
-             break
-       }
-       // Always call the completion handler when done.
-       completionHandler()
-    }
-
 }
