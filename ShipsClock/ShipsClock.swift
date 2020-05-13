@@ -17,6 +17,7 @@ class ShipsClock : ObservableObject {
     private var bell = ShipsBell()
     private var backgroundRinger: NotifierRinger
     private var foregroundRinger: TimerRinger
+    private var locationTracker = LocationTracker()
     private var ticker: Timer?
     
     private let tickInterval = 1.0 // seconds
@@ -29,6 +30,7 @@ class ShipsClock : ObservableObject {
     
     func prepareForStart() {
         backgroundRinger.seekPermission()
+        locationTracker.seekPermission()
         foregroundRinger.initializeLastPlayed(forTimeInSeconds: timeOfDayInSeconds)
     }
     
@@ -41,11 +43,13 @@ class ShipsClock : ObservableObject {
         backgroundRinger.disableNotifications()
         foregroundRinger.initializeLastPlayed(forTimeInSeconds: ShipsClock.nextTime())
         ticker = Timer.scheduledTimer(withTimeInterval: tickInterval, repeats: true, block: updateTime)
+        locationTracker.activate()
     }
     
     func moveToBackground() {
         ticker?.invalidate()
         backgroundRinger.scheduleBellNotificationsIfAuthorized()
+        locationTracker.deactivate()
     }
     
     private func updateTime(timer: Timer) {
