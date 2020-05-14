@@ -24,9 +24,11 @@ struct SituationDisplay: View {
 
     var body: some View {
         return VStack(alignment: .leading, spacing: nil) {
-            Text(LocationTracker.format(degrees: location.latitude, isLongitude: false)).lineLimit(1)
-            Text(LocationTracker.format(degrees: location.longitude, isLongitude: true)).lineLimit(1)
+            Text(LocationTracker.format(degrees: location.latitude, isLongitude: false))
+            Text(LocationTracker.format(degrees: location.longitude, isLongitude: true))
         }.font(.system(size: 20, weight: .bold, design: .monospaced))
+            .lineLimit(1)
+            .minimumScaleFactor(0.5)
     }
 }
 
