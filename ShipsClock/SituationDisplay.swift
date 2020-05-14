@@ -24,8 +24,12 @@ struct SituationDisplay: View {
 
     var body: some View {
         return VStack(alignment: .leading, spacing: nil) {
-            Text(LocationTracker.format(degrees: location.latitude, isLongitude: false))
-            Text(LocationTracker.format(degrees: location.longitude, isLongitude: true))
+            if location.isValidLocation {
+                Text(LocationTracker.format(degrees: location.latitude, isLongitude: false))
+                Text(LocationTracker.format(degrees: location.longitude, isLongitude: true))
+            } else {
+                Text("Latitude and longitude are not available.")
+            }
         }.font(.system(size: 20, weight: .bold, design: .monospaced))
             .lineLimit(1)
             .minimumScaleFactor(0.5)
