@@ -12,7 +12,10 @@ struct ContentView: View {
     @EnvironmentObject var shipsClock: ShipsClock
     
     var body: some View {
-        return ClockFace()
+        return VStack() {
+            ClockFace()
+            SituationDisplay().environmentObject(shipsClock.locationTracker)
+        }
     }
 }
 

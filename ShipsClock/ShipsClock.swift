@@ -13,11 +13,11 @@ import Foundation
  */
 class ShipsClock : ObservableObject {
     @Published var timeOfDayInSeconds = 0
-    
+    @Published var locationTracker = LocationTracker()
+
     private var bell = ShipsBell()
     private var backgroundRinger: NotifierRinger
     private var foregroundRinger: TimerRinger
-    private var locationTracker = LocationTracker()
     private var ticker: Timer?
     
     private let tickInterval = 1.0 // seconds

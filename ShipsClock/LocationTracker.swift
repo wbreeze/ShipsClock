@@ -19,7 +19,7 @@
 import Foundation
 import CoreLocation
 
-class LocationTracker: NSObject, CLLocationManagerDelegate {
+class LocationTracker: NSObject, ObservableObject, CLLocationManagerDelegate {
     var manager = CLLocationManager()
     var isAuthorized = false
     @Published var isValidLocation = false
@@ -29,6 +29,23 @@ class LocationTracker: NSObject, CLLocationManagerDelegate {
     override init() {
         latitude = 0.0
         longitude = 0.0
+    }
+    
+    static func degreesMinutesSeconds(degrees: CLLocationDegrees) -> (Int, Int, Int) {
+        let mf = degrees.truncatingRemainder(dividingBy: 1.0) * 60.0
+        let s = round(mf.truncatingRemainder(dividingBy: 1.0) * 60.0)
+        return (Int(degrees), Int(mf), Int(s))
+    }
+    
+    static func format(degrees latorlon: CLLocationDegrees, isLongitude isLon: Bool) -> String {
+        var dForm: String
+        if isLon {
+            dForm = latorlon < 0 ? "W %03d" : "E %03d"
+        } else {
+            dForm = latorlon < 0 ? "S  %02d" : "N  %02d"
+        }
+        let (d, m, s) = degreesMinutesSeconds(degrees: abs(latorlon))
+        return String(format: "\(dForm)º %02d' %02d\" (%08.4f)", arguments: [d, m, s, abs(latorlon)])
     }
     
     func seekPermission() {
