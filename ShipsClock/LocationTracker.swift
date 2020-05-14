@@ -45,7 +45,7 @@ class LocationTracker: NSObject, ObservableObject, CLLocationManagerDelegate {
             dForm = latorlon < 0 ? "S  %02d" : "N  %02d"
         }
         let (d, m, s) = degreesMinutesSeconds(degrees: abs(latorlon))
-        return String(format: "\(dForm)º %02d' %02d\" (%08.4f)", arguments: [d, m, s, abs(latorlon)])
+        return String(format: "\(dForm)º %02d' %02d\" (%08.4f)", locale: Locale.current, arguments: [d, m, s, abs(latorlon)])
     }
     
     func seekPermission() {
