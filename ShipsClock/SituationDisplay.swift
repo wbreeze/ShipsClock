@@ -21,6 +21,8 @@ import SwiftUI
 
 struct SituationDisplay: View {
     @EnvironmentObject var location: LocationTracker
+    
+    var displayWidth: CGFloat
 
     var body: some View {
         return VStack(alignment: .leading, spacing: nil) {
@@ -31,7 +33,7 @@ struct SituationDisplay: View {
             } else {
                 Text("Latitude and longitude are not available.")
             }
-        }.font(.system(size: 20, weight: .bold, design: .monospaced))
+        }.font(.system(size: CGFloat(displayWidth / 18.0), weight: .bold, design: .monospaced))
             .lineLimit(1)
             .minimumScaleFactor(0.5)
     }
@@ -39,6 +41,6 @@ struct SituationDisplay: View {
 
 struct SituationDisplay_Previews: PreviewProvider {
     static var previews: some View {
-        SituationDisplay().environmentObject(LocationTracker())
+        SituationDisplay(displayWidth: 320.0).environmentObject(LocationTracker())
     }
 }

@@ -12,10 +12,13 @@ struct ContentView: View {
     struct Vertical: View {
         @EnvironmentObject var shipsClock: ShipsClock
         
+        var displaySize: CGFloat
+        
         var body: some View {
             VStack {
                 ClockFace()
-                SituationDisplay().environmentObject(shipsClock.locationTracker)
+                SituationDisplay(displayWidth: displaySize)
+                    .environmentObject(shipsClock.locationTracker)
             }
         }
     }
@@ -23,10 +26,13 @@ struct ContentView: View {
     struct Horizontal: View {
         @EnvironmentObject var shipsClock: ShipsClock
         
+        var displaySize: CGFloat
+        
         var body: some View {
             HStack(alignment: .top, spacing: nil) {
                 ClockFace()
-                SituationDisplay().environmentObject(shipsClock.locationTracker)
+                SituationDisplay(displayWidth: displaySize)
+                    .environmentObject(shipsClock.locationTracker)
             }
         }
     }
@@ -34,9 +40,9 @@ struct ContentView: View {
     var body: some View {
         GeometryReader { geometry in
             if (geometry.size.width <= geometry.size.height) {
-                Vertical()
+                Vertical(displaySize: geometry.size.width)
             } else {
-                Horizontal()
+                Horizontal(displaySize: geometry.size.height)
             }
         }
     }
