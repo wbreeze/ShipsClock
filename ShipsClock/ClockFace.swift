@@ -136,7 +136,7 @@ struct ClockFace: View {
         var timeInSeconds: Int
         
         let hourHandStart = -0.1
-        let hourHandEnd = 0.5
+        let hourHandEnd = 0.55
         
         var body: some View {
             Path() { path in
@@ -145,7 +145,7 @@ struct ClockFace: View {
                 let hourAngle = 3.0 * Double.pi / 2.0 - partOfDay * Double.pi * 2.0
                 path.move(to: ClockFace.pointOnRadius(forAngle: hourAngle, givenRadius: radius, atPosition: hourHandStart))
                 path.addLine(to: ClockFace.pointOnRadius(forAngle: hourAngle, givenRadius: radius, atPosition: hourHandEnd))
-            }.stroke(lineWidth: 10.0)
+            }.stroke(lineWidth: CGFloat(radius / 22.0))
         }
     }
     
@@ -154,8 +154,9 @@ struct ClockFace: View {
         
         init(radius: Double, watchAngle: Double, atPosition watchHandEnd: Double) {
             let center = ClockFace.pointOnRadius(forAngle: watchAngle, givenRadius: radius, atPosition: watchHandEnd)
+            let scale = CGFloat(radius / 90.0)
             transform = CGAffineTransform.identity
-                .concatenating(CGAffineTransform.identity.scaledBy(x: 4.0, y: 4.0))
+                .concatenating(CGAffineTransform.identity.scaledBy(x: scale, y: scale))
                 .concatenating(CGAffineTransform.identity.rotated(by: CGFloat(-watchAngle)))
                 .concatenating(CGAffineTransform.identity.translatedBy(x: center.x, y: center.y))
         }
@@ -190,7 +191,7 @@ struct ClockFace: View {
                 Path() { path in
                     path.move(to: ClockFace.pointOnRadius(forAngle: watchAngle, givenRadius: radius, atPosition: watchHandStart))
                     path.addLine(to: ClockFace.pointOnRadius(forAngle: watchAngle, givenRadius: radius, atPosition: watchHandEnd))
-                }.stroke(lineWidth: 6.0)
+                }.stroke(lineWidth: CGFloat(radius / 35.0))
                 WatchWand(radius: radius, watchAngle: watchAngle, atPosition: watchHandEnd)
             }
         }
@@ -211,7 +212,7 @@ struct ClockFace: View {
                 let minuteAngle = Double.pi / 2.0 - partOfHour * Double.pi * 2.0
                 path.move(to: ClockFace.pointOnRadius(forAngle: minuteAngle, givenRadius: radius, atPosition: minuteHandStart))
                 path.addLine(to: ClockFace.pointOnRadius(forAngle: minuteAngle, givenRadius: radius, atPosition: minuteHandEnd))
-            }.stroke(lineWidth: 10.0)
+            }.stroke(lineWidth: CGFloat(radius / 22.0))
         }
     }
 }
