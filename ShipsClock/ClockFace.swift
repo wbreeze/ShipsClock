@@ -111,7 +111,6 @@ struct ClockFace: View {
         
         var body: some View {
             Text(hour.description)
-                .fontWeight(.bold)
                 .position(ClockFace.pointOnRadius(forAngle: angle, givenRadius: radius, atPosition: textRadiusMultiplier))
         }
     }
@@ -121,15 +120,13 @@ struct ClockFace: View {
         let radius: Double
         
         var body: some View {
-            GeometryReader { geometry in
-                ForEach(0..<self.hourCount, content: { hour in
-                    PositionedHourLabel(
-                        hour: hour,
-                        radius: self.radius,
-                        angle: ClockFace.hourAngle(forHour: hour)
-                    )
-                })
-            }
+            return ForEach(0..<self.hourCount, content: { hour in
+                PositionedHourLabel(
+                    hour: hour,
+                    radius: self.radius,
+                    angle: ClockFace.hourAngle(forHour: hour)
+                ).font(.system(size: CGFloat(self.radius / 9.0), weight: .black, design: .default))
+            })
         }
     }
 
