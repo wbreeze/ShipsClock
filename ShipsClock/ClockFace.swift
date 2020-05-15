@@ -150,13 +150,9 @@ struct ClockFace: View {
     }
     
     struct WatchWand: View {
-        let watchHandEnd = 0.6
-
-        let radius: Double
         let transform: CGAffineTransform
         
-        init(radius: Double, watchAngle: Double) {
-            self.radius = radius
+        init(radius: Double, watchAngle: Double, atPosition watchHandEnd: Double) {
             let center = ClockFace.pointOnRadius(forAngle: watchAngle, givenRadius: radius, atPosition: watchHandEnd)
             transform = CGAffineTransform.identity
                 .concatenating(CGAffineTransform.identity.scaledBy(x: 4.0, y: 4.0))
@@ -166,17 +162,17 @@ struct ClockFace: View {
 
         var body: some View {
             Path() { path in
-                path.move(to: CGPoint(x: 1, y: 3))
-                path.addLine(to: CGPoint(x: -2, y: 0))
-                path.addLine(to: CGPoint(x: 1, y: -3))
-                path.addLine(to: CGPoint(x: 1, y: 3))
+                path.move(to: CGPoint(x: 0, y: 3))
+                path.addLine(to: CGPoint(x: -3, y: 0))
+                path.addLine(to: CGPoint(x: 0, y: -3))
+                path.addLine(to: CGPoint(x: 0, y: 3))
             }.transform(transform).fill(Color.black)
         }
     }
     
     struct WatchHand: View {
         let watchHandStart = -0.1
-        let watchHandEnd = 0.6
+        let watchHandEnd = 0.68
 
         let lengthOfWatchInSeconds = 4 * 60 * 60
         let radius: Double
@@ -195,7 +191,7 @@ struct ClockFace: View {
                     path.move(to: ClockFace.pointOnRadius(forAngle: watchAngle, givenRadius: radius, atPosition: watchHandStart))
                     path.addLine(to: ClockFace.pointOnRadius(forAngle: watchAngle, givenRadius: radius, atPosition: watchHandEnd))
                 }.stroke(lineWidth: 6.0)
-                WatchWand(radius: radius, watchAngle: watchAngle)
+                WatchWand(radius: radius, watchAngle: watchAngle, atPosition: watchHandEnd)
             }
         }
     }
