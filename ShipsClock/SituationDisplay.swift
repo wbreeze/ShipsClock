@@ -27,6 +27,7 @@ struct SituationDisplay: View {
             if location.isValidLocation {
                 Text(LocationTracker.format(degrees: location.latitude, isLongitude: false))
                 Text(LocationTracker.format(degrees: location.longitude, isLongitude: true))
+                Text(location.courseAndSpeed())
             } else {
                 Text("Latitude and longitude are not available.")
             }
