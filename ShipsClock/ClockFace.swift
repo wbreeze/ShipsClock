@@ -50,7 +50,7 @@ struct ClockFace: View {
                     radius: self.radius(geometry), timeInSeconds: self.shipsClock.timeOfDayInSeconds)
                 WatchHand(
                     radius: self.radius(geometry), timeInSeconds: self.shipsClock.timeOfDayInSeconds)
-                // CenterCircle(radius: self.radius(geometry)
+                CenterCircle(radius: self.radius(geometry))
             }.frame(width: self.diameter(geometry), height: self.diameter(geometry), alignment: .top)
         }
     }
@@ -206,6 +206,19 @@ struct ClockFace: View {
                 path.move(to: ClockFace.pointOnRadius(forAngle: minuteAngle, givenRadius: radius, atPosition: minuteHandStart))
                 path.addLine(to: ClockFace.pointOnRadius(forAngle: minuteAngle, givenRadius: radius, atPosition: minuteHandEnd))
             }.stroke(lineWidth: CGFloat(radius / 22.0))
+        }
+    }
+    
+    struct CenterCircle: View {
+        var radius: Double
+        
+        var body: some View {
+            let centerSize = CGFloat(radius / 45.0)
+            let offset = CGFloat(radius) - centerSize / 2.0
+            return Circle()
+                .size(width: centerSize, height: centerSize)
+                .offset(x: offset, y: offset)
+                .fill(Color.white)
         }
     }
 }
