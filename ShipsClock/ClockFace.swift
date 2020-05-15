@@ -9,17 +9,10 @@
 import SwiftUI
 
 struct ClockFace: View {
-    
-    // let secondHandColor = Color.red
-//    let minuteHandColor = Color.black
-//    let hourHandColor = Color.black
-//    let watchHandColor = Color.black
-//    let backgroundColor = Color.white
-    let borderColor = Color.black
-//    let centerColor = Color.red
-    
     @EnvironmentObject var shipsClock: ShipsClock
 
+    let borderColor = Color.black
+    
     func diameter(_ geometry : GeometryProxy) -> CGFloat {
         CGFloat.minimum(geometry.size.width, geometry.size.height)
     }
