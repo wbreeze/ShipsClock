@@ -9,13 +9,14 @@
 import SwiftUI
 
 struct ClockFace: View {
-    let secondHandColor = Color.red
-    let minuteHandColor = Color.black
-    let hourHandColor = Color.black
-    let watchHandColor = Color.black
-    let backgroundColor = Color.white
+    
+    // let secondHandColor = Color.red
+//    let minuteHandColor = Color.black
+//    let hourHandColor = Color.black
+//    let watchHandColor = Color.black
+//    let backgroundColor = Color.white
     let borderColor = Color.black
-    let centerColor = Color.red
+//    let centerColor = Color.red
     
     @EnvironmentObject var shipsClock: ShipsClock
 
@@ -66,7 +67,6 @@ struct ClockFace: View {
     }
     
     struct HourTicks: View {
-        var baseLineWidth = CGFloat(3.0)
         var tickColor = Color.black
         
         var radius : Double
@@ -76,14 +76,15 @@ struct ClockFace: View {
         var tickInside : Double
 
         var body: some View {
-            Path { path in
+            let baseLineWidth = CGFloat(radius / 60.0)
+            return Path { path in
                 for hour in stride(from: 0, to: 23, by: hourInterval) {
                     let angle = ClockFace.hourAngle(forHour: hour)
                     path.move(to: ClockFace.pointOnRadius(forAngle: angle, givenRadius: radius, atPosition: self.tickOutside))
                     path.addLine(to: ClockFace.pointOnRadius(forAngle: angle, givenRadius: radius, atPosition: self.tickInside))
                 }
             }
-            .stroke(lineWidth: CGFloat(widthMultiplier) * self.baseLineWidth)
+            .stroke(lineWidth: CGFloat(widthMultiplier) * baseLineWidth)
             .fill(self.tickColor)
         }
     }
