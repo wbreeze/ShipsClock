@@ -33,7 +33,7 @@ struct SituationDisplay: View {
             } else {
                 Text("Latitude and longitude are not available.")
             }
-        }.font(.system(size: CGFloat(displayWidth / 18.0), weight: .bold, design: .monospaced))
+        }.font(.system(size: CGFloat(displayWidth / 10.0), weight: .bold, design: .monospaced))
             .lineLimit(1)
             .minimumScaleFactor(0.5)
     }
