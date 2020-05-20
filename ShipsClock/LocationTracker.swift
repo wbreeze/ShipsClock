@@ -28,7 +28,7 @@ class LocationTracker: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var velocity: CLLocationSpeed
     @Published var course: CLLocationDirection
 
-    static let compassPoints = [" N ", "NNE", " NE", "ENE", " E ", "ESE", " SE", "SSE", " S ", "SSW", " SW", "WSW", " W ", "WNW", " NW", "NNW"]
+    static let compassPoints = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"]
 
     override init() {
         latitude = 0.0
@@ -51,7 +51,7 @@ class LocationTracker: NSObject, ObservableObject, CLLocationManagerDelegate {
             dForm = latorlon < 0 ? "S  %02d" : "N  %02d"
         }
         let (d, m, s) = degreesMinutesSeconds(degrees: abs(latorlon))
-        return String(format: "\(dForm)º %02d' %02d\" (%08.4f)", locale: Locale.current, arguments: [d, m, s, abs(latorlon)])
+        return String(format: "\(dForm)º %02d' %02d\"", locale: Locale.current, arguments: [d, m, s])
     }
     
     func courseCompassPoint() -> String {
@@ -71,14 +71,13 @@ class LocationTracker: NSObject, ObservableObject, CLLocationManagerDelegate {
     func courseAndSpeed() -> String {
         if (0.0 <= course && 0.0 < velocity) {
             let ccp = courseCompassPoint()
-            let ctrue = Int(round(course))
             let kts = velocityInKnots()
             return String.localizedStringWithFormat(
-                "%03dº true, %@ at %.1f kts",
-                ctrue, ccp, kts
+                "%.1f kts %@",
+                kts, ccp
             )
         } else {
-            return("Not making way")
+            return("No way on")
         }
     }
     
