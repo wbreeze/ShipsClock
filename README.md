@@ -1,4 +1,4 @@
-# ships_clock
+# ShipsClock
 This is an iOS, SwiftUI clock for tracking watches on board a ship.
 It marks the day in periods of four hours.
 
@@ -16,6 +16,8 @@ In the following screen shot from the app:
     - the current latitude and longitude
     - the current true heading and speed in knots
 
+![Screen shot](docs/clock_face.png)
+
 Ship's bell:
 - when the clock is actively displayed, it updates the time continuously, and
   plays the ship's bell one to eight times, for each half hour of the watch.
@@ -24,4 +26,6 @@ Ship's bell:
   bell plays using notifications, for which the app requires
   notification permission.
 
-![Screen shot](docs/clock_face.png)
+Here is the sound played at three bells, one and one-half hours into the watch:
+
+[Three bells (mp3 sound file)](docs/bell_three.mp3)
