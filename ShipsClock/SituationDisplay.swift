@@ -29,13 +29,13 @@ struct SituationDisplay: View {
             if location.isValidLocation {
                 Text(LocationTracker.format(degrees: location.latitude, isLongitude: false))
                 Text(LocationTracker.format(degrees: location.longitude, isLongitude: true))
-                Text(location.courseAndSpeed())
+                Text(location.courseAndSpeed()).lineLimit(1)
+                    .font(.system(size: CGFloat(displayWidth / 10.0), weight: .bold, design: .monospaced))
+                    .minimumScaleFactor(0.5)
             } else {
                 Text("Latitude and longitude are not available.")
             }
-        }.font(.system(size: CGFloat(displayWidth / 10.0), weight: .bold, design: .monospaced))
-            .lineLimit(1)
-            .minimumScaleFactor(0.5)
+        }
     }
 }
 
