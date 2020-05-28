@@ -25,11 +25,13 @@ struct SituationDisplay: View {
     var displayWidth: CGFloat
 
     var body: some View {
-        return VStack(alignment: .leading, spacing: nil) {
+        VStack(alignment: .leading, spacing: nil) {
             if location.isValidLocation {
-                Text(LocationTracker.format(degrees: location.latitude, isLongitude: false))
-                Text(LocationTracker.format(degrees: location.longitude, isLongitude: true))
-                Text(location.courseAndSpeed()).lineLimit(1)
+                VStack {
+                    Text(LocationTracker.format(degrees: location.latitude, isLongitude: false))
+                    Text(LocationTracker.format(degrees: location.longitude, isLongitude: true))
+                    Text(location.courseAndSpeed())
+                }.lineLimit(1)
                     .font(.system(size: CGFloat(displayWidth / 10.0), weight: .bold, design: .monospaced))
                     .minimumScaleFactor(0.5)
             } else {
