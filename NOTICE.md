@@ -16,6 +16,10 @@ Copyright ©2020 Douglas Lovell
 
 ## Additional notices:
 
+The application icon files are Copyright ©2020 Andrés Salerti of
+[Salerti Design](http://salertidesign.com/) and licensed
+exclusively to Douglas Lovell.
+
 The file,
  - `sounds/bell_one.wav` sourced from
 [ShipsBell.wav](https://freesound.org/people/acclivity/sounds/32304/)
