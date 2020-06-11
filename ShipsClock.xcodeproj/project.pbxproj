@@ -16,6 +16,9 @@
 		6F40411C247F47CB00B1BF5D /* ClockBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F40411B247F47CB00B1BF5D /* ClockBackground.swift */; };
 		6F40411E247F47DE00B1BF5D /* ClockHands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F40411D247F47DE00B1BF5D /* ClockHands.swift */; };
 		6F4041202485DB4700B1BF5D /* ClockSun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F40411F2485DB4700B1BF5D /* ClockSun.swift */; };
+		6F404123248BD0D600B1BF5D /* SunCalcTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F404122248BD0D600B1BF5D /* SunCalcTest.swift */; };
+		6F404125248BE17300B1BF5D /* SunCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F404124248BE17300B1BF5D /* SunCalculator.swift */; };
+		6F404126248BE21400B1BF5D /* SunCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F404124248BE17300B1BF5D /* SunCalculator.swift */; };
 		6F77AF04244FDD4E0070DB57 /* ShipsClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F77AF03244FDD4E0070DB57 /* ShipsClock.swift */; };
 		6F8FEC8F2469B3D300A1FAE7 /* TimerRinger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8FEC8E2469B3D300A1FAE7 /* TimerRinger.swift */; };
 		6F8FEC97246C1F9F00A1FAE7 /* LocationTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8FEC96246C1F9F00A1FAE7 /* LocationTracker.swift */; };
@@ -61,6 +64,9 @@
 		6F40411B247F47CB00B1BF5D /* ClockBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockBackground.swift; sourceTree = "<group>"; };
 		6F40411D247F47DE00B1BF5D /* ClockHands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockHands.swift; sourceTree = "<group>"; };
 		6F40411F2485DB4700B1BF5D /* ClockSun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockSun.swift; sourceTree = "<group>"; };
+		6F404121248BD0D500B1BF5D /* ShipsClockTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShipsClockTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		6F404122248BD0D600B1BF5D /* SunCalcTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunCalcTest.swift; sourceTree = "<group>"; };
+		6F404124248BE17300B1BF5D /* SunCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunCalculator.swift; sourceTree = SOURCE_ROOT; };
 		6F77AF03244FDD4E0070DB57 /* ShipsClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipsClock.swift; sourceTree = "<group>"; };
 		6F8FEC8E2469B3D300A1FAE7 /* TimerRinger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerRinger.swift; sourceTree = "<group>"; };
 		6F8FEC96246C1F9F00A1FAE7 /* LocationTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTracker.swift; sourceTree = "<group>"; };
@@ -128,6 +134,7 @@
 				6F8FEC98246C4FE000A1FAE7 /* SituationDisplay.swift */,
 				6FE9AFAE243F9CA8002B45BA /* SceneDelegate.swift */,
 				6F77AF03244FDD4E0070DB57 /* ShipsClock.swift */,
+				6F404124248BE17300B1BF5D /* SunCalculator.swift */,
 				6F8FEC96246C1F9F00A1FAE7 /* LocationTracker.swift */,
 				6F24FD9D245D2D6A0006590A /* ShipsBell.swift */,
 				6F8FEC8E2469B3D300A1FAE7 /* TimerRinger.swift */,
@@ -156,6 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				6FE9AFC5243F9CAA002B45BA /* Info.plist */,
+				6F404122248BD0D600B1BF5D /* SunCalcTest.swift */,
+				6F404121248BD0D500B1BF5D /* ShipsClockTests-Bridging-Header.h */,
 			);
 			path = ShipsClockTests;
 			sourceTree = "<group>";
@@ -240,6 +249,7 @@
 					};
 					6FE9AFBE243F9CAA002B45BA = {
 						CreatedOnToolsVersion = 11.4;
+						LastSwiftMigration = 1150;
 						TestTargetID = 6FE9AFA8243F9CA8002B45BA;
 					};
 					6FE9AFC9243F9CAA002B45BA = {
@@ -312,6 +322,7 @@
 				6FE9AFAD243F9CA8002B45BA /* AppDelegate.swift in Sources */,
 				6F24FD9E245D2D6A0006590A /* ShipsBell.swift in Sources */,
 				6F40411C247F47CB00B1BF5D /* ClockBackground.swift in Sources */,
+				6F404125248BE17300B1BF5D /* SunCalculator.swift in Sources */,
 				6F8FEC8F2469B3D300A1FAE7 /* TimerRinger.swift in Sources */,
 				6FE9AFDF243FBB79002B45BA /* ClockFace.swift in Sources */,
 				6F8FEC99246C4FE000A1FAE7 /* SituationDisplay.swift in Sources */,
@@ -324,6 +335,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F404126248BE21400B1BF5D /* SunCalculator.swift in Sources */,
+				6F404123248BD0D600B1BF5D /* SunCalcTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,6 +540,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ShipsClockTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
@@ -537,6 +551,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wbreeze.ShipsClockTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ShipsClockTests/ShipsClockTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShipsClock.app/ShipsClock";
@@ -548,6 +564,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ShipsClockTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
@@ -558,6 +575,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wbreeze.ShipsClockTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ShipsClockTests/ShipsClockTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShipsClock.app/ShipsClock";
