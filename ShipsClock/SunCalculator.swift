@@ -3,7 +3,7 @@
   // Copyright © 2020 Douglas Lovell
   /*
    Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
+   you may not use this fileprivate except in compliance with the License.
    You may obtain a copy of the License at
 
        http://www.apache.org/licenses/LICENSE-2.0
@@ -38,6 +38,7 @@ struct SunCalculator {
      algorithm taught in _Astronomical Algorithms_ by Jean Meeus
      
      This is essentially the same as the computation taught in Reda & Andreas, "Solar Position Algorithm for Solar Radiation Applications", NREL/TP-560-34302 retrieved as https://www.nrel.gov/docs/fy08osti/34302.pdf
+         and in Michalsky (referenced in the class comment)
      */
     func julianDay(_ y: Int, _ m: Int, _ d: Int, _ h: Int, _ i: Int, _ s: Int) -> Double {
 
@@ -73,5 +74,86 @@ struct SunCalculator {
             jd = julianDay(y, m, d, h, i, s)
         }
         return jd
+    }
+
+    // Normalize degrees to range 0.0 <= degrees < 360.0
+    fileprivate func normalizedDegrees(for d: Double) -> Double {
+        let pm = d.truncatingRemainder(dividingBy: 360.0)
+        return 0.0 <= pm ? pm : pm + 360.0
+    }
+    
+    // Normalize hours to range 0.0 <= hours < 24.0
+    fileprivate func normalizedHours(for h: Double) -> Double {
+        let ph = h.truncatingRemainder(dividingBy: 24.0)
+        return 0.0 <= ph ? ph : ph + 24.0
+    }
+    
+    // Convert from degrees to radians normalized to range
+    // 0.0 <= radians < 2.0 * Pi
+    fileprivate func radiansGiven(degrees d: Double) -> Double {
+        normalizedDegrees(for: d) * (2 * Double.pi) / 360.0
+    }
+    
+    // Convert from radians to degrees normalized to range
+    // 0.0 <= degrees < 360.0
+    fileprivate func degreesGiven(radians d: Double) -> Double {
+        let twoPi = (2.0 * Double.pi)
+        return normalizedDegrees(for: d.truncatingRemainder(dividingBy: twoPi) * 360.0 / twoPi)
+    }
+    
+    /*
+     Print an angle expressed in degrees as hours and minutes
+     */
+    func hms(_ label: String, _ degrees: Double) {
+        var hour = degrees * 24.0 / 360.0
+        var dir = "West"
+        if hour < 0.0 {
+            dir = "East"
+            hour = -hour
+        }
+        print(label, dir, Int(hour), "h", Int(hour.truncatingRemainder(dividingBy: 1.0) * 60.0), "m", degrees)
+    }
+    
+    /*
+     Print an angle expressed in degrees as degrees and minutes
+     */
+    func dms(_ label: String, _ degrees: Double) {
+        print(label, Int(degrees), "d", Int(degrees.truncatingRemainder(dividingBy: 1.0) * 60.0), "m", degrees)
+    }
+    
+    /*
+     Compute the hour angle of the sun in degrees relative
+       to the given longitude at the given time.
+     Zero is on the local meridian, at the given longitude,
+       at the highest apparent azimuth (as near to overhead)
+       as it will be for the day.
+     The angle is normalized to -180.0 <= hourAngle <= 180.0
+     */
+    func hourAngle(julianDay jd: Double, longitude lon: Double) -> Double {
+        let time = jd - 2451545.0 // calcs use base 2000-01-01 00:00 UT
+        // mnlong: mean longitude of the sun in normalized degrees
+        let mnlong = normalizedDegrees(for: 280.460 + 0.9856474 * time)
+        // mnanom: mean anomoly for mnlong in normalized radians
+        let mnanom = radiansGiven(degrees: 357.528 + 0.9856003 * time)
+        // eclong: ecliptic longitude in normalized radians
+        let eclong = radiansGiven(degrees: mnlong + 1.915 * sin(mnanom) + 0.020 * sin(2 * mnanom))
+        // oblqec: obliquity of ecliptic in normalized radians
+        let oblqec = radiansGiven(degrees: 23.439 - 0.0000004 * time)
+        // ra: right ascension of the sun in normalized radians
+        let ra = atan(cos(oblqec) * sin(eclong) / cos(eclong))
+        // hour: hour portion of UT (jd has noon at zero, thus add 0.5)
+        let hour = (jd.truncatingRemainder(dividingBy: 1.0) + 0.5) * 24.0
+        // gmst: mean sidereal time in normalized hours UT
+        let gmst = normalizedHours(for: 6.697375 + 0.0657098242 * time + hour)
+        // lmst: local mean sidereal time in hours UT
+        let lmst = normalizedHours(for: gmst + lon / 15.0)
+        // lang: local hour angle in normalized radians
+        let lang = radiansGiven(degrees: lmst * 15.0)
+
+        // return the normalized, local hour angle in degrees
+        var ha = lang - ra
+        ha = Double.pi < ha ? ha - 2.0 * Double.pi : ha
+        ha = ha < -Double.pi ? ha + 2.0 * Double.pi : ha
+        return ha * 180.0 / Double.pi
     }
 }

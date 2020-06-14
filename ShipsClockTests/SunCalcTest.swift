@@ -86,4 +86,37 @@ class SunCalcTest: XCTestCase {
             XCTAssertEqual(jd, testDate.julian, "JDN incorrect for \(date)")
         }
     }
+    
+    /*
+     hour angle tests verified by comparison with angles reported by
+     the app Sky Safari 6 Pro, version 6.7.2.4
+     */
+    
+    func testHourAngleWestPM() throws {
+        let jd = calculator.julianDay(2020, 6, 14, 18, 35, 0)
+        let lon = -74.25
+        let ha = calculator.hourAngle(julianDay: jd, longitude: lon)
+        XCTAssertEqual(ha, 24.387, accuracy: 1.0/60.0)
+    }
+    
+    func testHourAngleEastPM() throws {
+        let jd = calculator.julianDay(2020, 6, 14, 19, 25, 0)
+        let lon = 37.66
+        let ha = calculator.hourAngle(julianDay: jd, longitude: lon)
+        XCTAssertEqual(ha, 148.795, accuracy: 1.0/60.0)
+    }
+    
+    func testHourAngleWestAM() throws {
+        let jd = calculator.julianDay(2020, 6, 14, 11, 44, 0)
+        let lon = -73.5
+        let ha = calculator.hourAngle(julianDay: jd, longitude: lon)
+        XCTAssertEqual(ha, -77.598, accuracy: 1.0/60.0)
+    }
+    
+    func testHourAngleEastAM() throws {
+        let jd = calculator.julianDay(2020, 6, 14, 8, 4, 0)
+        let lon = 37.66
+        let ha = calculator.hourAngle(julianDay: jd, longitude: lon)
+        XCTAssertEqual(ha, -21.43, accuracy: 1.0/60.0)
+    }
 }
