@@ -36,6 +36,8 @@ struct SunCalculator {
      
      See https://squarewidget.com/julian-day/ which implements the
      algorithm taught in _Astronomical Algorithms_ by Jean Meeus
+     
+     This is essentially the same as the computation taught in Reda & Andreas, "Solar Position Algorithm for Solar Radiation Applications", NREL/TP-560-34302 retrieved as https://www.nrel.gov/docs/fy08osti/34302.pdf
      */
     func julianDay(_ y: Int, _ m: Int, _ d: Int, _ h: Int, _ i: Int, _ s: Int) -> Double {
 
