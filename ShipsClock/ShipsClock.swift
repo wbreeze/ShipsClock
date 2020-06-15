@@ -13,8 +13,9 @@ import Foundation
  */
 class ShipsClock : ObservableObject {
     @Published var timeOfDayInSeconds = 0
-    @Published var locationTracker = LocationTracker()
-
+    @Published var locationTracker: LocationTracker
+    @Published var celestialComputer: CelestialComputer
+    
     private var bell = ShipsBell()
     private var backgroundRinger: NotifierRinger
     private var foregroundRinger: TimerRinger
@@ -26,6 +27,9 @@ class ShipsClock : ObservableObject {
         timeOfDayInSeconds = ShipsClock.nextTime()
         foregroundRinger = TimerRinger(bell: bell)
         backgroundRinger = NotifierRinger(bell: bell)
+        let lt = LocationTracker()
+        locationTracker = lt
+        celestialComputer = CelestialComputer(locationTracker: lt)
     }
     
     func prepareForStart() {
@@ -42,7 +46,8 @@ class ShipsClock : ObservableObject {
     func moveToForeground() {
         backgroundRinger.disableNotifications()
         foregroundRinger.initializeLastPlayed(forTimeInSeconds: ShipsClock.nextTime())
-        ticker = Timer.scheduledTimer(withTimeInterval: tickInterval, repeats: true, block: updateTime)
+        updateTime() // right away, not at next tick
+        ticker = Timer.scheduledTimer(withTimeInterval: tickInterval, repeats: true, block: updateTimeCallback)
         locationTracker.activate()
     }
     
@@ -51,9 +56,14 @@ class ShipsClock : ObservableObject {
         backgroundRinger.scheduleBellNotificationsIfAuthorized()
         locationTracker.deactivate()
     }
-    
-    private func updateTime(timer: Timer) {
+
+    private func updateTimeCallback(_: Timer) {
+        updateTime()
+    }
+
+    private func updateTime() {
         timeOfDayInSeconds = ShipsClock.nextTime()
+        celestialComputer.maybeUpdateTheSky(timeOfDayInSeconds: timeOfDayInSeconds)
         foregroundRinger.maybeRing(forTimeInSeconds: timeOfDayInSeconds)
     }
     
