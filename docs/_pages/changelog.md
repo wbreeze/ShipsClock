@@ -13,4 +13,4 @@ This first release includes:
   the four-hour ship's watch
 - display of the current latitude and longitude in degrees, minutes, and seconds
 - display of the current heading using points of the compass
-- disploy of velocity in knots
+- display of velocity in knots
