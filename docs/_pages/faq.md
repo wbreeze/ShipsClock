@@ -21,7 +21,7 @@ that we're on the watch that began at noon.
 - one single ring means it's 12:30pm
 - one double ring means it's 1:00pm
 - two double rings followed by a single ring means it's 2:30pm
-- the watch ends with four double rings signifying the end of the watch and
+- four double rings signify the end of the watch and
 the beginning of the next. In this example, the time is now 4:00pm
 
 ## Why bells?
