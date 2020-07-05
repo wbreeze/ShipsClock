@@ -119,4 +119,24 @@ class SunCalcTest: XCTestCase {
         let ha = calculator.hourAngle(julianDay: jd, longitude: lon)
         XCTAssertEqual(ha, -21.43, accuracy: 1.0/60.0)
     }
+    
+    // ra 6h 0m 53s
+    // ha 9h 43m 10s
+    // 20 jun 2020 22:42 local
+    func testHourAngle20Jun() throws {
+        let jd = calculator.julianDay(2020, 6, 21, 2, 42, 0)
+        let lon = -74.25
+        let ha = calculator.hourAngle(julianDay: jd, longitude: lon)
+        XCTAssertEqual(ha, -90.7, accuracy: 1.0/60.0)
+    }
+
+    // ra 6h 4m 20s
+    // ha 5h 38m 59s
+    // 21 jun 2020 18:38 local
+    func testHourAngle21Jun() throws {
+        let jd = calculator.julianDay(2020, 6, 21, 22, 38, 0)
+        let lon = -74.25
+        let ha = calculator.hourAngle(julianDay: jd, longitude: lon)
+        XCTAssertEqual(ha, -75.6, accuracy: 1.0/60.0)
+    }
 }
