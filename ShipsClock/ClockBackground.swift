@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct ClockBackground: View {
-    let borderColor = Color.black
     var radius: Double
     
     var body: some View {
@@ -21,12 +20,10 @@ struct ClockBackground: View {
     }
 
     var border: some View {
-        Circle().stroke(borderColor, lineWidth: 4)
+        Circle().stroke(lineWidth: 4)
     }
     
     struct HourTicks: View {
-        var tickColor = Color.black
-        
         var radius : Double
         var hourInterval : Int
         var widthMultiplier : Int
@@ -43,7 +40,7 @@ struct ClockBackground: View {
                 }
             }
             .stroke(lineWidth: CGFloat(widthMultiplier) * baseLineWidth)
-            .fill(self.tickColor)
+            .fill()
         }
     }
 
