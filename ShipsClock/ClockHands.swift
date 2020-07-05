@@ -60,7 +60,7 @@ struct ClockHands: View {
                 path.addLine(to: CGPoint(x: -3, y: 0))
                 path.addLine(to: CGPoint(x: 0, y: -3))
                 path.addLine(to: CGPoint(x: 0, y: 3))
-            }.transform(transform).fill(Color.black)
+            }.transform(transform).fill()
         }
     }
     
@@ -118,7 +118,7 @@ struct ClockHands: View {
             return Circle()
                 .size(width: centerSize, height: centerSize)
                 .offset(x: offset, y: offset)
-                .fill(Color.white)
+                .fill(Color(UIColor.systemBackground))
         }
     }
 }
