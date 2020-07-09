@@ -39,8 +39,9 @@ class ShipsClock : ObservableObject {
     }
     
     func prepareForShutdown() {
-        moveToBackground()
+        ticker?.invalidate()
         backgroundRinger.disableNotifications()
+        locationTracker.deactivate()
     }
     
     func moveToForeground() {
