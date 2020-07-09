@@ -23,6 +23,7 @@ class CelestialComputer : ObservableObject {
     var locationTracker: LocationTracker
     var lastCelestialCalc = 0
     var sunCalculator = SunCalculator()
+    let jules = Julian()
     @Published var sunHourAngle: Double?
     
     init(locationTracker: LocationTracker) {
@@ -34,7 +35,7 @@ class CelestialComputer : ObservableObject {
             if sunHourAngle == nil ||
                 60 < timeOfDayInSeconds - lastCelestialCalc
             {
-                let jd = sunCalculator.julianDay(for: Date())
+                let jd = jules.julianDay(for: Date())
                 let lon = locationTracker.longitude
                 sunHourAngle = sunCalculator.hourAngle(julianDay: jd, longitude: lon)
                 lastCelestialCalc = timeOfDayInSeconds
