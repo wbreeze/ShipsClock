@@ -24,52 +24,80 @@ import XCTest
 class SunCalcTest: XCTestCase {
     let calculator = SunCalculator()
     let jules = Julian()
+    let prec = 0.125  // +- an eighth of a degree, half a minute
     
-    func testHourAngleWestPM() throws {
-        let jd = jules.julianDay(2020, 6, 14, 18, 35, 0)
-        let lon = -74.25
-        let ha = calculator.hourAngle(julianDay: jd, longitude: lon)
-        XCTAssertEqual(ha, 24.387, accuracy: 1.0/60.0)
+    struct TestCase {
+        static let westLon = -74.25
+        static let eastLon = 37.66
+        let description : String
+        let julianDay, longitude : Double
+        let expectedRa, expectedHa : Double
     }
     
-    func testHourAngleEastPM() throws {
-        let jd = jules.julianDay(2020, 6, 14, 19, 25, 0)
-        let lon = 37.66
-        let ha = calculator.hourAngle(julianDay: jd, longitude: lon)
-        XCTAssertEqual(ha, 148.795, accuracy: 1.0/60.0)
+    func angle(_ h: Int, _ m: Int, _ s: Int) -> Double {
+        return Double(h) * 15.0 + Double(m) * 15.0 / 60.0 + Double(s) * 15.0 / 3600.0
     }
     
-    func testHourAngleWestAM() throws {
-        let jd = jules.julianDay(2020, 6, 14, 11, 44, 0)
-        let lon = -73.5
-        let ha = calculator.hourAngle(julianDay: jd, longitude: lon)
-        XCTAssertEqual(ha, -77.598, accuracy: 1.0/60.0)
+    func hour(_ h: Int, _ m: Int, _ s: Int) -> Double {
+        return Double(h) + Double(m) / 60.0 + Double(s) / 3600.0
     }
     
-    func testHourAngleEastAM() throws {
-        let jd = jules.julianDay(2020, 6, 14, 8, 4, 0)
-        let lon = 37.66
-        let ha = calculator.hourAngle(julianDay: jd, longitude: lon)
-        XCTAssertEqual(ha, -21.43, accuracy: 1.0/60.0)
+    func testCases() -> [TestCase] {
+        [
+            TestCase(
+                description: "WestPM",
+                julianDay: jules.julianDay(2020, 6, 14, 18, 35, 0),
+                longitude: TestCase.westLon,
+                expectedRa: angle(5, 34, 31),
+                expectedHa: angle(1, 37, 32)),
+            TestCase(
+                description: "EastPM",
+                julianDay: jules.julianDay(2020, 6, 14, 19, 25, 0),
+                longitude: TestCase.eastLon,
+                expectedRa: angle(5, 36, 3),
+                expectedHa: angle(9, 55, 39)),
+            TestCase(
+                description: "WestAM",
+                julianDay: jules.julianDay(2020, 6, 14, 11, 44, 0),
+                longitude: TestCase.westLon,
+                expectedRa: angle(5, 33, 20),
+                expectedHa: -angle(5, 13, 24)),
+            TestCase(
+                description: "EastAM",
+                julianDay: jules.julianDay(2020, 6, 14, 8, 4, 0),
+                longitude: TestCase.eastLon,
+                expectedRa: angle(5, 34, 4),
+                expectedHa: -angle(1, 25, 43)),
+            TestCase(
+                description: "20 June West PM",
+                julianDay: jules.julianDay(2020, 6, 21, 2, 42, 0),
+                longitude: TestCase.westLon,
+                expectedRa: angle(6, 0, 53),
+                expectedHa: angle(9, 43, 10)),
+            TestCase(
+                description: "21 June West PM",
+                julianDay: jules.julianDay(2020, 6, 22, 2, 42, 0),
+                longitude: TestCase.westLon,
+                expectedRa: angle(6, 5, 3),
+                expectedHa: angle(9, 42, 57)),
+        ]
     }
     
-    // ra 6h 0m 53s
-    // ha 9h 43m 10s
-    // 20 jun 2020 22:42 local
-    func testHourAngle20Jun() throws {
-        let jd = jules.julianDay(2020, 6, 21, 2, 42, 0)
-        let lon = -74.25
-        let ha = calculator.hourAngle(julianDay: jd, longitude: lon)
-        XCTAssertEqual(ha, -90.7, accuracy: 1.0/60.0)
+    func testRightAscension() throws {
+        let d2r = Double.pi / 180.0
+        testCases().forEach { t in
+            let ra = calculator.rightAscension(julianDay: t.julianDay)
+            XCTAssertEqual(ra, t.expectedRa * d2r, accuracy: prec,
+                           t.description)
+        }
     }
-
-    // ra 6h 4m 20s
-    // ha 5h 38m 59s
-    // 21 jun 2020 18:38 local
-    func testHourAngle21Jun() throws {
-        let jd = jules.julianDay(2020, 6, 21, 22, 38, 0)
-        let lon = -74.25
-        let ha = calculator.hourAngle(julianDay: jd, longitude: lon)
-        XCTAssertEqual(ha, -75.6, accuracy: 1.0/60.0)
+    
+    func testHourAngle() throws {
+        testCases().forEach { t in
+            let ha = calculator.hourAngle(
+                julianDay: t.julianDay, longitude: t.longitude)
+            XCTAssertEqual(ha, t.expectedHa, accuracy: prec,
+                           t.description)
+        }
     }
 }

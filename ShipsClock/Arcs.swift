@@ -20,12 +20,20 @@
 import Foundation
 
 struct Arcs {
+    static let twoPi = 2.0 * Double.pi
+
     // Normalize degrees to range 0.0 <= degrees < 360.0
     static func normalizedDegrees(for d: Double) -> Double {
         let pm = d.truncatingRemainder(dividingBy: 360.0)
         return 0.0 <= pm ? pm : pm + 360.0
     }
-    
+
+    // Normalize radians to range 0.0 <= radians < 2pi
+    static func normalizedRadians(for r: Double) -> Double {
+        let pm = r.truncatingRemainder(dividingBy: twoPi)
+        return 0.0 <= pm ? pm : pm + twoPi
+    }
+
     // Normalize hours to range 0.0 <= hours < 24.0
     static func normalizedHours(for h: Double) -> Double {
         let ph = h.truncatingRemainder(dividingBy: 24.0)
@@ -35,41 +43,42 @@ struct Arcs {
     // Convert from degrees to radians normalized to range
     // 0.0 <= radians < 2.0 * Pi
     static func radiansGiven(degrees d: Double) -> Double {
-        normalizedDegrees(for: d) * (2 * Double.pi) / 360.0
+        normalizedRadians(for: d * twoPi / 360.0)
     }
     
     // Convert from radians to degrees normalized to range
     // 0.0 <= degrees < 360.0
     static func degreesGiven(radians d: Double) -> Double {
-        let twoPi = (2.0 * Double.pi)
-        return normalizedDegrees(for: d.truncatingRemainder(dividingBy: twoPi) * 360.0 / twoPi)
+        return normalizedDegrees(for: d * 360.0 / twoPi)
     }
     
     /*
      Print an angle expressed in degrees as hours and minutes
      */
-    static func hms(_ label: String, _ degrees: Double) {
-        var hour = degrees * 24.0 / 360.0
+    static func hms(_ label: String, _ degrees: Double) -> String {
+        var hour = degrees / 15.0
         var dir = "West"
         if hour < 0.0 {
             dir = "East"
             hour = -hour
         }
-        print(label, dir, Int(hour), "h",
-              Int(hour.truncatingRemainder(dividingBy: 1.0) * 60.0), "m",
-              Int(hour.truncatingRemainder(dividingBy: 60.0) * 60.0),
-              "s",
-              degrees)
+        let timeInSeconds = Int(hour * 3600.0)
+        let minutes = (timeInSeconds % 3600) / 60
+        let seconds = timeInSeconds % 60
+        return String(format: "%@: %@ %dh %dm %ds (%lf)",
+                      label, dir, Int(hour),
+                      minutes, seconds, degrees)
     }
     
     /*
-     Print an angle expressed in degrees as degrees and minutes
+     Print an angle expressed in degrees as degrees, minutes, seconds
      */
-    static func dms(_ label: String, _ degrees: Double) {
-        print(label, Int(degrees), "º",
-              Int(degrees.truncatingRemainder(dividingBy: 1.0) * 60.0),
-              "'",
-              Int(degrees.truncatingRemainder(dividingBy: 60.0) * 60.0),
-              "\"", degrees)
+    static func dms(_ label: String, _ degrees: Double) -> String {
+        let arcSeconds = Int(degrees * 3600.0)
+        let minutes = (arcSeconds % 3600) / 60
+        let seconds = arcSeconds % 60
+        return String(format: "%@: %dº %d' %d\" (%lf)",
+                      label, Int(degrees), minutes, seconds,
+                      degrees)
     }
 }

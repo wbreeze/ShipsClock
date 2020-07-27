@@ -20,36 +20,54 @@
 import XCTest
 
 class ArcsTest: XCTestCase {
+    let prec = Double.pi / 1_000.0
+    
     func testNormalizedDegrees() throws {
-        XCTAssertEqual(Arcs.normalizedDegrees(for: 0.0), 0.0, accuracy: 1/1_000)
-        XCTAssertEqual(Arcs.normalizedDegrees(for: 90.0), 90.0, accuracy: 1/1_000)
-        XCTAssertEqual(Arcs.normalizedDegrees(for: -90.0), 270.0, accuracy: 1/1_000)
-        XCTAssertEqual(Arcs.normalizedDegrees(for: 180.0), 180.0, accuracy: 1/1_000)
-        XCTAssertEqual(Arcs.normalizedDegrees(for: -180.0), 180.0, accuracy: 1/1_000)
-        XCTAssertEqual(Arcs.normalizedDegrees(for: -270.0), 90.0, accuracy: 1/1_000)
-        XCTAssertEqual(Arcs.normalizedDegrees(for: 360.0), 0.0, accuracy: 1/1_000)
-        XCTAssertEqual(Arcs.normalizedDegrees(for: 720.0), 0.0, accuracy: 1/1_000)
-        XCTAssertEqual(Arcs.normalizedDegrees(for: -360.0), 0.0, accuracy: 1/1_000)
-        XCTAssertEqual(Arcs.normalizedDegrees(for: -720.0), 0.0, accuracy: 1/1_000)
-        XCTAssertEqual(Arcs.normalizedDegrees(for: -900.0), 180.0, accuracy: 1/1_000)
+        XCTAssertEqual(Arcs.normalizedDegrees(for: 0.0), 0.0, accuracy: prec)
+        XCTAssertEqual(Arcs.normalizedDegrees(for: 90.0), 90.0, accuracy: prec)
+        XCTAssertEqual(Arcs.normalizedDegrees(for: -90.0), 270.0, accuracy: prec)
+        XCTAssertEqual(Arcs.normalizedDegrees(for: 180.0), 180.0, accuracy: prec)
+        XCTAssertEqual(Arcs.normalizedDegrees(for: -180.0), 180.0, accuracy: prec)
+        XCTAssertEqual(Arcs.normalizedDegrees(for: -270.0), 90.0, accuracy: prec)
+        XCTAssertEqual(Arcs.normalizedDegrees(for: 360.0), 0.0, accuracy: prec)
+        XCTAssertEqual(Arcs.normalizedDegrees(for: 720.0), 0.0, accuracy: prec)
+        XCTAssertEqual(Arcs.normalizedDegrees(for: -360.0), 0.0, accuracy: prec)
+        XCTAssertEqual(Arcs.normalizedDegrees(for: -720.0), 0.0, accuracy: prec)
+        XCTAssertEqual(Arcs.normalizedDegrees(for: -900.0), 180.0, accuracy: prec)
     }
 
+    func testNormalizedRadians() throws {
+        let halfPi = Double.pi / 2.0
+        let pi = Double.pi // shorthand
+        
+        XCTAssertEqual(Arcs.normalizedRadians(for: 0.0), 0.0, accuracy: prec)
+        XCTAssertEqual(Arcs.normalizedRadians(for: halfPi), halfPi, accuracy: prec)
+        XCTAssertEqual(Arcs.normalizedRadians(for: -halfPi), pi + halfPi, accuracy: prec)
+        XCTAssertEqual(Arcs.normalizedRadians(for: pi), pi, accuracy: prec)
+        XCTAssertEqual(Arcs.normalizedRadians(for: -pi), pi, accuracy: prec)
+        XCTAssertEqual(Arcs.normalizedRadians(for: -pi - halfPi), halfPi, accuracy: prec)
+        XCTAssertEqual(Arcs.normalizedRadians(for: 2.0 * pi), 0.0, accuracy: prec)
+        XCTAssertEqual(Arcs.normalizedRadians(for: 4.0 * pi), 0.0, accuracy: prec)
+        XCTAssertEqual(Arcs.normalizedRadians(for: -2.0 * pi), 0.0, accuracy: prec)
+        XCTAssertEqual(Arcs.normalizedRadians(for: -4.0 * pi), 0.0, accuracy: prec)
+        XCTAssertEqual(Arcs.normalizedRadians(for: -5.0 * pi), pi, accuracy: prec)
+    }
+    
     func testNormalizedHours() throws {
-        XCTAssertEqual(Arcs.normalizedHours(for: 0.0), 0.0, accuracy: 1/1_000)
-        XCTAssertEqual(Arcs.normalizedHours(for: 6.0), 6.0, accuracy: 1/1_000)
-        XCTAssertEqual(Arcs.normalizedHours(for: -6.0), 18.0, accuracy: 1/1_000)
-        XCTAssertEqual(Arcs.normalizedHours(for: 12.0), 12.0, accuracy: 1/1_000)
-        XCTAssertEqual(Arcs.normalizedHours(for: -12.0), 12.0, accuracy: 1/1_000)
-        XCTAssertEqual(Arcs.normalizedHours(for: -18.0), 6.0, accuracy: 1/1_000)
-        XCTAssertEqual(Arcs.normalizedHours(for: 24.0), 0.0, accuracy: 1/1_000)
-        XCTAssertEqual(Arcs.normalizedHours(for: 48.0), 0.0, accuracy: 1/1_000)
-        XCTAssertEqual(Arcs.normalizedHours(for: -24.0), 0.0, accuracy: 1/1_000)
-        XCTAssertEqual(Arcs.normalizedHours(for: -48.0), 0.0, accuracy: 1/1_000)
-        XCTAssertEqual(Arcs.normalizedHours(for: -60.0), 12.0, accuracy: 1/1_000)
+        XCTAssertEqual(Arcs.normalizedHours(for: 0.0), 0.0, accuracy: prec)
+        XCTAssertEqual(Arcs.normalizedHours(for: 6.0), 6.0, accuracy: prec)
+        XCTAssertEqual(Arcs.normalizedHours(for: -6.0), 18.0, accuracy: prec)
+        XCTAssertEqual(Arcs.normalizedHours(for: 12.0), 12.0, accuracy: prec)
+        XCTAssertEqual(Arcs.normalizedHours(for: -12.0), 12.0, accuracy: prec)
+        XCTAssertEqual(Arcs.normalizedHours(for: -18.0), 6.0, accuracy: prec)
+        XCTAssertEqual(Arcs.normalizedHours(for: 24.0), 0.0, accuracy: prec)
+        XCTAssertEqual(Arcs.normalizedHours(for: 48.0), 0.0, accuracy: prec)
+        XCTAssertEqual(Arcs.normalizedHours(for: -24.0), 0.0, accuracy: prec)
+        XCTAssertEqual(Arcs.normalizedHours(for: -48.0), 0.0, accuracy: prec)
+        XCTAssertEqual(Arcs.normalizedHours(for: -60.0), 12.0, accuracy: prec)
     }
     
     func testRadiansGiven() throws {
-        let prec = Double.pi / 1_000.0
         XCTAssertEqual(Arcs.radiansGiven(degrees: 0.0), 0.0, accuracy: prec)
         XCTAssertEqual(Arcs.radiansGiven(degrees: 360.0), 0.0, accuracy: prec)
         XCTAssertEqual(Arcs.radiansGiven(degrees: -360.0), 0.0, accuracy: prec)
@@ -64,7 +82,6 @@ class ArcsTest: XCTestCase {
     }
     
     func testDegreesGiven() throws {
-        let prec = 1.0 / 1_000.0
         XCTAssertEqual(Arcs.degreesGiven(radians: 0.0), 0.0, accuracy: prec)
         XCTAssertEqual(Arcs.degreesGiven(radians: 2.0 * Double.pi), 0.0, accuracy: prec)
         XCTAssertEqual(Arcs.degreesGiven(radians: -2.0 * Double.pi), 0.0, accuracy: prec)
