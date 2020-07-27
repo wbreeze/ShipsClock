@@ -14,7 +14,7 @@ Please:
 - Check the [issue list](https://github.com/wbreeze/ShipsClock/issues)
   to see if any of those match the issue you are experiencing
 - If there's something not covered by those,
-  write to me using the email link below.
+  write to me using the email link on the [home page](/ShipsClock/).
 
 In your email,
 - describe the behavior you are seeing and the behavior you are
