@@ -17,106 +17,87 @@
 
 import XCTest
 
+/*
+ hour angle tests verified by comparison with angles reported by
+ the app Sky Safari 6 Pro, version 6.7.2.4
+ */
 class SunCalcTest: XCTestCase {
     let calculator = SunCalculator()
+    let jules = Julian()
+    let prec = 0.125  // +- an eighth of a degree, half a minute
     
-    func testIsJulianDate() throws {
-        XCTAssertTrue(calculator.isJulianDate(1582, 10, 14))
-        XCTAssertFalse(calculator.isJulianDate(1582, 10, 15))
-        XCTAssertTrue(calculator.isJulianDate(1582, 9, 15))
-        XCTAssertFalse(calculator.isJulianDate(1582, 11, 15))
-        XCTAssertTrue(calculator.isJulianDate(1581, 11, 15))
-        XCTAssertFalse(calculator.isJulianDate(1583, 9, 15))
+    struct TestCase {
+        static let westLon = -74.25
+        static let eastLon = 37.66
+        let description : String
+        let julianDay, longitude : Double
+        let expectedRa, expectedHa : Double
     }
     
-    struct JulianTestDay {
-        var month, day, year, hour, minute: Int
-        var julian: Double
+    func angle(_ h: Int, _ m: Int, _ s: Int) -> Double {
+        return Double(h) * 15.0 + Double(m) * 15.0 / 60.0 + Double(s) * 15.0 / 3600.0
     }
     
-    /*
-     These tests are from Reda & Andreas, "Solar Position Algorithm for Solar Radiation Applications", NREL/TP-560-34302 retrieved as https://www.nrel.gov/docs/fy08osti/34302.pdf
-     */
-    let tests = [
-        JulianTestDay(month:  1, day:  1, year:  2000, hour: 12, minute:  0, julian: 2451545.0),
-        JulianTestDay(month:  1, day:  1, year:  1999, hour:  0, minute:  0, julian: 2451179.5),
-        JulianTestDay(month:  1, day: 27, year:  1987, hour:  0, minute:  0, julian: 2446822.5),
-        JulianTestDay(month:  6, day: 19, year:  1987, hour: 12, minute:  0, julian: 2446966.0),
-        JulianTestDay(month:  1, day: 27, year:  1988, hour:  0, minute:  0, julian: 2447187.5),
-        JulianTestDay(month:  6, day: 19, year:  1988, hour: 12, minute:  0, julian: 2447332.0),
-        JulianTestDay(month:  1, day:  1, year:  1900, hour:  0, minute:  0, julian: 2415020.5),
-        JulianTestDay(month:  1, day:  1, year:  1600, hour:  0, minute:  0, julian: 2305447.5),
-        JulianTestDay(month: 12, day: 31, year:  1600, hour:  0, minute:  0, julian: 2305812.5),
-        JulianTestDay(month:  4, day: 10, year:   837, hour:  7, minute: 12, julian: 2026871.8),
-        // TODO this test fails
-//        JulianTestDay(month: 12, day: 31, year:  -123, hour:  0, minute:  0, julian: 1676494.5),
-        // TODO this test fails
-//        JulianTestDay(month:  1, day:  1, year:  -122, hour:  0, minute:  0, julian: 2676497.5),
-        JulianTestDay(month:  7, day: 12, year: -1000, hour: 12, minute:  0, julian: 1356001.0),
-        JulianTestDay(month:  2, day: 29, year: -1000, hour:  0, minute:  0, julian: 1355866.5),
-        JulianTestDay(month:  8, day: 17, year: -1001, hour: 21, minute: 36, julian: 1355671.4),
-        JulianTestDay(month:  1, day:  1, year: -4712, hour: 12, minute:  0, julian:       0.0)
-    ]
+    func hour(_ h: Int, _ m: Int, _ s: Int) -> Double {
+        return Double(h) + Double(m) / 60.0 + Double(s) / 3600.0
+    }
     
-    func testJulianDay() throws {
-        tests.forEach { testDate in
-            let jd = calculator.julianDay(testDate.year, testDate.month, testDate.day, testDate.hour, testDate.minute, 0)
-            XCTAssertEqual(jd, testDate.julian, "JDN incorrect for \(testDate)")
+    func testCases() -> [TestCase] {
+        [
+            TestCase(
+                description: "WestPM",
+                julianDay: jules.julianDay(2020, 6, 14, 18, 35, 0),
+                longitude: TestCase.westLon,
+                expectedRa: angle(5, 34, 31),
+                expectedHa: angle(1, 37, 32)),
+            TestCase(
+                description: "EastPM",
+                julianDay: jules.julianDay(2020, 6, 14, 19, 25, 0),
+                longitude: TestCase.eastLon,
+                expectedRa: angle(5, 36, 3),
+                expectedHa: angle(9, 55, 39)),
+            TestCase(
+                description: "WestAM",
+                julianDay: jules.julianDay(2020, 6, 14, 11, 44, 0),
+                longitude: TestCase.westLon,
+                expectedRa: angle(5, 33, 20),
+                expectedHa: -angle(5, 13, 24)),
+            TestCase(
+                description: "EastAM",
+                julianDay: jules.julianDay(2020, 6, 14, 8, 4, 0),
+                longitude: TestCase.eastLon,
+                expectedRa: angle(5, 34, 4),
+                expectedHa: -angle(1, 25, 43)),
+            TestCase(
+                description: "20 June West PM",
+                julianDay: jules.julianDay(2020, 6, 21, 2, 42, 0),
+                longitude: TestCase.westLon,
+                expectedRa: angle(6, 0, 53),
+                expectedHa: angle(9, 43, 10)),
+            TestCase(
+                description: "21 June West PM",
+                julianDay: jules.julianDay(2020, 6, 22, 2, 42, 0),
+                longitude: TestCase.westLon,
+                expectedRa: angle(6, 5, 3),
+                expectedHa: angle(9, 42, 57)),
+        ]
+    }
+    
+    func testRightAscension() throws {
+        let d2r = Double.pi / 180.0
+        testCases().forEach { t in
+            let ra = calculator.rightAscension(julianDay: t.julianDay)
+            XCTAssertEqual(ra, t.expectedRa * d2r, accuracy: prec,
+                           t.description)
         }
     }
     
-    func testJulianDayForDate() throws {
-        let cal = Calendar(identifier: .gregorian)
-        tests.filter { testDate in
-            // TODO the negative years don't pass this test
-            0 < testDate.year
-        }.forEach { testDate in
-            let dc = DateComponents(
-                calendar: cal,
-                timeZone: TimeZone(secondsFromGMT: 0),
-                era: nil,
-                year: testDate.year,
-                month: testDate.month,
-                day: testDate.day,
-                hour: testDate.hour,
-                minute: testDate.minute
-            )
-            let date = cal.date(from: dc)!
-            let jd = calculator.julianDay(for: date)
-            XCTAssertEqual(jd, testDate.julian, "JDN incorrect for \(date)")
+    func testHourAngle() throws {
+        testCases().forEach { t in
+            let ha = calculator.hourAngle(
+                julianDay: t.julianDay, longitude: t.longitude)
+            XCTAssertEqual(ha, t.expectedHa, accuracy: prec,
+                           t.description)
         }
-    }
-    
-    /*
-     hour angle tests verified by comparison with angles reported by
-     the app Sky Safari 6 Pro, version 6.7.2.4
-     */
-    
-    func testHourAngleWestPM() throws {
-        let jd = calculator.julianDay(2020, 6, 14, 18, 35, 0)
-        let lon = -74.25
-        let ha = calculator.hourAngle(julianDay: jd, longitude: lon)
-        XCTAssertEqual(ha, 24.387, accuracy: 1.0/60.0)
-    }
-    
-    func testHourAngleEastPM() throws {
-        let jd = calculator.julianDay(2020, 6, 14, 19, 25, 0)
-        let lon = 37.66
-        let ha = calculator.hourAngle(julianDay: jd, longitude: lon)
-        XCTAssertEqual(ha, 148.795, accuracy: 1.0/60.0)
-    }
-    
-    func testHourAngleWestAM() throws {
-        let jd = calculator.julianDay(2020, 6, 14, 11, 44, 0)
-        let lon = -73.5
-        let ha = calculator.hourAngle(julianDay: jd, longitude: lon)
-        XCTAssertEqual(ha, -77.598, accuracy: 1.0/60.0)
-    }
-    
-    func testHourAngleEastAM() throws {
-        let jd = calculator.julianDay(2020, 6, 14, 8, 4, 0)
-        let lon = 37.66
-        let ha = calculator.hourAngle(julianDay: jd, longitude: lon)
-        XCTAssertEqual(ha, -21.43, accuracy: 1.0/60.0)
     }
 }

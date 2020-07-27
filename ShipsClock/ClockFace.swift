@@ -40,7 +40,7 @@ struct ClockFace: View {
         GeometryReader { geometry in
             ZStack {
                 ClockBackground(radius: self.radius(geometry))
-                // ClockSun(radius: self.radius(geometry)).environmentObject(self.shipsClock.celestialComputer)
+                ClockSun(radius: self.radius(geometry)).environmentObject(self.shipsClock.celestialComputer)
                 ClockHands(radius: self.radius(geometry)).environmentObject(self.shipsClock)
             }.frame(width: self.diameter(geometry), height: self.diameter(geometry), alignment: .top)
         }
