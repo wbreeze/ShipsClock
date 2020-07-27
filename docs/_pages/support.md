@@ -10,7 +10,7 @@ If you think ShipsClock is not working as it should, I'd like to know about it.
 Please:
 
 - Be nice. This app is freely given.
-- Read the [FAQ](./faq.md) to see if that explains anything for you
+- Read the [FAQ](../faq.md) to see if that explains anything for you
 - Check the [issue list](https://github.com/wbreeze/ShipsClock/issues)
   to see if any of those match the issue you are experiencing
 - If there's something not covered by those,
