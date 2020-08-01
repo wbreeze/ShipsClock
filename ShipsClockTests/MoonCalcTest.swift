@@ -16,29 +16,29 @@
    limitations under the License.
   */
   
-
 import XCTest
 
 class MoonCalcTest: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    let jules = Julian()
+    let prec = 1.0
+    
+    struct LongitudeTestCase {
+        let julianDay, expectedLongitude: Double
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func lonTests() -> [LongitudeTestCase] {
+        [
+            LongitudeTestCase(
+            julianDay: jules.julianDay(2020, 7, 31, 16, 0, 0),
+            expectedLongitude: Arcs.angle(0, 26, 15))
+        ]
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func testLongitude() throws {
+        lonTests().forEach { t in
+            let calculator = MoonCalculator(julianDay: t.julianDay)
+            let lon = calculator.longitude()
+            XCTAssertEqual(lon, t.expectedLongitude, accuracy: prec)
         }
     }
-
 }

@@ -26,7 +26,7 @@ import Foundation
  A&A 404 (2) 735-742 (2003)
  DOI: 10.1051/0004-6361:20030529
  */
-struct MoonCalc {
+struct MoonCalculator {
     let epoch = 2451545.0 // calcs use base 2000-01-01 00:00 UT
 
     struct Delaunay {
