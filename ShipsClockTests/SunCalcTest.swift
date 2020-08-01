@@ -34,10 +34,6 @@ class SunCalcTest: XCTestCase {
         let expectedRa, expectedHa : Double
     }
     
-    func angle(_ h: Int, _ m: Int, _ s: Int) -> Double {
-        return Double(h) * 15.0 + Double(m) * 15.0 / 60.0 + Double(s) * 15.0 / 3600.0
-    }
-    
     func hour(_ h: Int, _ m: Int, _ s: Int) -> Double {
         return Double(h) + Double(m) / 60.0 + Double(s) / 3600.0
     }
@@ -48,38 +44,38 @@ class SunCalcTest: XCTestCase {
                 description: "WestPM",
                 julianDay: jules.julianDay(2020, 6, 14, 18, 35, 0),
                 longitude: TestCase.westLon,
-                expectedRa: angle(5, 34, 31),
-                expectedHa: angle(1, 37, 32)),
+                expectedRa: Arcs.angle(5, 34, 31),
+                expectedHa: Arcs.angle(1, 37, 32)),
             TestCase(
                 description: "EastPM",
                 julianDay: jules.julianDay(2020, 6, 14, 19, 25, 0),
                 longitude: TestCase.eastLon,
-                expectedRa: angle(5, 36, 3),
-                expectedHa: angle(9, 55, 39)),
+                expectedRa: Arcs.angle(5, 36, 3),
+                expectedHa: Arcs.angle(9, 55, 39)),
             TestCase(
                 description: "WestAM",
                 julianDay: jules.julianDay(2020, 6, 14, 11, 44, 0),
                 longitude: TestCase.westLon,
-                expectedRa: angle(5, 33, 20),
-                expectedHa: -angle(5, 13, 24)),
+                expectedRa: Arcs.angle(5, 33, 20),
+                expectedHa: -Arcs.angle(5, 13, 24)),
             TestCase(
                 description: "EastAM",
                 julianDay: jules.julianDay(2020, 6, 14, 8, 4, 0),
                 longitude: TestCase.eastLon,
-                expectedRa: angle(5, 34, 4),
-                expectedHa: -angle(1, 25, 43)),
+                expectedRa: Arcs.angle(5, 34, 4),
+                expectedHa: -Arcs.angle(1, 25, 43)),
             TestCase(
                 description: "20 June West PM",
                 julianDay: jules.julianDay(2020, 6, 21, 2, 42, 0),
                 longitude: TestCase.westLon,
-                expectedRa: angle(6, 0, 53),
-                expectedHa: angle(9, 43, 10)),
+                expectedRa: Arcs.angle(6, 0, 53),
+                expectedHa: Arcs.angle(9, 43, 10)),
             TestCase(
                 description: "21 June West PM",
                 julianDay: jules.julianDay(2020, 6, 22, 2, 42, 0),
                 longitude: TestCase.westLon,
-                expectedRa: angle(6, 5, 3),
-                expectedHa: angle(9, 42, 57)),
+                expectedRa: Arcs.angle(6, 5, 3),
+                expectedHa: Arcs.angle(9, 42, 57)),
         ]
     }
     

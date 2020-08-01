@@ -52,6 +52,10 @@ struct Arcs {
         return normalizedDegrees(for: d * 360.0 / twoPi)
     }
     
+    static func hmsToAngle(_ h: Int, _ m: Int, _ s: Int) -> Double {
+        return Double(h) * 15.0 + Double(m) * 15.0 / 60.0 + Double(s) * 15.0 / 3600.0
+    }
+    
     /*
      Print an angle expressed in degrees as hours and minutes
      */
