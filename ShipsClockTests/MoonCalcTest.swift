@@ -24,13 +24,15 @@ class MoonCalcTest: XCTestCase {
     
     struct LongitudeTestCase {
         let julianDay, expectedLongitude: Double
+        let description: String
     }
     
     func lonTests() -> [LongitudeTestCase] {
         [
             LongitudeTestCase(
             julianDay: jules.julianDay(2020, 7, 31, 16, 0, 0),
-            expectedLongitude: Arcs.angle(0, 26, 15))
+            expectedLongitude: Arcs.hmsToAngle(0, 26, 15),
+            description: "July 31, 2020")
         ]
     }
     
@@ -38,7 +40,7 @@ class MoonCalcTest: XCTestCase {
         lonTests().forEach { t in
             let calculator = MoonCalculator(julianDay: t.julianDay)
             let lon = calculator.longitude()
-            XCTAssertEqual(lon, t.expectedLongitude, accuracy: prec)
+            XCTAssertEqual(lon, t.expectedLongitude, accuracy: prec, t.description)
         }
     }
 }
