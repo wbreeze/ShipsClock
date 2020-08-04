@@ -56,6 +56,10 @@ struct Arcs {
         return Double(h) * 15.0 + Double(m) * 15.0 / 60.0 + Double(s) * 15.0 / 3600.0
     }
     
+    static func dmsToAngle(_ d: Int, _ m: Int, _ s: Double) -> Double {
+        return Double(d) + Double(m) / 60.0 + s / 3600.0
+    }
+    
     /*
      Print an angle expressed in degrees as hours and minutes
      */
