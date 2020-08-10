@@ -26,19 +26,30 @@
 struct MoonCalculator {
     let epoch = 2451545.0 // calcs use base 2000-01-01 00:00 UT
     
-    var delaunay: Delaunay
+    let delaunay: Delaunay
+    let time: Double
     
     init(julianDay jd: Double) {
-        let time = jd - epoch
+        time = jd - epoch
         delaunay = Delaunay(julianDay2000: time)
     }
     
     func longitude() -> Double {
         return Arcs.normalizedDegrees(
-            for: MainTerms.mainLon.reduce(
-                0.0, { lon, term in
-                    return lon + term.value(delaunay)
-            }) * 3600.0 + delaunay.w1
+            for: (
+                MainTerms.mainLon.reduce(
+                    0.0,
+                    { lon, term in
+                        return lon + term.value(delaunay)
+                    }
+                ) +
+                PertTerms.pertLon.reduce(
+                    0.0,
+                    { lon, term in
+                        return lon + term.value(time, delaunay)
+                    }
+                )
+            ) * 3600.0 + delaunay.w1
         )
     }
 }
