@@ -91,6 +91,20 @@
 		6F5F631E24D99B6D00172BC4 /* MainTerms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTerms.swift; sourceTree = "<group>"; };
 		6F5F632024D99F3500172BC4 /* Delaunay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delaunay.swift; sourceTree = "<group>"; };
 		6F5F632424D9C29A00172BC4 /* PertTerms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PertTerms.swift; sourceTree = "<group>"; };
+		6F725BEC255D796200CC85A3 /* README.TXT */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.TXT; sourceTree = "<group>"; };
+		6F725BED255D796200CC85A3 /* ELP_PERT.S1 */ = {isa = PBXFileReference; lastKnownFileType = text; path = ELP_PERT.S1; sourceTree = "<group>"; };
+		6F725BEE255D796200CC85A3 /* ELP_MAIN.S3 */ = {isa = PBXFileReference; lastKnownFileType = text; path = ELP_MAIN.S3; sourceTree = "<group>"; };
+		6F725BEF255D796200CC85A3 /* ELP_MAIN.S2 */ = {isa = PBXFileReference; lastKnownFileType = text; path = ELP_MAIN.S2; sourceTree = "<group>"; };
+		6F725BF0255D796200CC85A3 /* pert2csv.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = pert2csv.sh; sourceTree = "<group>"; };
+		6F725BF1255D796200CC85A3 /* elpmpp02.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = elpmpp02.pdf; sourceTree = "<group>"; };
+		6F725BF2255D796200CC85A3 /* main2swift.awk */ = {isa = PBXFileReference; lastKnownFileType = text; path = main2swift.awk; sourceTree = "<group>"; };
+		6F725BF3255D796200CC85A3 /* ELP_PERT.S2 */ = {isa = PBXFileReference; lastKnownFileType = text; path = ELP_PERT.S2; sourceTree = "<group>"; };
+		6F725BF4255D796200CC85A3 /* ELP_MAIN.S1 */ = {isa = PBXFileReference; lastKnownFileType = text; path = ELP_MAIN.S1; sourceTree = "<group>"; };
+		6F725BF5255D796200CC85A3 /* ELP_PERT.S3 */ = {isa = PBXFileReference; lastKnownFileType = text; path = ELP_PERT.S3; sourceTree = "<group>"; };
+		6F725BF6255D796200CC85A3 /* pert2csv.awk */ = {isa = PBXFileReference; lastKnownFileType = text; path = pert2csv.awk; sourceTree = "<group>"; };
+		6F725BF7255D796200CC85A3 /* aa3101.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = aa3101.pdf; sourceTree = "<group>"; };
+		6F725BF8255D796200CC85A3 /* ELPMPP02.for */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.fortran; path = ELPMPP02.for; sourceTree = "<group>"; };
+		6F725C03255D8A8900CC85A3 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		6F77AF03244FDD4E0070DB57 /* ShipsClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipsClock.swift; sourceTree = "<group>"; };
 		6F8FEC8E2469B3D300A1FAE7 /* TimerRinger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerRinger.swift; sourceTree = "<group>"; };
 		6F8FEC96246C1F9F00A1FAE7 /* LocationTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTracker.swift; sourceTree = "<group>"; };
@@ -135,9 +149,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F725BEB255D796200CC85A3 /* ELPmpp02 */ = {
+			isa = PBXGroup;
+			children = (
+				6F725C03255D8A8900CC85A3 /* Makefile */,
+				6F725BEC255D796200CC85A3 /* README.TXT */,
+				6F725BED255D796200CC85A3 /* ELP_PERT.S1 */,
+				6F725BEE255D796200CC85A3 /* ELP_MAIN.S3 */,
+				6F725BEF255D796200CC85A3 /* ELP_MAIN.S2 */,
+				6F725BF0255D796200CC85A3 /* pert2csv.sh */,
+				6F725BF1255D796200CC85A3 /* elpmpp02.pdf */,
+				6F725BF2255D796200CC85A3 /* main2swift.awk */,
+				6F725BF3255D796200CC85A3 /* ELP_PERT.S2 */,
+				6F725BF4255D796200CC85A3 /* ELP_MAIN.S1 */,
+				6F725BF5255D796200CC85A3 /* ELP_PERT.S3 */,
+				6F725BF6255D796200CC85A3 /* pert2csv.awk */,
+				6F725BF7255D796200CC85A3 /* aa3101.pdf */,
+				6F725BF8255D796200CC85A3 /* ELPMPP02.for */,
+			);
+			path = ELPmpp02;
+			sourceTree = "<group>";
+		};
 		6FE9AFA0243F9CA8002B45BA = {
 			isa = PBXGroup;
 			children = (
+				6F725BEB255D796200CC85A3 /* ELPmpp02 */,
 				6FE9AFAB243F9CA8002B45BA /* ShipsClock */,
 				6FE9AFC2243F9CAA002B45BA /* ShipsClockTests */,
 				6FE9AFCD243F9CAA002B45BA /* ShipsClockUITests */,
