@@ -22,6 +22,11 @@
  J.  Chapront, G.  Francou
  A&A 404 (2) 735-742 (2003)
  DOI: 10.1051/0004-6361:20030529
+ 
+ and
+ 
+ LUNAR SOLUTION ELP version ELP/MPP02
+ Jean CHAPRONT and G ́erard FRANCOU Observatoire de Paris -SYRTE department - UMR 8630/CNRS October 2002
  */
 struct MoonCalculator {
     let epoch = 2451545.0 // calcs use base 2000-01-01 00:00 UT
@@ -36,20 +41,13 @@ struct MoonCalculator {
     
     func longitude() -> Double {
         return Arcs.normalizedDegrees(
-            for: (
-                MainTerms.mainLon.reduce(
-                    0.0,
-                    { lon, term in
-                        return lon + term.value(delaunay)
-                    }
-                ) +
-                PertTerms.pertLon.reduce(
-                    0.0,
-                    { lon, term in
-                        return lon + term.value(time, delaunay)
-                    }
-                )
-            ) * 3600.0 + delaunay.w1
+            for: MainTerms.mainLon.reduce(
+                0.0,
+                { lon, term in
+                    return lon + term.value(delaunay)
+                }
+            )
+            + delaunay.w1
         )
     }
 }
