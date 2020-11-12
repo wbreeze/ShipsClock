@@ -6,6 +6,7 @@
       implicit        double precision (a-h,o-z)
       character*5     aa(0:1)
       dimension       r(6)
+      dimension       dp(4)
       parameter       (dj2000=2451545.0d0)
       data            aa/'LLR','DE405'/
 !
@@ -67,6 +68,9 @@
          write (*,1002)  tdj,r
          write (10,1002) tdj,r
 !
+         call DELAUNY (t,dp)
+         write (*,1003) dp
+!
       enddo
 !
       stop
@@ -82,6 +86,10 @@
      &        2x,'X''= ',f17.7,
      &        2x,'Y''= ',f17.7,
      &        2x,'Z''= ',f17.7,2x,'km/day')
+1003  format (2x,' D:',f25.3/
+     &        2x,' F:',f25.3/
+     &        2x,' l:',f25.3/
+     &        2x,'lp:',f25.3/)
       end
 !
 !
@@ -187,6 +195,29 @@
       return
       end
 !
+!
+      subroutine DELAUNY (tj,dp)
+!
+      implicit double precision (a-h,o-z),integer(i-n)
+!
+      common/elpcst/  w(3,0:4),eart(0:4),peri(0:4),zeta(0:4),del(4,0:4),
+     &                p(8,0:4),delnu,dele,delg,delnp,delep,dtasm,am,
+     &                p1,p2,p3,p4,p5,q1,q2,q3,q4,q5
+      dimension       dp(4)
+!
+      tp = 1.d0
+      do i=1,4
+        dp(i) = 0.d0
+      enddo
+      do k=0,4
+        do i=1,4
+          dp(i)=dp(i) + del(i,k) * tp
+        enddo
+        tp = tp * tj
+      enddo
+!
+      return
+      end
 !
 !
       subroutine INITIAL (icor)
