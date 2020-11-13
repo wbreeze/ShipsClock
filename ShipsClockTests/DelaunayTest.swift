@@ -28,33 +28,37 @@ class DelaunayTest: XCTestCase {
         let expectedD, expectedF, expectedL, expectedLP : Double
     }
     
+    /*
+     These test values came from the ELPMPP02.for program extended to
+     output Delaunay applied to julian day epoch 2000.
+     */
     func testCases() -> [TestCase] {
         [
             TestCase(description: "17", julianDay: 1700000.5,
-                     expectedD: -65102318729347.000,
-                     expectedF: -9392305918095.756,
-                     expectedL: -394417025999805.688,
-                     expectedLP: -17368133160466.908),
+                     expectedD: -159899.97,
+                     expectedF: -173526.807,
+                     expectedL: -171370.128,
+                     expectedLP: -12928.09),
             TestCase(description: "19", julianDay: 1900000.5,
-                     expectedD:      -18888239804537.637,
-                     expectedF:       -2727013282919.186,
-                     expectedL:     -114422659629843.391,
-                     expectedLP:       -5038218972841.402),
+                     expectedD: -117346.221,
+                     expectedF: -127347.651,
+                     expectedL: -125764.728,
+                     expectedLP: -9487.696),
             TestCase(description: "21", julianDay: 2100000.5,
-                     expectedD:       -3119901613595.727,
-                     expectedF:        -452193947885.301,
-                     expectedL:      -18890849545993.520,
-                     expectedLP:        -831699978916.090),
+                     expectedD: -74792.475,
+                     expectedF: -81168.498,
+                     expectedL: -80159.319,
+                     expectedLP: -6047.301),
             TestCase(description: "23", julianDay: 2300000.5,
-                     expectedD:        -108886327503.672,
-                     expectedF:         -16782075763.288,
-                     expectedL:        -654020122585.479,
-                     expectedLP:         -28810296140.154),
+                     expectedD: -32238.73,
+                     expectedF: -34989.35,
+                     expectedL: -34553.901,
+                     expectedLP: -2606.907),
             TestCase(description: "25", julianDay: 2500000.5,
-                     expectedD:           -744642462.153,
-                     expectedF:            245657653.072,
-                     expectedL:          -6381280981.643,
-                     expectedLP:           -269606831.508)
+                     expectedD: 10315.013,
+                     expectedF: 11189.795,
+                     expectedL: 11051.525,
+                     expectedLP: 833.487)
         ]
     }
     
@@ -76,3 +80,4 @@ class DelaunayTest: XCTestCase {
     }
 
 }
+
