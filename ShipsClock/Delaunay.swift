@@ -67,7 +67,7 @@ struct Delaunay {
             - 0.11814e-03 / rad * t3s
             + 0.11379e-04 / rad * t4s
         
-        d = w1 - eart + 180.0
+        d = w1 - eart + Double.pi
         f = w1 - w3
         l = w1 - w2
         lp = eart - peri
