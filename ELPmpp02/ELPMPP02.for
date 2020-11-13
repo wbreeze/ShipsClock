@@ -205,6 +205,7 @@
      &                p1,p2,p3,p4,p5,q1,q2,q3,q4,q5
       dimension       dp(4)
 !
+      tc = tj / 36525.0
       tp = 1.d0
       do i=1,4
         dp(i) = 0.d0
@@ -213,7 +214,7 @@
         do i=1,4
           dp(i)=dp(i) + del(i,k) * tp
         enddo
-        tp = tp * tj
+        tp = tp * tc
       enddo
 !
       return
