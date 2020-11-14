@@ -26,13 +26,6 @@
 		6F5F631A24D1E4B900172BC4 /* MoonCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F631924D1E4B900172BC4 /* MoonCalculator.swift */; };
 		6F5F631C24D47E3A00172BC4 /* MoonCalcTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F631B24D47E3A00172BC4 /* MoonCalcTest.swift */; };
 		6F5F631D24D481B100172BC4 /* MoonCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F631924D1E4B900172BC4 /* MoonCalculator.swift */; };
-		6F5F631F24D99B6D00172BC4 /* MainTerms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F631E24D99B6D00172BC4 /* MainTerms.swift */; };
-		6F5F632124D99F3500172BC4 /* Delaunay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F632024D99F3500172BC4 /* Delaunay.swift */; };
-		6F5F632224D99F3500172BC4 /* Delaunay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F632024D99F3500172BC4 /* Delaunay.swift */; };
-		6F5F632324D9A11800172BC4 /* MainTerms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F631E24D99B6D00172BC4 /* MainTerms.swift */; };
-		6F5F632524D9C29A00172BC4 /* PertTerms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F632424D9C29A00172BC4 /* PertTerms.swift */; };
-		6F5F632624D9C29A00172BC4 /* PertTerms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F632424D9C29A00172BC4 /* PertTerms.swift */; };
-		6F725C0B255DD39E00CC85A3 /* DelaunayTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F725C0A255DD39E00CC85A3 /* DelaunayTest.swift */; };
 		6F77AF04244FDD4E0070DB57 /* ShipsClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F77AF03244FDD4E0070DB57 /* ShipsClock.swift */; };
 		6F8FEC8F2469B3D300A1FAE7 /* TimerRinger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8FEC8E2469B3D300A1FAE7 /* TimerRinger.swift */; };
 		6F8FEC97246C1F9F00A1FAE7 /* LocationTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8FEC96246C1F9F00A1FAE7 /* LocationTracker.swift */; };
@@ -89,9 +82,6 @@
 		6F404122248BD0D600B1BF5D /* SunCalcTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunCalcTest.swift; sourceTree = "<group>"; };
 		6F5F631924D1E4B900172BC4 /* MoonCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonCalculator.swift; sourceTree = "<group>"; };
 		6F5F631B24D47E3A00172BC4 /* MoonCalcTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonCalcTest.swift; sourceTree = "<group>"; };
-		6F5F631E24D99B6D00172BC4 /* MainTerms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTerms.swift; sourceTree = "<group>"; };
-		6F5F632024D99F3500172BC4 /* Delaunay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delaunay.swift; sourceTree = "<group>"; };
-		6F5F632424D9C29A00172BC4 /* PertTerms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PertTerms.swift; sourceTree = "<group>"; };
 		6F725BEC255D796200CC85A3 /* README.TXT */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.TXT; sourceTree = "<group>"; };
 		6F725BED255D796200CC85A3 /* ELP_PERT.S1 */ = {isa = PBXFileReference; lastKnownFileType = text; path = ELP_PERT.S1; sourceTree = "<group>"; };
 		6F725BEE255D796200CC85A3 /* ELP_MAIN.S3 */ = {isa = PBXFileReference; lastKnownFileType = text; path = ELP_MAIN.S3; sourceTree = "<group>"; };
@@ -106,7 +96,6 @@
 		6F725BF7255D796200CC85A3 /* aa3101.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = aa3101.pdf; sourceTree = "<group>"; };
 		6F725BF8255D796200CC85A3 /* ELPMPP02.for */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.fortran; path = ELPMPP02.for; sourceTree = "<group>"; };
 		6F725C03255D8A8900CC85A3 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
-		6F725C0A255DD39E00CC85A3 /* DelaunayTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelaunayTest.swift; sourceTree = "<group>"; };
 		6F77AF03244FDD4E0070DB57 /* ShipsClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipsClock.swift; sourceTree = "<group>"; };
 		6F8FEC8E2469B3D300A1FAE7 /* TimerRinger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerRinger.swift; sourceTree = "<group>"; };
 		6F8FEC96246C1F9F00A1FAE7 /* LocationTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTracker.swift; sourceTree = "<group>"; };
@@ -201,9 +190,6 @@
 				6FCCEE872497051A00F18212 /* CelestialComputer.swift */,
 				6FCCEE84249652D800F18212 /* SunCalculator.swift */,
 				6F5F631924D1E4B900172BC4 /* MoonCalculator.swift */,
-				6F5F631E24D99B6D00172BC4 /* MainTerms.swift */,
-				6F5F632424D9C29A00172BC4 /* PertTerms.swift */,
-				6F5F632024D99F3500172BC4 /* Delaunay.swift */,
 				6F1BBB4F24B7987B0092A54D /* Arcs.swift */,
 				6F1BBB4A24B779ED0092A54D /* Julian.swift */,
 				6F8FEC96246C1F9F00A1FAE7 /* LocationTracker.swift */,
@@ -238,7 +224,6 @@
 				6F404122248BD0D600B1BF5D /* SunCalcTest.swift */,
 				6F404121248BD0D500B1BF5D /* ShipsClockTests-Bridging-Header.h */,
 				6F1BBB4C24B77AB10092A54D /* JulianDayTest.swift */,
-				6F725C0A255DD39E00CC85A3 /* DelaunayTest.swift */,
 				6F5F631B24D47E3A00172BC4 /* MoonCalcTest.swift */,
 			);
 			path = ShipsClockTests;
@@ -392,12 +377,9 @@
 				6F24FDB0246708860006590A /* NotifierRinger.swift in Sources */,
 				6F40411E247F47DE00B1BF5D /* ClockHands.swift in Sources */,
 				6F77AF04244FDD4E0070DB57 /* ShipsClock.swift in Sources */,
-				6F5F632524D9C29A00172BC4 /* PertTerms.swift in Sources */,
 				6F4041202485DB4700B1BF5D /* ClockSun.swift in Sources */,
-				6F5F632124D99F3500172BC4 /* Delaunay.swift in Sources */,
 				6F8FEC97246C1F9F00A1FAE7 /* LocationTracker.swift in Sources */,
 				6FE9AFAD243F9CA8002B45BA /* AppDelegate.swift in Sources */,
-				6F5F631F24D99B6D00172BC4 /* MainTerms.swift in Sources */,
 				6F24FD9E245D2D6A0006590A /* ShipsBell.swift in Sources */,
 				6F5F631A24D1E4B900172BC4 /* MoonCalculator.swift in Sources */,
 				6F40411C247F47CB00B1BF5D /* ClockBackground.swift in Sources */,
@@ -417,13 +399,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F5F632324D9A11800172BC4 /* MainTerms.swift in Sources */,
 				6FCCEE862496531D00F18212 /* SunCalculator.swift in Sources */,
 				6F404123248BD0D600B1BF5D /* SunCalcTest.swift in Sources */,
-				6F5F632624D9C29A00172BC4 /* PertTerms.swift in Sources */,
-				6F725C0B255DD39E00CC85A3 /* DelaunayTest.swift in Sources */,
 				6F5F631D24D481B100172BC4 /* MoonCalculator.swift in Sources */,
-				6F5F632224D99F3500172BC4 /* Delaunay.swift in Sources */,
 				6F1BBB4E24B77B350092A54D /* Julian.swift in Sources */,
 				6F1BBB5224B79B2A0092A54D /* ArcsTest.swift in Sources */,
 				6F1BBB5324B79C070092A54D /* Arcs.swift in Sources */,
