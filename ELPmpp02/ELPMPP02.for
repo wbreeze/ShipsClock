@@ -39,7 +39,12 @@
          write (*,1002)  tdj,r
          write (10,1002) tdj,r
 !
+         call DELAUNY (t,dp)
+         write (*,1003) dp
+!
       enddo
+!
+      call SHOW_TERMS ()
 !
 !-----------------------------------------------------------------------
 !     COMPUTE LUNAR COORDINATES (POSITIONS ANS VELOCITIES):
@@ -665,6 +670,70 @@
 !
       end
 !
+!
+      subroutine SHOW_TERMS ()
+!-----------------------------------------------------------------------
+!
+! --- OBJECT -----------------------------------------------------------
+!
+!     Show the parameters needed to compute the moon longitude
+!
+! --- Declarations -----------------------------------------------------
+!
+      implicit double precision (a-h,o-z),integer(i-n)
+!
+      parameter       (max1=2645,max2=33256)
+      parameter       (xmin=900.0)
+!
+      common/elpcst/  w(3,0:4),eart(0:4),peri(0:4),zeta(0:4),del(4,0:4),
+     &                p(8,0:4),delnu,dele,delg,delnp,delep,dtasm,am,
+     &                p1,p2,p3,p4,p5,q1,q2,q3,q4,q5
+!
+      common/elpser/  cmpb(max1),fmpb(0:4,max1),nmpb(3,3),
+     &                cper(max2),fper(0:4,max2),nper(3,0:3,3)
+!
+! --- Printing of the series for longitude, with no substitution of time -----
+!
+      lu=12
+      open (lu, file='LONPARMS.TXT')
+!
+!     Variable iv=1 : Longitude
+      iv=1
+!
+! ------ Main Problem series -------------------------------------------
+!
+         do n=nmpb(iv,2),nmpb(iv,3)
+            if (xmin.le.cmpb(n)) then
+              write (lu,1001) n, cmpb(n), fmpb(0,n),
+     &          fmpb(1,n), fmpb(2,n), fmpb(3,n), fmpb(4,n)
+            endif
+         enddo
+!
+! ------ Perturbations series  -----------------------------------------
+!
+         do it=0,3
+            do n=nper(iv,it,2),nper(iv,it,3)
+               if (xmin.le.cper(n)) then
+                 write (lu,1002) it, n, cper(n), fper(0,n),
+     &             fper(1,n), fper(2,n), fper(3,n), fper(4,n)
+               endif
+            enddo
+         enddo
+!
+! ------ Base Longitude  -----------------------------------------
+!
+         write(lu,1003) w(1,0), w(1,1), w(1,2), w(1,3), w(1,4)
+         close(lu)
+!
+      return
+!
+! --- Formats ----------------------------------------------------------
+!
+1001  format ('M',     i5, f17.5, f17.5, f17.5, f17.5, f17.5, f17.5)
+1002  format ('P', i2, i7, f17.5, f17.5, f17.5, f17.5, f17.5, f17.5)
+1003  format ('W',         f17.5, f17.5, f17.5, f17.5, f17.5       )
+!
+      end
 !
 !
       subroutine EVALUATE (tj,xyz)
