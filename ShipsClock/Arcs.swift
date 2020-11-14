@@ -16,7 +16,6 @@
    limitations under the License.
   */
   
-
 import Foundation
 
 struct Arcs {
@@ -88,5 +87,13 @@ struct Arcs {
         return String(format: "%@: %dº %d' %d\" (%lf)",
                       label, Int(degrees), minutes, seconds,
                       degrees)
+    }
+    
+    static func spherical(x:Double, y:Double, z:Double) ->
+            (radius:Double, azimuth:Double, inclination:Double) {
+        let r = sqrt(x * x + y * y + z * z)
+        let a = degreesGiven(radians: atan2(y,x))
+        let l = acos(z/r) * 180.0 / Double.pi
+        return(radius: r, azimuth: a, inclination: l)
     }
 }
