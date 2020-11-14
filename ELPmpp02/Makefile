@@ -15,6 +15,7 @@ clean:
 	rm -rf $(BUILD_DIR)
 	rm -f $(PROGRAM)
 	rm -f ELPMPP02.TXT
+	rm -f PARAMS.TXT
 
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)

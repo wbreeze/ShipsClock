@@ -695,16 +695,19 @@
 ! --- Printing of the series for longitude, with no substitution of time -----
 !
       lu=12
-      open (lu, file='LONPARMS.TXT')
+      open (lu, file='PARAMS.TXT')
 !
 !     Variable iv=1 : Longitude
-      iv=1
+!     Variable iv=2 : Latitude
+!     Variable iv=3 : Distance
+!
+      do iv=1,3
 !
 ! ------ Main Problem series -------------------------------------------
 !
          do n=nmpb(iv,2),nmpb(iv,3)
-            if (xmin.le.cmpb(n)) then
-              write (lu,1001) n, cmpb(n), fmpb(0,n),
+            if (xmin.le.abs(cmpb(n))) then
+              write (lu,1001) iv, n, cmpb(n), fmpb(0,n),
      &          fmpb(1,n), fmpb(2,n), fmpb(3,n), fmpb(4,n)
             endif
          enddo
@@ -713,25 +716,29 @@
 !
          do it=0,3
             do n=nper(iv,it,2),nper(iv,it,3)
-               if (xmin.le.cper(n)) then
-                 write (lu,1002) it, n, cper(n), fper(0,n),
+               if (xmin.le.abs(cper(n))) then
+                 write (lu,1002) iv, it, n, cper(n), fper(0,n),
      &             fper(1,n), fper(2,n), fper(3,n), fper(4,n)
                endif
             enddo
          enddo
+      enddo
 !
-! ------ Base Longitude  -----------------------------------------
+! ------ Base Longitude and adjustments --------------------------
 !
-         write(lu,1003) w(1,0), w(1,1), w(1,2), w(1,3), w(1,4)
-         close(lu)
+      write(lu,1003) 'W', w(1,0), w(1,1), w(1,2), w(1,3), w(1,4)
+      write(lu,1003) 'P', p1, p2, p3, p4, p5
+      write(lu,1003) 'Q', q1, q2, q3, q4, q5
+!
+      close(lu)
 !
       return
 !
 ! --- Formats ----------------------------------------------------------
 !
-1001  format ('M',     i5, f17.5, f17.5, f17.5, f17.5, f17.5, f17.5)
-1002  format ('P', i2, i7, f17.5, f17.5, f17.5, f17.5, f17.5, f17.5)
-1003  format ('W',         f17.5, f17.5, f17.5, f17.5, f17.5       )
+1001  format ('M', i2,     i5, f17.5, f17.5, f17.5, f17.5, f17.5, f17.5)
+1002  format ('P', i2, i2, i7, f17.5, f17.5, f17.5, f17.5, f17.5, f17.5)
+1003  format (1a,          f17.5, f17.5, f17.5, f17.5, f17.5       )
 !
       end
 !
@@ -769,6 +776,7 @@
 !
       dimension       t(0:4),xyz(6),v(6)
 !
+      parameter       (dj2000=2451545.0d0)
       parameter       (max1=2645,max2=33256)
       parameter       (cpi=3.141592653589793d0)
       parameter       (a405=384747.9613701725d0)
