@@ -23,8 +23,10 @@ class CelestialComputer : ObservableObject {
     var locationTracker: LocationTracker
     var lastCelestialCalc = 0
     var sunCalculator = SunCalculator()
+    var moonCalculator = MoonCalculator()
     let jules = Julian()
     @Published var sunHourAngle: Double?
+    @Published var moonHourAngle: Double?
     
     init(locationTracker: LocationTracker) {
         self.locationTracker = locationTracker
@@ -32,16 +34,18 @@ class CelestialComputer : ObservableObject {
     
     func maybeUpdateTheSky(timeOfDayInSeconds: Int) {
         if locationTracker.isValidLocation {
-            if sunHourAngle == nil ||
+            if sunHourAngle == nil || moonHourAngle == nil ||
                 60 < timeOfDayInSeconds - lastCelestialCalc
             {
                 let jd = jules.julianDay(for: Date())
                 let lon = locationTracker.longitude
                 sunHourAngle = sunCalculator.hourAngle(julianDay: jd, longitude: lon)
+                moonHourAngle = moonCalculator.hourAngle(julianDay: jd, longitude: lon)
                 lastCelestialCalc = timeOfDayInSeconds
             }
         } else {
             sunHourAngle = nil
+            moonHourAngle = nil
         }
     }
 }
