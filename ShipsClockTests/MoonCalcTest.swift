@@ -23,7 +23,7 @@ class MoonCalcTest: XCTestCase {
     let calculator = MoonCalculator()
     
     struct LongitudeTestCase {
-        let julianDay: Double
+        let julianDay, longitude: Double
         let azimuth, rightAscension, hourAngle: Double
         let eclipticLongitude, galacticLongitude: Double
         let description: String
@@ -33,6 +33,7 @@ class MoonCalcTest: XCTestCase {
         [
             LongitudeTestCase(
                 julianDay: jules.julianDay(2019, 10, 2, 12, 0, 0),
+                longitude: Arcs.dmsToAngle(56, 10, 9.9),
                 azimuth: Arcs.dmsToAngle(111, 42, 10.9),
                 rightAscension: Arcs.hmsToAngle(15, 58, 12),
                 hourAngle: Arcs.hmsToAngle(6, 59, 12),
@@ -41,6 +42,7 @@ class MoonCalcTest: XCTestCase {
                 description: "October 2, 2019"),
             LongitudeTestCase(
                 julianDay: jules.julianDay(2020, 7, 31, 16, 0, 0),
+                longitude: Arcs.dmsToAngle(37, 39, 36.0),
                 azimuth: Arcs.dmsToAngle(101, 38, 52.5),
                 rightAscension: Arcs.hmsToAngle(18, 22, 40),
                 hourAngle: Arcs.hmsToAngle(6, 40, 4),
@@ -49,6 +51,7 @@ class MoonCalcTest: XCTestCase {
                 description: "July 31, 2020"),
             LongitudeTestCase(
                 julianDay: jules.julianDay(2020, 8, 02, 16, 0, 0),
+                longitude: Arcs.dmsToAngle(37, 39, 36.0),
                 azimuth: Arcs.dmsToAngle(81, 49, 2.5),
                 rightAscension: Arcs.hmsToAngle(20, 17, 46),
                 hourAngle: Arcs.hmsToAngle(08, 27, 17),
@@ -57,6 +60,7 @@ class MoonCalcTest: XCTestCase {
                 description: "August 2, 2020"),
             LongitudeTestCase(
                 julianDay: jules.julianDay(2020,11, 1, 12, 0, 0),
+                longitude: Arcs.dmsToAngle(56, 10, 9.9),
                 azimuth: Arcs.dmsToAngle(266, 55, 51.1),
                 rightAscension: Arcs.hmsToAngle(3, 6, 55),
                 hourAngle: Arcs.hmsToAngle(7, 53, 21),
@@ -64,7 +68,8 @@ class MoonCalcTest: XCTestCase {
                 galacticLongitude: Arcs.dmsToAngle(164, 34, 20.9),
                 description: "November 1, 2020"),
             LongitudeTestCase(
-                julianDay: jules.julianDay(2020,11, 14, 12, 0, 0),
+                julianDay: jules.julianDay(2020, 11, 14, 12, 0, 0),
+                longitude: Arcs.dmsToAngle(56, 10, 9.9),
                 azimuth: Arcs.dmsToAngle(71, 00, 37.6),
                 rightAscension: Arcs.hmsToAngle(14, 46, 23),
                 hourAngle: Arcs.hmsToAngle(2, 54, 57),
@@ -80,6 +85,16 @@ class MoonCalcTest: XCTestCase {
             let loc = calculator.location(julianDay: t.julianDay)
             let sc = Arcs.spherical(x: loc.x, y: loc.y, z: loc.z)
             XCTAssertEqual(sc.azimuth, t.eclipticLongitude, accuracy: prec, t.description)
+        }
+    }
+    
+    func testHourAngle() throws {
+        let prec = 4.0
+        lonTests().forEach { t in
+            let ha = calculator.hourAngle(
+                julianDay: t.julianDay, longitude: t.longitude)
+            XCTAssertEqual(ha, t.hourAngle, accuracy: prec,
+                           t.description)
         }
     }
     

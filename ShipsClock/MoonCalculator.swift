@@ -189,4 +189,15 @@ struct MoonCalculator {
             z: -pwra * x1 + qwra * x2 + (pw2 + qw2 - 1.0) * x3
         )
     }
+    
+    /*
+     Compute the hour angle of the moon in degrees relative
+     to the given longitude at the given time.
+     */
+    func hourAngle(julianDay jd: Double, longitude lon: Double) -> Double {
+        let xyz = location(julianDay: jd)
+        let r = Arcs.spherical(x: xyz.x, y: xyz.y, z: xyz.z)
+        return Time.hourAngle(julianDay: jd,
+                              longitude: lon, rightAscension: r.azimuth)
+    }
 }
