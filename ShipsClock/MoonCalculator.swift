@@ -197,7 +197,7 @@ struct MoonCalculator {
     func hourAngle(julianDay jd: Double, longitude lon: Double) -> Double {
         let xyz = location(julianDay: jd)
         let r = Arcs.spherical(x: xyz.x, y: xyz.y, z: xyz.z)
-        return Time.hourAngle(julianDay: jd,
+        return CelestialTime.hourAngle(julianDay: jd,
                               longitude: lon, rightAscension: r.azimuth)
     }
 }

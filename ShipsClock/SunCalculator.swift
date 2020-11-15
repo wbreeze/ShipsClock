@@ -44,6 +44,6 @@
      */
     func hourAngle(julianDay jd: Double, longitude lon: Double) -> Double {
         let ra = Arcs.degreesGiven(radians: rightAscension(julianDay: jd))
-        return Time.hourAngle(julianDay: jd, longitude: lon, rightAscension: ra)
+        return CelestialTime.hourAngle(julianDay: jd, longitude: lon, rightAscension: ra)
     }
   }

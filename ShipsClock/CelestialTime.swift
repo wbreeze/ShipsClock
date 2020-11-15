@@ -19,7 +19,7 @@
 
 import Foundation
 
-struct Time {
+struct CelestialTime {
     static let epoch = 2451545.0 // calcs use base 2000-01-01 00:00 UT
     
     // Compute local mean sidereal time in hours UT
