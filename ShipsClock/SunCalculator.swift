@@ -38,41 +38,12 @@
         return atan2(cos(oblqec) * sin(eclong), cos(eclong))
     }
 
-    // Compute local mean sidereal time in hours UT
-    func localMeanSiderialTime(julianDay jd: Double, longitude lon: Double) -> Double {
-        let time = jd - epoch
-        // hour: hour portion of UT (jd has noon at zero, thus add 0.5)
-        let hour = (jd + 0.5).truncatingRemainder(dividingBy: 1.0) * 24.0
-        // gmst: mean sidereal time in normalized hours UT
-        let gmst = 6.697375 + 0.0657098242 * time + hour
-        return Arcs.normalizedHours(for: gmst + lon / 15.0)
-    }
-    
     /*
      Compute the hour angle of the sun in degrees relative
      to the given longitude at the given time.
-     Zero is on the local meridian, at the given longitude,
-     at the highest apparent azimuth (as near to overhead)
-     as it will be for the day.
-     The angle is normalized to -180.0 <= hourAngle <= 180.0
-     relative to the local meridian. Note that this means that
-     angles to the east are negative, angles to the west are positive.
-     That is opposite of the convention used for longitude.
      */
     func hourAngle(julianDay jd: Double, longitude lon: Double) -> Double {
         let ra = rightAscension(julianDay: jd)
-        let lmst = localMeanSiderialTime(julianDay: jd, longitude: lon)
-
-        // lang: local mean siderial time in normalized radians
-        let lang = Arcs.radiansGiven(degrees: lmst * 15.0)
-        
-        // return the normalized, local hour angle in degrees
-        var ha = lang - ra
-        if (ha < -Double.pi) {
-            ha += 2.0 * Double.pi
-        } else if (Double.pi < ha) {
-            ha -= 2.0 * Double.pi
-        }
-        return ha * 180.0 / Double.pi
+        return Time.hourAngle(julianDay: jd, longitude: lon, rightAscension: ra)
     }
   }
