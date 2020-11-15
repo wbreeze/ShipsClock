@@ -43,7 +43,7 @@
      to the given longitude at the given time.
      */
     func hourAngle(julianDay jd: Double, longitude lon: Double) -> Double {
-        let ra = rightAscension(julianDay: jd)
+        let ra = Arcs.degreesGiven(radians: rightAscension(julianDay: jd))
         return Time.hourAngle(julianDay: jd, longitude: lon, rightAscension: ra)
     }
   }

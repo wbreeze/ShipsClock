@@ -35,15 +35,16 @@ struct Time {
     }
     
     /*
-     Compute hour angle given time, longitude, right ascension
+     Compute hour angle in degrees given time, longitude, right ascension
      
      time is Julian Day
      longitude is degrees
-     right ascension is radians
+     right ascension is degrees
      
      Zero is on the local meridian, at the given longitude,
      at the highest apparent azimuth (as near to overhead)
      as it will be for the day.
+     
      The angle is normalized to -180.0 <= hourAngle <= 180.0
      relative to the local meridian. Note that this means that
      angles to the east are negative, angles to the west are positive.
@@ -54,17 +55,17 @@ struct Time {
     ) -> Double {
         let lmst = localMeanSiderialTime(julianDay: jd, longitude: lon)
         
-        // lang: local mean siderial time in normalized radians
-        let lang = Arcs.radiansGiven(degrees: lmst * 15.0)
+        // lang: local mean siderial time in degrees
+        let lang = lmst * 15.0
         
-        // return the normalized, local hour angle in degrees
+        // normalize the local hour angle in degrees
         var ha = lang - ra
-        if (ha < -Double.pi) {
-            ha += 2.0 * Double.pi
-        } else if (Double.pi < ha) {
-            ha -= 2.0 * Double.pi
+        while (ha < -180.0) {
+            ha += 360.0
         }
-        return ha * 180.0 / Double.pi
+        while (180.0 < ha) {
+            ha -= 360.0
+        }
+        return ha
     }
-
 }
