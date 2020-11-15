@@ -75,7 +75,7 @@ class MoonCalcTest: XCTestCase {
     }
     
     func testLongitude() throws {
-        let prec = 5.0
+        let prec = 4.0
         lonTests().forEach { t in
             let loc = calculator.location(julianDay: t.julianDay)
             let sc = Arcs.spherical(x: loc.x, y: loc.y, z: loc.z)
@@ -106,7 +106,7 @@ class MoonCalcTest: XCTestCase {
     }
     
     func testXYZ() throws {
-        let precp = 20.0
+        let precp = 500.0
         xyzTests().forEach { t in
             let xyz = calculator.location(julianDay: t.jd)
             XCTAssertEqual(xyz.x, t.x, accuracy: t.x / precp, "X of \(t.description())")

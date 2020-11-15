@@ -683,7 +683,7 @@
       implicit double precision (a-h,o-z),integer(i-n)
 !
       parameter       (max1=2645,max2=33256)
-      parameter       (xmin=900.0)
+      parameter       (xmin=10.0)
 !
       common/elpcst/  w(3,0:4),eart(0:4),peri(0:4),zeta(0:4),del(4,0:4),
      &                p(8,0:4),delnu,dele,delg,delnp,delep,dtasm,am,
