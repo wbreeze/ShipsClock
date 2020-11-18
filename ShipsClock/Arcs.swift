@@ -47,16 +47,31 @@ struct Arcs {
     
     // Convert from radians to degrees normalized to range
     // 0.0 <= degrees < 360.0
-    static func degreesGiven(radians d: Double) -> Double {
-        return normalizedDegrees(for: d * 360.0 / twoPi)
+    static func degreesGiven(radians r: Double) -> Double {
+        return normalizedDegrees(for: r * 360.0 / twoPi)
+    }
+    
+    // Normalize radians to degrees longitude
+    // Returns degrees longitude in range -180.0 < d <= 180.0
+    static func longitudeGiven(radians r: Double) -> Double {
+        let d = degreesGiven(radians: r)
+        return 180.0 < d ? d - 360.0 : d
     }
     
     static func hmsToAngle(_ h: Int, _ m: Int, _ s: Int) -> Double {
-        return Double(h) * 15.0 + Double(m) * 15.0 / 60.0 + Double(s) * 15.0 / 3600.0
+        let sign = h < 0 || m < 0 || s < 0 ? -1.0 : 1.0
+        return sign * (
+                Double(abs(h)) * 15.0 +
+                Double(abs(m)) * 15.0 / 60.0 +
+                Double(abs(s)) * 15.0 / 3600.0
+        )
     }
     
     static func dmsToAngle(_ d: Int, _ m: Int, _ s: Double) -> Double {
-        return Double(d) + Double(m) / 60.0 + s / 3600.0
+        let sign = d < 0 || m < 0 || s < 0.0 ? -1.0 : 1.0
+        return sign * (
+            Double(abs(d)) + Double(abs(m)) / 60.0 + abs(s) / 3600.0
+        )
     }
     
     /*
@@ -87,13 +102,5 @@ struct Arcs {
         return String(format: "%@: %dº %d' %d\" (%lf)",
                       label, Int(degrees), minutes, seconds,
                       degrees)
-    }
-    
-    static func spherical(x:Double, y:Double, z:Double) ->
-            (radius:Double, azimuth:Double, inclination:Double) {
-        let r = sqrt(x * x + y * y + z * z)
-        let a = degreesGiven(radians: atan2(y,x))
-        let l = acos(z/r) * 180.0 / Double.pi
-        return(radius: r, azimuth: a, inclination: l)
     }
 }
