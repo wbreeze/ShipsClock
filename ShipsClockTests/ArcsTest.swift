@@ -20,9 +20,9 @@
 import XCTest
 
 class ArcsTest: XCTestCase {
-    let prec = Double.pi / 1_000.0
     
     func testNormalizedDegrees() throws {
+        let prec = 1.0e-03
         XCTAssertEqual(Arcs.normalizedDegrees(for: 0.0), 0.0, accuracy: prec)
         XCTAssertEqual(Arcs.normalizedDegrees(for: 90.0), 90.0, accuracy: prec)
         XCTAssertEqual(Arcs.normalizedDegrees(for: -90.0), 270.0, accuracy: prec)
@@ -37,6 +37,7 @@ class ArcsTest: XCTestCase {
     }
 
     func testNormalizedRadians() throws {
+        let prec = Double.pi / 1_000.0
         let halfPi = Double.pi / 2.0
         let pi = Double.pi // shorthand
         
@@ -54,6 +55,7 @@ class ArcsTest: XCTestCase {
     }
     
     func testNormalizedHours() throws {
+        let prec = 1.0/360.0
         XCTAssertEqual(Arcs.normalizedHours(for: 0.0), 0.0, accuracy: prec)
         XCTAssertEqual(Arcs.normalizedHours(for: 6.0), 6.0, accuracy: prec)
         XCTAssertEqual(Arcs.normalizedHours(for: -6.0), 18.0, accuracy: prec)
@@ -68,6 +70,7 @@ class ArcsTest: XCTestCase {
     }
     
     func testRadiansGiven() throws {
+        let prec = Double.pi / 1_000.0
         XCTAssertEqual(Arcs.radiansGiven(degrees: 0.0), 0.0, accuracy: prec)
         XCTAssertEqual(Arcs.radiansGiven(degrees: 360.0), 0.0, accuracy: prec)
         XCTAssertEqual(Arcs.radiansGiven(degrees: -360.0), 0.0, accuracy: prec)
@@ -82,6 +85,7 @@ class ArcsTest: XCTestCase {
     }
     
     func testDegreesGiven() throws {
+        let prec = 1.0e-03
         XCTAssertEqual(Arcs.degreesGiven(radians: 0.0), 0.0, accuracy: prec)
         XCTAssertEqual(Arcs.degreesGiven(radians: 2.0 * Double.pi), 0.0, accuracy: prec)
         XCTAssertEqual(Arcs.degreesGiven(radians: -2.0 * Double.pi), 0.0, accuracy: prec)
