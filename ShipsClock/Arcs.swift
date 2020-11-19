@@ -58,6 +58,14 @@ struct Arcs {
         return 180.0 < d ? d - 360.0 : d
     }
     
+    // Normalize degrees longitude
+    // Returns degrees longitude in range -180.0 < d <= 180.0
+    static func longitudeGiven(degrees d: Double) -> Double {
+        let dr = d.truncatingRemainder(dividingBy: 360.0)
+        let pm = dr <= -180.0 ? dr + 360.0 : dr
+        return 180.0 < pm ? pm - 360.0 : pm
+    }
+    
     static func hmsToAngle(_ h: Int, _ m: Int, _ s: Int) -> Double {
         let sign = h < 0 || m < 0 || s < 0 ? -1.0 : 1.0
         return sign * (

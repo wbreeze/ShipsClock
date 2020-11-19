@@ -97,7 +97,7 @@ class ArcsTest: XCTestCase {
         XCTAssertEqual(Arcs.degreesGiven(radians: -3.0 * Double.pi / 2.0), 90.0, accuracy: prec)
     }
     
-    func testLongitudeGiven() throws {
+    func testLongitudeGivenRadians() throws {
         let prec = 1.0e-03
         XCTAssertEqual(Arcs.longitudeGiven(radians: 0.0), 0.0, accuracy: prec)
         XCTAssertEqual(Arcs.longitudeGiven(radians: 2.0 * Double.pi), 0.0, accuracy: prec)
@@ -108,6 +108,19 @@ class ArcsTest: XCTestCase {
         XCTAssertEqual(Arcs.longitudeGiven(radians: -Double.pi), 180.0, accuracy: prec)
         XCTAssertEqual(Arcs.longitudeGiven(radians: 3.0 * Double.pi / 2.0), -90.0, accuracy: prec)
         XCTAssertEqual(Arcs.longitudeGiven(radians: -3.0 * Double.pi / 2.0), 90.0, accuracy: prec)
+    }
+    
+    func testLongitudeGivenDegrees() throws {
+        let prec = 1.0e-03
+        XCTAssertEqual(Arcs.longitudeGiven(degrees: 0.0), 0.0, accuracy: prec)
+        XCTAssertEqual(Arcs.longitudeGiven(degrees: 360.0), 0.0, accuracy: prec)
+        XCTAssertEqual(Arcs.longitudeGiven(degrees: -360.0), 0.0, accuracy: prec)
+        XCTAssertEqual(Arcs.longitudeGiven(degrees: 90.0), 90.0, accuracy: prec)
+        XCTAssertEqual(Arcs.longitudeGiven(degrees: -90.0), -90.0, accuracy: prec)
+        XCTAssertEqual(Arcs.longitudeGiven(degrees: 180.0), 180.0, accuracy: prec)
+        XCTAssertEqual(Arcs.longitudeGiven(degrees: -180.0), 180.0, accuracy: prec)
+        XCTAssertEqual(Arcs.longitudeGiven(degrees: 270.0), -90.0, accuracy: prec)
+        XCTAssertEqual(Arcs.longitudeGiven(degrees: -270.0), 90.0, accuracy: prec)
     }
     
     func testHmsToAngle() throws {
