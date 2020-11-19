@@ -20,25 +20,96 @@
 import XCTest
 
 class EclToEquTest: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    struct SphericalTest {
+        var x, y, z : Double
+        var r, a, i : Double
+        func value() -> (radius:Double, azimuth:Double, inclination:Double) {
+            EclToEqu.spherical(x:x, y:y, z:z)
+        }
+        func description() -> String {
+            "x: \(x), y: \(y), z: \(z)"
         }
     }
-
+    func sphericalTests() -> [SphericalTest] {
+        [
+            SphericalTest(x: 3.0, y: 4.0, z: 5.0, r: 7.0711, a: 53.1301, i: 45.0),
+            SphericalTest(x: 3.0, y: -4.0, z: 5.0, r: 7.0711, a: -53.1301, i: 45.0),
+            SphericalTest(x: -3.0, y: 4.0, z: 5.0, r: 7.0711, a: 126.8698, i: 45.0),
+            SphericalTest(x: -3.0, y: -4.0, z: 5.0, r: 7.0711, a: -126.8698, i: 45.0),
+            SphericalTest(x: 3.0, y: 4.0, z: -5.0, r: 7.0711, a: 53.1301, i: 135.0),
+            SphericalTest(x: 3.0, y: -4.0, z: -5.0, r: 7.0711, a: -53.1301, i: 135.0),
+            SphericalTest(x: -3.0, y: 4.0, z: -5.0, r: 7.0711, a: 126.8698, i: 135.0),
+            SphericalTest(x: -3.0, y: -4.0, z: -5.0, r: 7.0711, a: -126.8698, i: 135.0),
+        ]
+    }
+    func testSpherical() throws {
+        let prec = 1.0e-03
+        sphericalTests().forEach { t in
+            let v = t.value()
+            XCTAssertEqual(v.radius, t.r, accuracy: prec, "Radius for \(t.description())")
+            XCTAssertEqual(v.azimuth, t.a, accuracy: prec, "Azimuth for \(t.description())")
+            XCTAssertEqual(v.inclination, t.i, accuracy: prec, "Inclination for \(t.description())")
+        }
+    }
+    
+    struct EclipticConversionTest {
+        // azimuth and incliniation also known as
+        // longitude and latitude
+        var londec, latdec : Double
+        
+        // right ascension and declination
+        var ra, decl : Double
+        
+        func value() -> (declination: Double, rightAscension: Double) {
+            EclToEqu.eclipticToEquatorial(longitude: londec, latitude: latdec)
+        }
+        
+        func description() -> String {
+            "ecliptic longitude: \(londec), latitude: \(latdec)"
+        }
+    }
+    func eclipticConversionTests() -> [EclipticConversionTest] {
+        [
+            EclipticConversionTest(
+                londec: Arcs.dmsToAngle(222, 53, 32.1),
+                latdec: Arcs.dmsToAngle(3, 47, 28.3),
+                ra: Arcs.hmsToAngle(14, 46, 28),
+                decl: Arcs.dmsToAngle(-12, 5, 24.9)
+            ),
+            EclipticConversionTest(
+                londec: Arcs.dmsToAngle(322, 13, 16.3),
+                latdec: Arcs.dmsToAngle(-4, 7, 40.2),
+                ra: Arcs.hmsToAngle(21, 43, 57),
+                decl: Arcs.dmsToAngle(-18, 0, 12.0)
+            ),
+            EclipticConversionTest(
+                londec: Arcs.dmsToAngle(45, 39, 30.4),
+                latdec: Arcs.dmsToAngle(-2, 30, 28.5),
+                ra: Arcs.hmsToAngle(2, 55, 46),
+                decl: Arcs.dmsToAngle(14, 7, 29.8)
+            ),
+            EclipticConversionTest(
+                londec: Arcs.dmsToAngle(131, 36, 48.3),
+                latdec: Arcs.dmsToAngle(4, 36, 48.3),
+                ra: Arcs.hmsToAngle(9, 1, 47),
+                decl: Arcs.dmsToAngle(21, 43, 40.5)
+            ),
+            EclipticConversionTest(
+                londec: Arcs.dmsToAngle(231, 10, 41.9),
+                latdec: Arcs.dmsToAngle(3, 0, 16.0),
+                ra: Arcs.hmsToAngle(15, 18, 16),
+                decl: Arcs.dmsToAngle(-15, 9, 3.5)
+            ),
+        ]
+    }
+    
+    func testEclipticToEquatorial() throws {
+        let prec = 0.1
+        eclipticConversionTests().forEach({ t in
+            let v = t.value()
+            XCTAssertEqual(v.declination, t.decl, accuracy: prec, "Decl in \(t.description())")
+            XCTAssertEqual(v.rightAscension, t.ra, accuracy: prec, "RA in \(t.description())")
+        })
+    }
 }
