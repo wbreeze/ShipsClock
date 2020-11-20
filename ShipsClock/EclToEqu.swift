@@ -46,6 +46,15 @@ struct EclToEqu {
     }
     
     /*
+     Convert z-axis based inclination (zero up) to equatorial
+     based latitude (90 up, zero at the equator, -90 down)
+     where up is through the north pole, down through the south pole
+     */
+    static func inclinationToLatitude(_ incl: Double) -> (Double) {
+        Arcs.longitudeGiven(degrees: -incl + 90.0)
+    }
+    
+    /*
      Convert ecliptic coordinates to equatorial
      
      Inputs ecliptic

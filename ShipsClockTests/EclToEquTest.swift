@@ -53,6 +53,34 @@ class EclToEquTest: XCTestCase {
         }
     }
     
+    func testInclinationToLatitude() throws {
+        let prec = 1.0
+        XCTAssertEqual(
+            EclToEqu.inclinationToLatitude(  0.0),   90.0,
+            accuracy: prec)
+        XCTAssertEqual(
+            EclToEqu.inclinationToLatitude( 45.0),   45.0,
+            accuracy: prec)
+        XCTAssertEqual(
+            EclToEqu.inclinationToLatitude( 90.0),    0.0,
+            accuracy: prec)
+        XCTAssertEqual(
+            EclToEqu.inclinationToLatitude(135.0),  -45.0,
+            accuracy: prec)
+        XCTAssertEqual(
+            EclToEqu.inclinationToLatitude(180.0),  -90.0,
+            accuracy: prec)
+        XCTAssertEqual(
+            EclToEqu.inclinationToLatitude(225.0), -135.0,
+            accuracy: prec)
+        XCTAssertEqual(
+            EclToEqu.inclinationToLatitude(270.0),  180.0,
+            accuracy: prec)
+        XCTAssertEqual(
+            EclToEqu.inclinationToLatitude(315.0),  135.0,
+            accuracy: prec)
+    }
+    
     struct EclipticConversionTest {
         // azimuth and incliniation also known as
         // longitude and latitude
