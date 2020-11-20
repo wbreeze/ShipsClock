@@ -25,14 +25,17 @@ struct ClockMoon: View {
     
     let textRadiusMultiplier = 0.75
 
-    //static let moons = "🌕🌖🌗🌘🌑🌒🌓🌔"
-
     var body: some View {
+        let moons = Array("🌑🌒🌓🌔🌕🌖🌗🌘")
         var moon = ""
         var angle = 0.0
-        if let sunAngle = computer.moonHourAngle {
-            moon = "🌕"
-            angle = (90.0 - sunAngle) * Double.pi / 180.0
+        if let moonAngle = computer.moonHourAngle {
+            if let phase = computer.moonPhase {
+                moon = String.init(moons[phase])
+            } else {
+                moon = "🌕"
+            }
+            angle = (90.0 - moonAngle) * Double.pi / 180.0
         }
         return Text(moon)
             .position(ClockFace.pointOnRadius(forAngle: angle, givenRadius: radius, atPosition: textRadiusMultiplier))

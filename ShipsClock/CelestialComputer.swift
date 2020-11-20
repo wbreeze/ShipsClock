@@ -27,6 +27,7 @@ class CelestialComputer : ObservableObject {
     let jules = Julian()
     @Published var sunHourAngle: Double?
     @Published var moonHourAngle: Double?
+    @Published var moonPhase: Int?
     
     init(locationTracker: LocationTracker) {
         self.locationTracker = locationTracker
@@ -41,6 +42,7 @@ class CelestialComputer : ObservableObject {
                 let lon = locationTracker.longitude
                 sunHourAngle = sunCalculator.hourAngle(julianDay: jd, longitude: lon)
                 moonHourAngle = moonCalculator.hourAngle(julianDay: jd, longitude: lon)
+                moonPhase = Int(Arcs.normalizedDegrees(for: sunHourAngle! - moonHourAngle! + 22.5) / 45.0)
                 lastCelestialCalc = timeOfDayInSeconds
             }
         } else {
