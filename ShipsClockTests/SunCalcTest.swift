@@ -57,13 +57,13 @@ class SunCalcTest: XCTestCase {
                 julianDay: jules.julianDay(2020, 6, 14, 11, 44, 0),
                 longitude: TestCase.westLon,
                 expectedRa: Arcs.hmsToAngle(5, 33, 20),
-                expectedHa: -Arcs.hmsToAngle(5, 13, 24)),
+                expectedHa: Arcs.hmsToAngle(-5, 13, 24)),
             TestCase(
                 description: "EastAM",
                 julianDay: jules.julianDay(2020, 6, 14, 8, 4, 0),
                 longitude: TestCase.eastLon,
                 expectedRa: Arcs.hmsToAngle(5, 34, 4),
-                expectedHa: -Arcs.hmsToAngle(1, 25, 43)),
+                expectedHa: Arcs.hmsToAngle(-1, 25, 43)),
             TestCase(
                 description: "20 June West PM",
                 julianDay: jules.julianDay(2020, 6, 21, 2, 42, 0),
