@@ -58,14 +58,7 @@ struct CelestialTime {
         // lang: local mean siderial time in degrees
         let lang = lmst * 15.0
         
-        // normalize the local hour angle in degrees
-        var ha = lang - ra
-        while (ha < -180.0) {
-            ha += 360.0
-        }
-        while (180.0 < ha) {
-            ha -= 360.0
-        }
-        return ha
+        // normalized local hour angle in degrees
+        return(Arcs.longitudeGiven(degrees: lang - ra))
     }
 }
