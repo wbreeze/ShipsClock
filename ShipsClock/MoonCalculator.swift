@@ -196,8 +196,13 @@ struct MoonCalculator {
      */
     func hourAngle(julianDay jd: Double, longitude lon: Double) -> Double {
         let xyz = location(julianDay: jd)
-        let r = Arcs.spherical(x: xyz.x, y: xyz.y, z: xyz.z)
+        let r = EclToEqu.spherical(x: xyz.x, y: xyz.y, z: xyz.z)
+        let eclLon = Arcs.normalizedDegrees(for: r.azimuth)
+        let eclLat = EclToEqu.inclinationToLatitude(r.inclination)
+        let s = EclToEqu.eclipticToEquatorial(
+            longitude: eclLon, latitude: eclLat)
         return CelestialTime.hourAngle(julianDay: jd,
-                              longitude: lon, rightAscension: r.azimuth)
+                                       longitude: lon,
+                                       rightAscension: s.rightAscension)
     }
 }
