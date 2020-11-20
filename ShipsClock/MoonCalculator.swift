@@ -25,10 +25,12 @@ import Foundation
  A&A 404 (2) 735-742 (2003)
  DOI: 10.1051/0004-6361:20030529
  
- and
- 
- LUNAR SOLUTION ELP version ELP/MPP02
- Jean CHAPRONT and G ́erard FRANCOU Observatoire de Paris -SYRTE department - UMR 8630/CNRS October 2002
+ We downloaded the FORTRAN code and tables from
+   ftp://cyrano-se.obspm.fr/pub/2_lunar_solutions/2_elpmpp02/
+ modified it to output the parameters it precomputes from the perterbation
+ tables. We use the parameters that have larger values of `x` to get a solution
+ that is close enough for our needs. Those parameters are the Perterbation
+ elements for lat, lon, and distance coded into the tables here.
  */
 struct MoonCalculator {
     static func sumOfProduct(_ a1:[Double], _ a2:[Double]) -> Double {
@@ -127,30 +129,12 @@ struct MoonCalculator {
         Perturbation(x:    -11.64995, y:[   22.36466,   31085.50858,   -1.30e-04 ]),
     ]
 
-    func longitude(julianDay jd: Double) -> Double {
-        let tc = (jd - epoch) / cent
-        let t = [1.0, tc, tc * tc]
-        return mlonp.reduce(0.0, { lon, term in
-            lon + term.value(t)
-        }) / rad + MoonCalculator.sumOfProduct(w,t)
-    }
-    
-    func latitude(julianDay jd: Double) -> Double {
-        let tc = (jd - epoch) / cent
-        let t = [1.0, tc, tc * tc]
-        return mlatp.reduce(0.0, { lon, term in
-            lon + term.value(t)
-        }) / rad
-    }
-
-    func distance(julianDay jd: Double) -> Double {
-        let tc = (jd - epoch) / cent
-        let t = [1.0, tc, tc * tc]
-        return mdistp.reduce(0.0, { lon, term in
-            lon + term.value(t)
-        }) * a405 / aelp
-    }
-    
+    /*
+     Compute the location of the moon in cartesian, ecliptic coordinates
+     
+     This is pretty much a straight translation of the EVALUATE subroutine
+     found in ELPMPP02.for
+     */
     func location(julianDay jd: Double) -> ( x: Double, y: Double, z: Double ) {
         let tc = (jd - epoch) / cent
         let t = [1.0, tc, tc * tc]
