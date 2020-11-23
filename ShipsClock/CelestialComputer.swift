@@ -42,7 +42,7 @@ class CelestialComputer : ObservableObject {
                 let lon = locationTracker.longitude
                 sunHourAngle = sunCalculator.hourAngle(julianDay: jd, longitude: lon)
                 moonHourAngle = moonCalculator.hourAngle(julianDay: jd, longitude: lon)
-                moonPhase = Int(Arcs.normalizedDegrees(for: sunHourAngle! - moonHourAngle! + 22.5) / 45.0)
+                moonPhase = MoonPhase.phaseIndex(sunHourAngle: sunHourAngle ?? 0.0, moonHourAngle: moonHourAngle ?? 0.0)
                 lastCelestialCalc = timeOfDayInSeconds
             }
         } else {

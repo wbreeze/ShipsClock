@@ -32,12 +32,14 @@
 		6F8FEC8F2469B3D300A1FAE7 /* TimerRinger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8FEC8E2469B3D300A1FAE7 /* TimerRinger.swift */; };
 		6F8FEC97246C1F9F00A1FAE7 /* LocationTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8FEC96246C1F9F00A1FAE7 /* LocationTracker.swift */; };
 		6F8FEC99246C4FE000A1FAE7 /* SituationDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8FEC98246C4FE000A1FAE7 /* SituationDisplay.swift */; };
+		6FAC63B8256C1EF800C2C834 /* MoonPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAC63B7256C1EF800C2C834 /* MoonPhase.swift */; };
+		6FAC63BD256C419400C2C834 /* MoonPhaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAC63BC256C419400C2C834 /* MoonPhaseTest.swift */; };
+		6FAC63C1256C424E00C2C834 /* MoonPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAC63B7256C1EF800C2C834 /* MoonPhase.swift */; };
 		6FAECDAA2565897300B91A82 /* EclToEqu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAECDA92565897300B91A82 /* EclToEqu.swift */; };
 		6FAECDAB2565897300B91A82 /* EclToEqu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAECDA92565897300B91A82 /* EclToEqu.swift */; };
 		6FAECDB025658BFC00B91A82 /* EclToEquTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAECDAF25658BFC00B91A82 /* EclToEquTest.swift */; };
 		6FAECDBB2566C0E800B91A82 /* CelestialTimeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAECDBA2566C0E800B91A82 /* CelestialTimeTest.swift */; };
 		6FAECDC02568138100B91A82 /* ClockMoon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAECDBF2568138100B91A82 /* ClockMoon.swift */; };
-		6FAECDC12568138100B91A82 /* ClockMoon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAECDBF2568138100B91A82 /* ClockMoon.swift */; };
 		6FCCEE85249652D800F18212 /* SunCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCCEE84249652D800F18212 /* SunCalculator.swift */; };
 		6FCCEE862496531D00F18212 /* SunCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCCEE84249652D800F18212 /* SunCalculator.swift */; };
 		6FCCEE882497051A00F18212 /* CelestialComputer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCCEE872497051A00F18212 /* CelestialComputer.swift */; };
@@ -109,6 +111,8 @@
 		6F8FEC8E2469B3D300A1FAE7 /* TimerRinger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerRinger.swift; sourceTree = "<group>"; };
 		6F8FEC96246C1F9F00A1FAE7 /* LocationTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTracker.swift; sourceTree = "<group>"; };
 		6F8FEC98246C4FE000A1FAE7 /* SituationDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SituationDisplay.swift; sourceTree = "<group>"; };
+		6FAC63B7256C1EF800C2C834 /* MoonPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonPhase.swift; sourceTree = "<group>"; };
+		6FAC63BC256C419400C2C834 /* MoonPhaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonPhaseTest.swift; sourceTree = "<group>"; };
 		6FAECDA92565897300B91A82 /* EclToEqu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EclToEqu.swift; sourceTree = "<group>"; };
 		6FAECDAF25658BFC00B91A82 /* EclToEquTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EclToEquTest.swift; sourceTree = "<group>"; };
 		6FAECDBA2566C0E800B91A82 /* CelestialTimeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CelestialTimeTest.swift; path = ShipsClockTests/CelestialTimeTest.swift; sourceTree = "<group>"; };
@@ -203,6 +207,7 @@
 				6FE9AFAE243F9CA8002B45BA /* SceneDelegate.swift */,
 				6F77AF03244FDD4E0070DB57 /* ShipsClock.swift */,
 				6FCCEE872497051A00F18212 /* CelestialComputer.swift */,
+				6FAC63B7256C1EF800C2C834 /* MoonPhase.swift */,
 				6FCCEE84249652D800F18212 /* SunCalculator.swift */,
 				6F4758882561608200E78298 /* CelestialTime.swift */,
 				6F5F631924D1E4B900172BC4 /* MoonCalculator.swift */,
@@ -239,6 +244,7 @@
 				6FAECDAF25658BFC00B91A82 /* EclToEquTest.swift */,
 				6F1BBB5124B79B2A0092A54D /* ArcsTest.swift */,
 				6FE9AFC5243F9CAA002B45BA /* Info.plist */,
+				6FAC63BC256C419400C2C834 /* MoonPhaseTest.swift */,
 				6F404122248BD0D600B1BF5D /* SunCalcTest.swift */,
 				6F404121248BD0D500B1BF5D /* ShipsClockTests-Bridging-Header.h */,
 				6F1BBB4C24B77AB10092A54D /* JulianDayTest.swift */,
@@ -406,6 +412,7 @@
 				6F8FEC8F2469B3D300A1FAE7 /* TimerRinger.swift in Sources */,
 				6FAECDAA2565897300B91A82 /* EclToEqu.swift in Sources */,
 				6FE9AFDF243FBB79002B45BA /* ClockFace.swift in Sources */,
+				6FAC63B8256C1EF800C2C834 /* MoonPhase.swift in Sources */,
 				6F1BBB4B24B779ED0092A54D /* Julian.swift in Sources */,
 				6F8FEC99246C4FE000A1FAE7 /* SituationDisplay.swift in Sources */,
 				6F1BBB5024B7987B0092A54D /* Arcs.swift in Sources */,
@@ -422,13 +429,14 @@
 			files = (
 				6FCCEE862496531D00F18212 /* SunCalculator.swift in Sources */,
 				6FAECDAB2565897300B91A82 /* EclToEqu.swift in Sources */,
+				6FAC63BD256C419400C2C834 /* MoonPhaseTest.swift in Sources */,
 				6F404123248BD0D600B1BF5D /* SunCalcTest.swift in Sources */,
 				6F5F631D24D481B100172BC4 /* MoonCalculator.swift in Sources */,
-				6FAECDC12568138100B91A82 /* ClockMoon.swift in Sources */,
 				6F1BBB4E24B77B350092A54D /* Julian.swift in Sources */,
 				6F1BBB5224B79B2A0092A54D /* ArcsTest.swift in Sources */,
 				6F1BBB5324B79C070092A54D /* Arcs.swift in Sources */,
 				6FAECDB025658BFC00B91A82 /* EclToEquTest.swift in Sources */,
+				6FAC63C1256C424E00C2C834 /* MoonPhase.swift in Sources */,
 				6F47588A2561608200E78298 /* CelestialTime.swift in Sources */,
 				6F5F631C24D47E3A00172BC4 /* MoonCalcTest.swift in Sources */,
 				6F1BBB4D24B77AB10092A54D /* JulianDayTest.swift in Sources */,
