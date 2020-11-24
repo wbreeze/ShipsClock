@@ -114,6 +114,14 @@ class MoonPhaseTest: XCTestCase {
                                                 moonHourAngle: leavingSun - midPhase), waningMoon)
         }
     }
+    
+    func testPhaseBoundary() throws {
+        XCTAssertEqual(MoonPhase.phaseIndex(sunHourAngle: noon, moonHourAngle: noon), 0)
+        XCTAssertEqual(MoonPhase.phaseIndex(sunHourAngle: noon, moonHourAngle: noon - midPhase), 0)
+        XCTAssertEqual(MoonPhase.phaseIndex(sunHourAngle: noon, moonHourAngle: noon + midPhase), 0)
+        XCTAssertEqual(MoonPhase.phaseIndex(sunHourAngle: noon, moonHourAngle: noon - phaseWidth), 1)
+        XCTAssertEqual(MoonPhase.phaseIndex(sunHourAngle: noon, moonHourAngle: noon + phaseWidth), 7)
+    }
 
     func testRelativeIndexNorth() throws {
         let moonBase = midnight + midPhase
