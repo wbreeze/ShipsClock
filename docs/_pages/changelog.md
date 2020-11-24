@@ -6,6 +6,10 @@ include_in_header: true
 
 # Changelog
 
+## Version 1.1.0
+- Displays the hour angle of the moon, using your longitude, when location is enabled.
+- Displays the approximate phase of the moon
+
 ## Version 1.0.2
 - Corrects display of tics, center dot, and watch hand in dark mode.
 - Displays the hour angle of the sun, using your longitude, when location is enabled.
