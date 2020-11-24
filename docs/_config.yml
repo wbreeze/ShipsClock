@@ -46,7 +46,7 @@ features                                  :
 
   - title                                 : Track the sun and moon
     description                           : Enable location access to view the hour angle of the sun and moon, and phase of the moon
-    fontawesome_icon_name                 : moon-o
+    fontawesome_icon_name                 : moon
 
 # Theme Settings
 topbar_color                              : "#000000"
