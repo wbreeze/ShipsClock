@@ -194,4 +194,17 @@ class ArcsTest: XCTestCase {
         XCTAssertEqual(Arcs.dmsToAngle(0, -15, 0), -0.25, accuracy: prec)
         XCTAssertEqual(Arcs.dmsToAngle(0, 0, -30), -0.00833, accuracy: prec)
     }
+    
+    func testAngularDistance() throws {
+        let prec = 1.0e-02
+        XCTAssertEqual(Arcs.angularDistance(ra1: 0.0, decl1: 0.0, ra2: 90.0, decl2: 90.0), 90.0, accuracy: prec)
+        XCTAssertEqual(Arcs.angularDistance(ra1: 90.0, decl1: 0.0, ra2: 0.0, decl2: 0.0), 90.0, accuracy: prec)
+        XCTAssertEqual(Arcs.angularDistance(ra1: 0.0, decl1: 0.0, ra2: 180.0, decl2: 90.0), 90.0, accuracy: prec)
+        XCTAssertEqual(Arcs.angularDistance(ra1: 0.0, decl1: 0.0, ra2: 265.0, decl2: 90.0), 90.0, accuracy: prec)
+        XCTAssertEqual(Arcs.angularDistance(ra1: 0.0, decl1: 45.0, ra2: 45.0, decl2: 45.0), 31.39, accuracy: prec)
+        XCTAssertEqual(Arcs.angularDistance(ra1: 45.0, decl1: 0.0, ra2: 90.0, decl2: 0.0), 45.0, accuracy: prec)
+        XCTAssertEqual(Arcs.angularDistance(ra1: 45.0, decl1: 0.0, ra2: 225.0, decl2: 0.0), 180.0, accuracy: prec)
+        XCTAssertEqual(Arcs.angularDistance(ra1: -90.0, decl1: 45.0, ra2: 90.0, decl2: 45.0), 90.0, accuracy: prec)
+        XCTAssertEqual(Arcs.angularDistance(ra1: -90.0, decl1: 0.0, ra2: 90.0, decl2: 0.0), 180.0, accuracy: prec)
+    }
 }

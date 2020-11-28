@@ -111,4 +111,22 @@ struct Arcs {
                       label, Int(degrees), minutes, seconds,
                       degrees)
     }
+    
+    /*
+     Given right ascension and declination of two directions on a sphere, in degrees
+     Provide the angular distance between them on a great circle, in degrees.
+     The angle is always the minor arc of the great circle, the lesser of the two, thus
+     0 <= angularDistance <= 180.0
+     */
+    static func angularDistance(ra1: Double, decl1: Double, ra2: Double, decl2: Double) -> Double {
+        let d2r = Double.pi / 180.0
+        let phi1 = ra1 * d2r
+        let phi2 = ra2 * d2r
+        let theta1 = decl1 * d2r
+        let theta2 = decl2 * d2r
+        return acos(
+            sin(theta1) * sin(theta2) +
+            cos(theta1) * cos(theta2) * cos(phi1 - phi2)
+        ) / d2r
+    }
 }
