@@ -8,7 +8,7 @@ include_in_header: true
 
 ## Would you explain each part of the clock?
 
-![clock face]({% link /assets/screenshot/face.jpeg %})
+![clock face](assets/screenshot/face.jpeg)
 
 It is a twenty-four hour clock.
 - the hour hand is the shortest, it goes around once per day.
