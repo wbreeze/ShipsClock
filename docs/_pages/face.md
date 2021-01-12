@@ -94,4 +94,4 @@ when such a system is in use. The bells in use are the same. The dog watch
 splits when the hour indicator points to 18 hours and the watch indicator
 points down at the zero.
 
-[FAQ](/faq)
+[FAQ]({{ 'faq' | relative_url }})
