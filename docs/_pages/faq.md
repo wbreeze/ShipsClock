@@ -8,7 +8,7 @@ include_in_header: true
 
 ## Would you explain each part of the clock?
 
-![clock face](/assets/screenshot/face.jpeg)
+![clock face]({% link /assets/screenshot/face.jpeg %})
 
 It is a twenty-four hour clock.
 - the hour hand is the shortest, it goes around once per day.
@@ -23,7 +23,7 @@ It is a twenty-four hour clock.
 - the heavier ticks every six hours correspond to the watch hand. They
   deliniate the four hours of the watch.
 
-For some examples, see [reading the clock face](/face)
+For some examples, see [reading the clock face](face.md)
 
 ## What are the numbers?
 

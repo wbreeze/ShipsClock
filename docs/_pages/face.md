@@ -8,7 +8,7 @@ include_in_header: false
 
 ## The elements of the clock
 
-![clock face annotated](/assets/screenshot/face_annot.jpeg)
+![clock face annotated]({% link /assets/screenshot/face_annot.jpeg })
 
 The screen capture shows the elements of the clock face annotated with letters.
 The letters correspond to the following descriptions:
@@ -71,7 +71,7 @@ The letters correspond to the following descriptions:
 
 ## How the tics deliniate watches
 
-![clock face tics](/assets/screenshot/face_annot_dog_pair.png)
+![clock face tics]({% link /assets/screenshot/face_annot_dog_pair.png %})
 
 A watch is four hours (in general terms). The watch hand (**W**) runs around
 the clock once during the four hours of the watch. It goes a quarter of the
