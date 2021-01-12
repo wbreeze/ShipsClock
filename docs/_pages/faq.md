@@ -6,6 +6,37 @@ include_in_header: true
 
 # FAQ
 
+## Would you explain each part of the clock?
+
+![clock face](/assets/screenshot/face.jpeg)
+
+It is a twenty-four hour clock.
+- the hour hand is the shortest, it goes around once per day.
+- the minute hand is the longest, it goes around once per hour.
+- the watch hand, that is the narrowest, goes around once every four hours.
+- the sun and moon are shown in position relative to your meridian. When at
+  noon they are as high in the sky as they will be for the day, at the noon
+  meridian. What is shown is referred to in celestial navigation as the
+  "local hour angle".
+- the ticks every four hours correspond to the hour hand. They deliniate the
+  beginnings and ends of four hour watch periods.
+- the heavier ticks every six hours correspond to the watch hand. They
+  deliniate the four hours of the watch.
+
+For some examples, see [reading the clock face](/face)
+
+## What are the numbers?
+
+The big bold numbers next to or below the clock face
+display your current latitude, longitude, speed, and direction.
+- the latitude, for example, N 24º 17' 55" decodes as north latitude
+  twenty-four degrees, seventeen minutes, fifty-five seconds.
+- the longitude, for example, W 110º 19' 54" decodes as west longitude
+  one-hundred ten degrees, nineteen minutes, fifty-four seconds.
+- the velocity, for example, 0.3 kts NW decodes as moving three tenths of a
+  knot toward the northwest. The clock shows sixteen cardinal directions,
+  for example, N, NNW, NW, WNW, W, ... and so forth.
+
 ## How do I tell time by the bells?
 
 A ship's watch begins every four hours. Generally, we know what time it is
