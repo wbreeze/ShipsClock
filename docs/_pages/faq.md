@@ -23,7 +23,7 @@ It is a twenty-four hour clock.
 - the heavier ticks every six hours correspond to the watch hand. They
   deliniate the four hours of the watch.
 
-For some examples, see [reading the clock face](face.md)
+For some examples, see [reading the clock face]({{ 'face.md' | relative_url }})
 
 ## What are the numbers?
 
