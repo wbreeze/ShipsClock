@@ -23,21 +23,29 @@ struct ClockUTC: View {
     @EnvironmentObject var shipsClock: ShipsClock
     var radius : Double
 
-    let textRadiusMultiplier = 0.75
+    let pointerRadiusMultiplier = 0.84
     
     var body: some View {
-        let lengthOfDayInSeconds = 24 * 60 * 60
-        let partOfDay = Double(self.shipsClock.utcTimeInSeconds) / Double(lengthOfDayInSeconds)
-        let hourAngle = 3.0 * Double.pi / 2.0 - partOfDay * Double.pi * 2.0
-        let utcSymbol = "🌐"
-        
-        return Text(utcSymbol).position(ClockFace.pointOnRadius(forAngle: hourAngle, givenRadius: radius, atPosition: textRadiusMultiplier))
-            .font(.system(size: CGFloat(self.radius / 9.0), weight: .black, design: .default))
+        let hourAngle = ClockFace.hourAngle(forTimeInSeconds: shipsClock.utcTimeInSeconds)
+        let center = ClockFace.pointOnRadius(forAngle: hourAngle, givenRadius: radius, atPosition: pointerRadiusMultiplier)
+        let scale = CGFloat(radius / 90.0)
+        let transform = CGAffineTransform.identity
+            .concatenating(CGAffineTransform.identity.scaledBy(x: scale, y: scale))
+            .concatenating(CGAffineTransform.identity.rotated(by: CGFloat(-hourAngle + 3.0 * Double.pi / 2.0)))
+            .concatenating(CGAffineTransform.identity.translatedBy(x: center.x, y: center.y))
+
+        return Path() { path in
+            path.move(to: CGPoint(x: 0, y: 2))
+            path.addLine(to: CGPoint(x: 2, y: -3))
+            path.addLine(to: CGPoint(x: -2, y: -3))
+            path.addLine(to: CGPoint(x: 0, y: 2))
+        }.transform(transform).fill()
+
     }
 }
 
 struct ClockUTC_Previews: PreviewProvider {
     static var previews: some View {
-        ClockUTC(radius: 200.0)
+        ClockUTC(radius: 200.0).environmentObject(ShipsClock())
     }
 }
