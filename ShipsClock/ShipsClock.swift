@@ -13,6 +13,7 @@ import Foundation
  */
 class ShipsClock : ObservableObject {
     @Published var timeOfDayInSeconds = 0
+    @Published var utcTimeInSeconds = 0
     @Published var locationTracker: LocationTracker
     @Published var celestialComputer: CelestialComputer
     
@@ -25,6 +26,7 @@ class ShipsClock : ObservableObject {
     
     init() {
         timeOfDayInSeconds = ShipsClock.nextTime()
+        utcTimeInSeconds = ShipsClock.utcTime()
         foregroundRinger = TimerRinger(bell: bell)
         backgroundRinger = NotifierRinger(bell: bell)
         let lt = LocationTracker()
@@ -46,7 +48,7 @@ class ShipsClock : ObservableObject {
     func moveToForeground() {
         backgroundRinger.disableNotifications()
         foregroundRinger.initializeLastPlayed(forTimeInSeconds: ShipsClock.nextTime())
-        updateTime() // right away, not at next tick
+        updateClock() // right away, not at next tick
         ticker = Timer.scheduledTimer(withTimeInterval: tickInterval, repeats: true, block: updateTimeCallback)
         locationTracker.activate()
     }
@@ -58,23 +60,37 @@ class ShipsClock : ObservableObject {
     }
 
     private func updateTimeCallback(_: Timer) {
-        updateTime()
+        updateClock()
     }
-
-    private func updateTime() {
+    
+    private func updateClock() {
         timeOfDayInSeconds = ShipsClock.nextTime()
+        utcTimeInSeconds = ShipsClock.utcTime()
         celestialComputer.maybeUpdateTheSky(timeOfDayInSeconds: timeOfDayInSeconds)
         foregroundRinger.maybeRing(forTimeInSeconds: timeOfDayInSeconds)
     }
     
-    private static func nextTime() -> Int {
-        let now = Date()
-        let cal = Calendar.current
-        let hms = cal.dateComponents([.hour, .minute, .second], from: now)
+    fileprivate static func timeInSeconds(_ hms: DateComponents) -> Int {
         if let hour = hms.hour, let minute = hms.minute, let second = hms.second {
             return (hour * 60 + minute) * 60 + second
         } else {
             return 0
         }
+    }
+    
+    fileprivate static func timeInSeconds(_ cal: Calendar) -> Int {
+        let now = Date()
+        let hms = cal.dateComponents([.hour, .minute, .second], from: now)
+        return timeInSeconds(hms)
+    }
+    
+    private static func nextTime() -> Int {
+        return timeInSeconds(Calendar.current)
+    }
+
+    private static func utcTime() -> Int {
+        var cal = Calendar.current
+        cal.timeZone = TimeZone.init(secondsFromGMT: 0) ?? TimeZone.current
+        return timeInSeconds(cal)
     }
 }
