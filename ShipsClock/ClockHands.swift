@@ -125,6 +125,6 @@ struct ClockHands: View {
 
 struct ClockHands_Previews: PreviewProvider {
     static var previews: some View {
-        ClockHands(radius: 200.0)
+        ClockHands(radius: 200.0).environmentObject(ShipsClock())
     }
 }

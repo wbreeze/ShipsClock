@@ -51,6 +51,6 @@ struct ClockFace: View {
 
 struct ClockFace_Previews: PreviewProvider {
     static var previews: some View {
-        ClockFace()
+        ClockFace().environmentObject(ShipsClock())
     }
 }
