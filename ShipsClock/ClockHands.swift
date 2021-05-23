@@ -33,9 +33,7 @@ struct ClockHands: View {
         
         var body: some View {
             Path() { path in
-                let lengthOfDayInSeconds = 24 * 60 * 60
-                let partOfDay = Double(timeInSeconds) / Double(lengthOfDayInSeconds)
-                let hourAngle = 3.0 * Double.pi / 2.0 - partOfDay * Double.pi * 2.0
+                let hourAngle = ClockFace.hourAngle(forTimeInSeconds: timeInSeconds)
                 path.move(to: ClockFace.pointOnRadius(forAngle: hourAngle, givenRadius: radius, atPosition: hourHandStart))
                 path.addLine(to: ClockFace.pointOnRadius(forAngle: hourAngle, givenRadius: radius, atPosition: hourHandEnd))
             }.stroke(lineWidth: CGFloat(radius / 22.0))
@@ -125,6 +123,6 @@ struct ClockHands: View {
 
 struct ClockHands_Previews: PreviewProvider {
     static var previews: some View {
-        ClockHands(radius: 200.0)
+        ClockHands(radius: 200.0).environmentObject(ShipsClock())
     }
 }

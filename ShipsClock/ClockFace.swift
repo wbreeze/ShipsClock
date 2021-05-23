@@ -23,6 +23,12 @@ struct ClockFace: View {
         let degrees = -Double(hour) * 360.0 / 24.0 - 90.0
         return degrees * Double.pi / 180.0
     }
+    
+    static func hourAngle(forTimeInSeconds: Int) -> Double {
+        let lengthOfDayInSeconds = 24 * 60 * 60
+        let partOfDay = Double(forTimeInSeconds) / Double(lengthOfDayInSeconds)
+        return 3.0 * Double.pi / 2.0 - partOfDay * Double.pi * 2.0
+    }
 
     static func pointOnRadius(
         forAngle angle: Double,
@@ -42,6 +48,7 @@ struct ClockFace: View {
                 ClockBackground(radius: self.radius(geometry))
                 ClockSun(radius: self.radius(geometry)).environmentObject(self.shipsClock.celestialComputer)
                 ClockMoon(radius: self.radius(geometry)).environmentObject(self.shipsClock.celestialComputer)
+                ClockUTC(radius: self.radius(geometry)).environmentObject(self.shipsClock)
                 ClockHands(radius: self.radius(geometry)).environmentObject(self.shipsClock)
             }.frame(width: self.diameter(geometry), height: self.diameter(geometry), alignment: .top)
         }
@@ -50,6 +57,6 @@ struct ClockFace: View {
 
 struct ClockFace_Previews: PreviewProvider {
     static var previews: some View {
-        ClockFace()
+        ClockFace().environmentObject(ShipsClock())
     }
 }
