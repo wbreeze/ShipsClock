@@ -42,6 +42,7 @@ struct ClockFace: View {
                 ClockBackground(radius: self.radius(geometry))
                 ClockSun(radius: self.radius(geometry)).environmentObject(self.shipsClock.celestialComputer)
                 ClockMoon(radius: self.radius(geometry)).environmentObject(self.shipsClock.celestialComputer)
+                ClockUTC(radius: self.radius(geometry)).environmentObject(self.shipsClock)
                 ClockHands(radius: self.radius(geometry)).environmentObject(self.shipsClock)
             }.frame(width: self.diameter(geometry), height: self.diameter(geometry), alignment: .top)
         }
