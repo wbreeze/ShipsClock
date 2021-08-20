@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F093CA826CFF42E0091A4B7 /* SettingsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F093CA726CFF42E0091A4B7 /* SettingsTest.swift */; };
+		6F093CAA26CFF7DA0091A4B7 /* ClockConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F093CA926CFF7DA0091A4B7 /* ClockConfiguration.swift */; };
+		6F093CAB26CFF7DA0091A4B7 /* ClockConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F093CA926CFF7DA0091A4B7 /* ClockConfiguration.swift */; };
 		6F1BBB4B24B779ED0092A54D /* Julian.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1BBB4A24B779ED0092A54D /* Julian.swift */; };
 		6F1BBB4D24B77AB10092A54D /* JulianDayTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1BBB4C24B77AB10092A54D /* JulianDayTest.swift */; };
 		6F1BBB4E24B77B350092A54D /* Julian.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1BBB4A24B779ED0092A54D /* Julian.swift */; };
@@ -74,6 +77,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6F093CA726CFF42E0091A4B7 /* SettingsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTest.swift; sourceTree = "<group>"; };
+		6F093CA926CFF7DA0091A4B7 /* ClockConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockConfiguration.swift; sourceTree = "<group>"; };
 		6F1BBB4A24B779ED0092A54D /* Julian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Julian.swift; sourceTree = "<group>"; };
 		6F1BBB4C24B77AB10092A54D /* JulianDayTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JulianDayTest.swift; sourceTree = "<group>"; };
 		6F1BBB4F24B7987B0092A54D /* Arcs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arcs.swift; sourceTree = "<group>"; };
@@ -231,6 +236,7 @@
 				6FE9AFBA243F9CAA002B45BA /* Info.plist */,
 				6FE9AFB4243F9CAA002B45BA /* Preview Content */,
 				6F24FDAF246708860006590A /* NotifierRinger.swift */,
+				6F093CA926CFF7DA0091A4B7 /* ClockConfiguration.swift */,
 			);
 			path = ShipsClock;
 			sourceTree = "<group>";
@@ -256,6 +262,7 @@
 				6F1BBB4C24B77AB10092A54D /* JulianDayTest.swift */,
 				6F5F631B24D47E3A00172BC4 /* MoonCalcTest.swift */,
 				6F7DAC20259430830053E24C /* LocationFormatterTest.swift */,
+				6F093CA726CFF42E0091A4B7 /* SettingsTest.swift */,
 			);
 			path = ShipsClockTests;
 			sourceTree = "<group>";
@@ -420,6 +427,7 @@
 				6FAECDAA2565897300B91A82 /* EclToEqu.swift in Sources */,
 				6FE9AFDF243FBB79002B45BA /* ClockFace.swift in Sources */,
 				6FAC63B8256C1EF800C2C834 /* MoonPhase.swift in Sources */,
+				6F093CAA26CFF7DA0091A4B7 /* ClockConfiguration.swift in Sources */,
 				6F1BBB4B24B779ED0092A54D /* Julian.swift in Sources */,
 				6F8FEC99246C4FE000A1FAE7 /* SituationDisplay.swift in Sources */,
 				6F1BBB5024B7987B0092A54D /* Arcs.swift in Sources */,
@@ -444,9 +452,11 @@
 				6F1BBB5224B79B2A0092A54D /* ArcsTest.swift in Sources */,
 				6F1BBB5324B79C070092A54D /* Arcs.swift in Sources */,
 				6FAECDB025658BFC00B91A82 /* EclToEquTest.swift in Sources */,
+				6F093CAB26CFF7DA0091A4B7 /* ClockConfiguration.swift in Sources */,
 				6F7DAC27259431510053E24C /* LocationFormatter.swift in Sources */,
 				6FAC63C1256C424E00C2C834 /* MoonPhase.swift in Sources */,
 				6F47588A2561608200E78298 /* CelestialTime.swift in Sources */,
+				6F093CA826CFF42E0091A4B7 /* SettingsTest.swift in Sources */,
 				6F5F631C24D47E3A00172BC4 /* MoonCalcTest.swift in Sources */,
 				6F1BBB4D24B77AB10092A54D /* JulianDayTest.swift in Sources */,
 				6FAECDBB2566C0E800B91A82 /* CelestialTimeTest.swift in Sources */,
