@@ -11,36 +11,11 @@ import SwiftUI
 struct ClockFace: View {
     @EnvironmentObject var shipsClock: ShipsClock
 
-    static func diameter(_ geometry : GeometryProxy) -> CGFloat {
-        CGFloat.minimum(geometry.size.width, geometry.size.height)
-    }
-
-    static func radius(_ geometry : GeometryProxy) -> Double {
-        Double(self.diameter(geometry)) / 2.0
-    }
-    
-    static func hourAngle(forHour hour : Int) -> Double {
-        let degrees = -Double(hour) * 360.0 / 24.0 - 90.0
-        return degrees * Double.pi / 180.0
-    }
-
-    static func pointOnRadius(
-        forAngle angle: Double,
-        givenRadius radius: Double,
-        atPosition position: Double
-    ) -> CGPoint
-    {
-        CGPoint(
-            x: radius + cos(angle) * radius * position,
-            y: radius - sin(angle) * radius * position
-        )
-    }
-
     var body: some View {
         GeometryReader { geometry in
-            let currentDiameter = ClockFace.diameter(geometry)
+            let currentDiameter = ClockGeometry.diameter(geometry)
             ZStack {
-                let currentRadius = ClockFace.radius(geometry)
+                let currentRadius = ClockGeometry.radius(geometry)
                 ClockBackground(radius: currentRadius)
                 ClockSun(radius: currentRadius).environmentObject(self.shipsClock.celestialComputer)
                 ClockMoon(radius: currentRadius).environmentObject(self.shipsClock.celestialComputer)

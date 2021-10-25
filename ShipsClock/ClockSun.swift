@@ -32,7 +32,7 @@ struct ClockSun: View {
             sun = "🌞"
             angle = (90.0 - sunAngle) * Double.pi / 180.0
         }
-        return Text(sun).position(ClockFace.pointOnRadius(forAngle: angle, givenRadius: radius, atPosition: textRadiusMultiplier))
+        return Text(sun).position(ClockGeometry.pointOnRadius(forAngle: angle, givenRadius: radius, atPosition: textRadiusMultiplier))
             .font(.system(size: CGFloat(self.radius / 9.0), weight: .black, design: .default))
     }
 }

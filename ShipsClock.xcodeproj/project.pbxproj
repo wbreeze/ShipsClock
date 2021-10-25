@@ -43,6 +43,7 @@
 		6F6029372726EE0F009359D4 /* ShipsClockFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F6029272726EE0F009359D4 /* ShipsClockFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F60293A2726EE0F009359D4 /* ShipsClockFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6029252726EE0F009359D4 /* ShipsClockFramework.framework */; };
 		6F60293B2726EE0F009359D4 /* ShipsClockFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6029252726EE0F009359D4 /* ShipsClockFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6F6029442726F65C009359D4 /* ClockGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6029432726F65C009359D4 /* ClockGeometry.swift */; };
 		6F77AF04244FDD4E0070DB57 /* ShipsClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F77AF03244FDD4E0070DB57 /* ShipsClock.swift */; };
 		6F7DAC21259430830053E24C /* LocationFormatterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DAC20259430830053E24C /* LocationFormatterTest.swift */; };
 		6F7DAC26259431510053E24C /* LocationFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DAC25259431510053E24C /* LocationFormatter.swift */; };
@@ -178,6 +179,7 @@
 		6F6029282726EE0F009359D4 /* ShipsClockFramework.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = ShipsClockFramework.docc; sourceTree = "<group>"; };
 		6F60292E2726EE0F009359D4 /* ShipsClockFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShipsClockFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F6029352726EE0F009359D4 /* ShipsClockFrameworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipsClockFrameworkTests.swift; sourceTree = "<group>"; };
+		6F6029432726F65C009359D4 /* ClockGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockGeometry.swift; sourceTree = "<group>"; };
 		6F725BEC255D796200CC85A3 /* README.TXT */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.TXT; sourceTree = "<group>"; };
 		6F725BED255D796200CC85A3 /* ELP_PERT.S1 */ = {isa = PBXFileReference; lastKnownFileType = text; path = ELP_PERT.S1; sourceTree = "<group>"; };
 		6F725BEE255D796200CC85A3 /* ELP_MAIN.S3 */ = {isa = PBXFileReference; lastKnownFileType = text; path = ELP_MAIN.S3; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 				6F7DAC25259431510053E24C /* LocationFormatter.swift */,
 				6F24FD9D245D2D6A0006590A /* ShipsBell.swift */,
 				6F8FEC8E2469B3D300A1FAE7 /* TimerRinger.swift */,
+				6F6029432726F65C009359D4 /* ClockGeometry.swift */,
 				6FE9AFDE243FBB79002B45BA /* ClockFace.swift */,
 				6F40411F2485DB4700B1BF5D /* ClockSun.swift */,
 				6FAECDBF2568138100B91A82 /* ClockMoon.swift */,
@@ -702,6 +705,7 @@
 				6FE9AFDF243FBB79002B45BA /* ClockFace.swift in Sources */,
 				6FAC63B8256C1EF800C2C834 /* MoonPhase.swift in Sources */,
 				6F093CAA26CFF7DA0091A4B7 /* ClockConfiguration.swift in Sources */,
+				6F6029442726F65C009359D4 /* ClockGeometry.swift in Sources */,
 				6F1BBB4B24B779ED0092A54D /* Julian.swift in Sources */,
 				6F8FEC99246C4FE000A1FAE7 /* SituationDisplay.swift in Sources */,
 				6F1BBB5024B7987B0092A54D /* Arcs.swift in Sources */,
