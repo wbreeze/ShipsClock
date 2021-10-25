@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,8 +22,6 @@
 		6F24FDAA245E48730006590A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6F24FDA7245E48730006590A /* README.md */; };
 		6F24FDAB245E48730006590A /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 6F24FDA8245E48730006590A /* LICENSE */; };
 		6F24FDB0246708860006590A /* NotifierRinger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F24FDAF246708860006590A /* NotifierRinger.swift */; };
-		6F40411C247F47CB00B1BF5D /* ClockBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F40411B247F47CB00B1BF5D /* ClockBackground.swift */; };
-		6F40411E247F47DE00B1BF5D /* ClockHands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F40411D247F47DE00B1BF5D /* ClockHands.swift */; };
 		6F4041202485DB4700B1BF5D /* ClockSun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F40411F2485DB4700B1BF5D /* ClockSun.swift */; };
 		6F404123248BD0D600B1BF5D /* SunCalcTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F404122248BD0D600B1BF5D /* SunCalcTest.swift */; };
 		6F4758892561608200E78298 /* CelestialTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4758882561608200E78298 /* CelestialTime.swift */; };
@@ -44,6 +42,10 @@
 		6F60293A2726EE0F009359D4 /* ShipsClockFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6029252726EE0F009359D4 /* ShipsClockFramework.framework */; };
 		6F60293B2726EE0F009359D4 /* ShipsClockFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6029252726EE0F009359D4 /* ShipsClockFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6F6029462726F9D1009359D4 /* ClockGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6029432726F65C009359D4 /* ClockGeometry.swift */; };
+		6F6029472726FF1B009359D4 /* ClockBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F40411B247F47CB00B1BF5D /* ClockBackground.swift */; };
+		6F6029482726FF23009359D4 /* ClockHands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F40411D247F47DE00B1BF5D /* ClockHands.swift */; };
+		6F60294927270437009359D4 /* ShipsClockFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6029252726EE0F009359D4 /* ShipsClockFramework.framework */; platformFilter = ios; };
+		6F60294F27270626009359D4 /* CalendarTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F60294E27270626009359D4 /* CalendarTime.swift */; };
 		6F77AF04244FDD4E0070DB57 /* ShipsClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F77AF03244FDD4E0070DB57 /* ShipsClock.swift */; };
 		6F7DAC21259430830053E24C /* LocationFormatterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DAC20259430830053E24C /* LocationFormatterTest.swift */; };
 		6F7DAC26259431510053E24C /* LocationFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DAC25259431510053E24C /* LocationFormatter.swift */; };
@@ -95,6 +97,13 @@
 			remoteInfo = ShipsClock;
 		};
 		6F6029382726EE0F009359D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6FE9AFA1243F9CA8002B45BA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6F6029242726EE0F009359D4;
+			remoteInfo = ShipsClockFramework;
+		};
+		6F60294B27270437009359D4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6FE9AFA1243F9CA8002B45BA /* Project object */;
 			proxyType = 1;
@@ -180,6 +189,7 @@
 		6F60292E2726EE0F009359D4 /* ShipsClockFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShipsClockFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F6029352726EE0F009359D4 /* ShipsClockFrameworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipsClockFrameworkTests.swift; sourceTree = "<group>"; };
 		6F6029432726F65C009359D4 /* ClockGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockGeometry.swift; sourceTree = "<group>"; };
+		6F60294E27270626009359D4 /* CalendarTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTime.swift; sourceTree = "<group>"; };
 		6F725BEC255D796200CC85A3 /* README.TXT */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.TXT; sourceTree = "<group>"; };
 		6F725BED255D796200CC85A3 /* ELP_PERT.S1 */ = {isa = PBXFileReference; lastKnownFileType = text; path = ELP_PERT.S1; sourceTree = "<group>"; };
 		6F725BEE255D796200CC85A3 /* ELP_MAIN.S3 */ = {isa = PBXFileReference; lastKnownFileType = text; path = ELP_MAIN.S3; sourceTree = "<group>"; };
@@ -226,6 +236,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F60294927270437009359D4 /* ShipsClockFramework.framework in Frameworks */,
 				6F6029102726D790009359D4 /* SwiftUI.framework in Frameworks */,
 				6F60290E2726D790009359D4 /* WidgetKit.framework in Frameworks */,
 			);
@@ -295,7 +306,10 @@
 			children = (
 				6F6029272726EE0F009359D4 /* ShipsClockFramework.h */,
 				6F6029432726F65C009359D4 /* ClockGeometry.swift */,
+				6F40411B247F47CB00B1BF5D /* ClockBackground.swift */,
+				6F40411D247F47DE00B1BF5D /* ClockHands.swift */,
 				6F6029282726EE0F009359D4 /* ShipsClockFramework.docc */,
+				6F60294E27270626009359D4 /* CalendarTime.swift */,
 			);
 			path = ShipsClockFramework;
 			sourceTree = "<group>";
@@ -377,8 +391,6 @@
 				6FE9AFDE243FBB79002B45BA /* ClockFace.swift */,
 				6F40411F2485DB4700B1BF5D /* ClockSun.swift */,
 				6FAECDBF2568138100B91A82 /* ClockMoon.swift */,
-				6F40411B247F47CB00B1BF5D /* ClockBackground.swift */,
-				6F40411D247F47DE00B1BF5D /* ClockHands.swift */,
 				6FE9AFB2243F9CAA002B45BA /* Assets.xcassets */,
 				6FE9AFB7243F9CAA002B45BA /* LaunchScreen.storyboard */,
 				6FE9AFBA243F9CAA002B45BA /* Info.plist */,
@@ -450,6 +462,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				6F60294C27270437009359D4 /* PBXTargetDependency */,
 			);
 			name = ShipsClockWidgetExtension;
 			productName = ShipsClockWidgetExtension;
@@ -673,8 +686,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F60294F27270626009359D4 /* CalendarTime.swift in Sources */,
 				6F6029462726F9D1009359D4 /* ClockGeometry.swift in Sources */,
+				6F6029482726FF23009359D4 /* ClockHands.swift in Sources */,
 				6F6029292726EE0F009359D4 /* ShipsClockFramework.docc in Sources */,
+				6F6029472726FF1B009359D4 /* ClockBackground.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -692,7 +708,6 @@
 			files = (
 				6F24FDB0246708860006590A /* NotifierRinger.swift in Sources */,
 				6F4758892561608200E78298 /* CelestialTime.swift in Sources */,
-				6F40411E247F47DE00B1BF5D /* ClockHands.swift in Sources */,
 				6FAECDC02568138100B91A82 /* ClockMoon.swift in Sources */,
 				6F77AF04244FDD4E0070DB57 /* ShipsClock.swift in Sources */,
 				6F4041202485DB4700B1BF5D /* ClockSun.swift in Sources */,
@@ -700,7 +715,6 @@
 				6FE9AFAD243F9CA8002B45BA /* AppDelegate.swift in Sources */,
 				6F24FD9E245D2D6A0006590A /* ShipsBell.swift in Sources */,
 				6F5F631A24D1E4B900172BC4 /* MoonCalculator.swift in Sources */,
-				6F40411C247F47CB00B1BF5D /* ClockBackground.swift in Sources */,
 				6F8FEC8F2469B3D300A1FAE7 /* TimerRinger.swift in Sources */,
 				6FAECDAA2565897300B91A82 /* EclToEqu.swift in Sources */,
 				6FE9AFDF243FBB79002B45BA /* ClockFace.swift in Sources */,
@@ -773,6 +787,12 @@
 			isa = PBXTargetDependency;
 			target = 6F6029242726EE0F009359D4 /* ShipsClockFramework */;
 			targetProxy = 6F6029382726EE0F009359D4 /* PBXContainerItemProxy */;
+		};
+		6F60294C27270437009359D4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = 6F6029242726EE0F009359D4 /* ShipsClockFramework */;
+			targetProxy = 6F60294B27270437009359D4 /* PBXContainerItemProxy */;
 		};
 		6FE9AFC1243F9CAA002B45BA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

@@ -7,12 +7,15 @@
 //
 
 import SwiftUI
-import ShipsClockFramework
 
-struct ClockBackground: View {
+public struct ClockBackground: View {
     var radius: Double
     
-    var body: some View {
+    public init(radius r : Double) {
+        radius = r
+    }
+    
+    public var body: some View {
         ZStack {
             self.border
             Numbers(radius: self.radius)

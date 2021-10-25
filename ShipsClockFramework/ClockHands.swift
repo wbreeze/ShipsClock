@@ -7,20 +7,24 @@
 //
 
 import SwiftUI
-import ShipsClockFramework
 
-struct ClockHands: View {
-    @EnvironmentObject var shipsClock: ShipsClock
+public struct ClockHands: View {
     var radius : Double
+    var timeOfDayInSeconds : Int
 
-    var body: some View {
+    public init(radius r : Double, timeOfDayInSeconds t : Int) {
+        radius = r
+        timeOfDayInSeconds = t
+    }
+    
+    public var body: some View {
         ZStack {
             MinuteHand(
-                radius: self.radius, timeInSeconds: self.shipsClock.timeOfDayInSeconds)
+                radius: self.radius, timeInSeconds: timeOfDayInSeconds)
             HourHand(
-                radius: self.radius, timeInSeconds: self.shipsClock.timeOfDayInSeconds)
+                radius: self.radius, timeInSeconds: timeOfDayInSeconds)
             WatchHand(
-                radius: self.radius, timeInSeconds: self.shipsClock.timeOfDayInSeconds)
+                radius: self.radius, timeInSeconds: timeOfDayInSeconds)
             CenterCircle(radius: self.radius)
         }
     }
@@ -126,6 +130,6 @@ struct ClockHands: View {
 
 struct ClockHands_Previews: PreviewProvider {
     static var previews: some View {
-        ClockHands(radius: 200.0)
+        ClockHands(radius: 200.0, timeOfDayInSeconds: 30)
     }
 }

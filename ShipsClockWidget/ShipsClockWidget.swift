@@ -19,6 +19,7 @@
 
 import WidgetKit
 import SwiftUI
+import ShipsClockFramework
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
@@ -54,7 +55,14 @@ struct ShipsClockWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        Text(entry.date, style: .time)
+        GeometryReader { geometry in
+            let currentDiameter = ClockGeometry.diameter(geometry)
+            ZStack {
+                let currentRadius = ClockGeometry.radius(geometry)
+                ClockBackground(radius: currentRadius)
+                ClockHands(radius: currentRadius, timeOfDayInSeconds: CalendarTime.timeOfDayInSeconds())
+            }.frame(width: currentDiameter, height: currentDiameter, alignment: .top)
+        }
     }
 }
 

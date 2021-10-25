@@ -20,7 +20,7 @@ struct ClockFace: View {
                 ClockBackground(radius: currentRadius)
                 ClockSun(radius: currentRadius).environmentObject(self.shipsClock.celestialComputer)
                 ClockMoon(radius: currentRadius).environmentObject(self.shipsClock.celestialComputer)
-                ClockHands(radius: currentRadius).environmentObject(self.shipsClock)
+                ClockHands(radius: currentRadius, timeOfDayInSeconds: shipsClock.timeOfDayInSeconds)
             }.frame(width: currentDiameter, height: currentDiameter, alignment: .top)
         }
     }
