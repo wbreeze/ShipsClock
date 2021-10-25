@@ -11,11 +11,11 @@ import SwiftUI
 struct ClockFace: View {
     @EnvironmentObject var shipsClock: ShipsClock
 
-    func diameter(_ geometry : GeometryProxy) -> CGFloat {
+    static func diameter(_ geometry : GeometryProxy) -> CGFloat {
         CGFloat.minimum(geometry.size.width, geometry.size.height)
     }
 
-    func radius(_ geometry : GeometryProxy) -> Double {
+    static func radius(_ geometry : GeometryProxy) -> Double {
         Double(self.diameter(geometry)) / 2.0
     }
     
@@ -38,12 +38,14 @@ struct ClockFace: View {
 
     var body: some View {
         GeometryReader { geometry in
+            let currentDiameter = ClockFace.diameter(geometry)
             ZStack {
-                ClockBackground(radius: self.radius(geometry))
-                ClockSun(radius: self.radius(geometry)).environmentObject(self.shipsClock.celestialComputer)
-                ClockMoon(radius: self.radius(geometry)).environmentObject(self.shipsClock.celestialComputer)
-                ClockHands(radius: self.radius(geometry)).environmentObject(self.shipsClock)
-            }.frame(width: self.diameter(geometry), height: self.diameter(geometry), alignment: .top)
+                let currentRadius = ClockFace.radius(geometry)
+                ClockBackground(radius: currentRadius)
+                ClockSun(radius: currentRadius).environmentObject(self.shipsClock.celestialComputer)
+                ClockMoon(radius: currentRadius).environmentObject(self.shipsClock.celestialComputer)
+                ClockHands(radius: currentRadius).environmentObject(self.shipsClock)
+            }.frame(width: currentDiameter, height: currentDiameter, alignment: .top)
         }
     }
 }
