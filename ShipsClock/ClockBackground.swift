@@ -72,11 +72,10 @@ struct ClockBackground: View {
     }
     
     struct Numbers: View {
-        let hourCount = 24
         let radius: Double
         
         var body: some View {
-            return ForEach(0..<self.hourCount, content: { hour in
+            return ForEach(0..<24, content: { hour in
                 PositionedHourLabel(
                     hour: hour,
                     radius: self.radius,
