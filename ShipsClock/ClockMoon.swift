@@ -38,7 +38,7 @@ struct ClockMoon: View {
             angle = (90.0 - moonAngle) * Double.pi / 180.0
         }
         return Text(moon)
-            .position(ClockFace.pointOnRadius(forAngle: angle, givenRadius: radius, atPosition: textRadiusMultiplier))
+            .position(ClockGeometry.pointOnRadius(forAngle: angle, givenRadius: radius, atPosition: textRadiusMultiplier))
             .font(.system(size: CGFloat(self.radius / 9.0), weight: .black, design: .default))
     }
 }

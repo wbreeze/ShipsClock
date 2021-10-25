@@ -44,13 +44,14 @@ struct ClockFace: View {
 
     var body: some View {
         GeometryReader { geometry in
+            let currentDiameter = ClockGeometry.diameter(geometry)
             ZStack {
-                ClockBackground(radius: self.radius(geometry))
-                ClockUTC(radius: self.radius(geometry)).environmentObject(self.shipsClock)
-                ClockSun(radius: self.radius(geometry)).environmentObject(self.shipsClock.celestialComputer)
-                ClockMoon(radius: self.radius(geometry)).environmentObject(self.shipsClock.celestialComputer)
-                ClockHands(radius: self.radius(geometry)).environmentObject(self.shipsClock)
-            }.frame(width: self.diameter(geometry), height: self.diameter(geometry), alignment: .top)
+                let currentRadius = ClockGeometry.radius(geometry)
+                ClockBackground(radius: currentRadius)
+                ClockSun(radius: currentRadius).environmentObject(self.shipsClock.celestialComputer)
+                ClockMoon(radius: currentRadius).environmentObject(self.shipsClock.celestialComputer)
+                ClockHands(radius: currentRadius).environmentObject(self.shipsClock)
+            }.frame(width: currentDiameter, height: currentDiameter, alignment: .top)
         }
     }
 }
