@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ShipsClockFramework
 
 /*:
  Application model for the Ships Clock
@@ -72,13 +73,6 @@ class ShipsClock : ObservableObject {
     }
     
     private static func nextTime() -> Int {
-        let now = Date()
-        let cal = Calendar.current
-        let hms = cal.dateComponents([.hour, .minute, .second], from: now)
-        if let hour = hms.hour, let minute = hms.minute, let second = hms.second {
-            return (hour * 60 + minute) * 60 + second
-        } else {
-            return 0
-        }
+        return CalendarTime.timeOfDayInSeconds()
     }
 }

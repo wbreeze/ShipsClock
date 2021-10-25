@@ -21,6 +21,13 @@ import Foundation
 
 public struct CalendarTime {
     public static func timeOfDayInSeconds() -> Int {
-       return 3650
+        let now = Date()
+        let cal = Calendar.current
+        let hms = cal.dateComponents([.hour, .minute, .second], from: now)
+        if let hour = hms.hour, let minute = hms.minute, let second = hms.second {
+            return (hour * 60 + minute) * 60 + second
+        } else {
+            return 0
+        }
     }
 }
