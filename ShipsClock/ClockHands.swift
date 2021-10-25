@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import ShipsClockFramework
 
 struct ClockHands: View {
     @EnvironmentObject var shipsClock: ShipsClock

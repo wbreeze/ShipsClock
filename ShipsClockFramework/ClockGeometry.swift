@@ -18,21 +18,21 @@ limitations under the License.
 
 import SwiftUI
 
-class ClockGeometry {
-    static func diameter(_ geometry : GeometryProxy) -> CGFloat {
+public class ClockGeometry {
+    public static func diameter(_ geometry : GeometryProxy) -> CGFloat {
         CGFloat.minimum(geometry.size.width, geometry.size.height)
     }
     
-    static func radius(_ geometry : GeometryProxy) -> Double {
+    public static func radius(_ geometry : GeometryProxy) -> Double {
         Double(self.diameter(geometry)) / 2.0
     }
     
-    static func hourAngle(forHour hour : Int) -> Double {
+    public static func hourAngle(forHour hour : Int) -> Double {
         let degrees = -Double(hour) * 360.0 / 24.0 - 90.0
         return degrees * Double.pi / 180.0
     }
     
-    static func pointOnRadius(
+    public static func pointOnRadius(
         forAngle angle: Double,
         givenRadius radius: Double,
         atPosition position: Double

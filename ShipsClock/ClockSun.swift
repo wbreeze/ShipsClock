@@ -18,6 +18,7 @@
 
 
 import SwiftUI
+import ShipsClockFramework
 
 struct ClockSun: View {
     @EnvironmentObject var computer: CelestialComputer
