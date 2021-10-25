@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class NotifierRinger: NSObject {
+class NotifierRinger: BellNotifier {
     var notificationCenter: UNUserNotificationCenter?
     let ringerCategoryID = UUID().uuidString
     var bell: ShipsBell
@@ -27,7 +27,7 @@ class NotifierRinger: NSObject {
         }
     }
     
-    func seekPermission() {
+    override func seekPermission() {
         center().requestAuthorization(options: [.sound]) { granted, error in
             if let error = error {
                 print("Error requesting notification authorization is \(String(describing: error))")
@@ -35,11 +35,11 @@ class NotifierRinger: NSObject {
         }
     }
     
-    func disableNotifications() {
+    override func disableNotifications() {
         center().removeAllPendingNotificationRequests()
     }
     
-    func scheduleBellNotificationsIfAuthorized() {
+    override func scheduleBellNotificationsIfAuthorized() {
         center().getNotificationSettings { settings in
             if (settings.authorizationStatus == .authorized) {
                 for period in self.bell.bellSchedule() {

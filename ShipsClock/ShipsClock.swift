@@ -17,7 +17,7 @@ class ShipsClock : ObservableObject {
     @Published var celestialComputer: CelestialComputer
     
     private var bell = ShipsBell()
-    private var backgroundRinger: NotifierRinger
+    private var backgroundRinger: BellNotifier
     private var foregroundRinger: TimerRinger
     private var ticker: Timer?
     
@@ -26,7 +26,11 @@ class ShipsClock : ObservableObject {
     init() {
         timeOfDayInSeconds = ShipsClock.nextTime()
         foregroundRinger = TimerRinger(bell: bell)
-        backgroundRinger = NotifierRinger(bell: bell)
+        if #available(iOS 15.0, *) {
+            backgroundRinger = BellNotifier()
+        } else {
+            backgroundRinger = NotifierRinger(bell: bell)
+        }
         let lt = LocationTracker()
         locationTracker = lt
         celestialComputer = CelestialComputer(locationTracker: lt)
