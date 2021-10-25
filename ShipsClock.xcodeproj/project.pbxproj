@@ -37,6 +37,12 @@
 		6F6029152726D794009359D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F6029142726D794009359D4 /* Assets.xcassets */; };
 		6F6029192726D794009359D4 /* ShipsClockWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6F60290B2726D790009359D4 /* ShipsClockWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6F60291F2726E175009359D4 /* BellNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F60291E2726E175009359D4 /* BellNotifier.swift */; };
+		6F6029292726EE0F009359D4 /* ShipsClockFramework.docc in Sources */ = {isa = PBXBuildFile; fileRef = 6F6029282726EE0F009359D4 /* ShipsClockFramework.docc */; };
+		6F60292F2726EE0F009359D4 /* ShipsClockFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6029252726EE0F009359D4 /* ShipsClockFramework.framework */; };
+		6F6029362726EE0F009359D4 /* ShipsClockFrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6029352726EE0F009359D4 /* ShipsClockFrameworkTests.swift */; };
+		6F6029372726EE0F009359D4 /* ShipsClockFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F6029272726EE0F009359D4 /* ShipsClockFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6F60293A2726EE0F009359D4 /* ShipsClockFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6029252726EE0F009359D4 /* ShipsClockFramework.framework */; };
+		6F60293B2726EE0F009359D4 /* ShipsClockFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6029252726EE0F009359D4 /* ShipsClockFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6F77AF04244FDD4E0070DB57 /* ShipsClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F77AF03244FDD4E0070DB57 /* ShipsClock.swift */; };
 		6F7DAC21259430830053E24C /* LocationFormatterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DAC20259430830053E24C /* LocationFormatterTest.swift */; };
 		6F7DAC26259431510053E24C /* LocationFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DAC25259431510053E24C /* LocationFormatter.swift */; };
@@ -73,6 +79,27 @@
 			remoteGlobalIDString = 6F60290A2726D790009359D4;
 			remoteInfo = ShipsClockWidgetExtension;
 		};
+		6F6029302726EE0F009359D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6FE9AFA1243F9CA8002B45BA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6F6029242726EE0F009359D4;
+			remoteInfo = ShipsClockFramework;
+		};
+		6F6029322726EE0F009359D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6FE9AFA1243F9CA8002B45BA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6FE9AFA8243F9CA8002B45BA;
+			remoteInfo = ShipsClock;
+		};
+		6F6029382726EE0F009359D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6FE9AFA1243F9CA8002B45BA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6F6029242726EE0F009359D4;
+			remoteInfo = ShipsClockFramework;
+		};
 		6FE9AFC0243F9CAA002B45BA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6FE9AFA1243F9CA8002B45BA /* Project object */;
@@ -99,6 +126,17 @@
 				6F6029192726D794009359D4 /* ShipsClockWidgetExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F60293F2726EE0F009359D4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6F60293B2726EE0F009359D4 /* ShipsClockFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -135,6 +173,11 @@
 		6F6029142726D794009359D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F6029162726D794009359D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6F60291E2726E175009359D4 /* BellNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BellNotifier.swift; sourceTree = "<group>"; };
+		6F6029252726EE0F009359D4 /* ShipsClockFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ShipsClockFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F6029272726EE0F009359D4 /* ShipsClockFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShipsClockFramework.h; sourceTree = "<group>"; };
+		6F6029282726EE0F009359D4 /* ShipsClockFramework.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = ShipsClockFramework.docc; sourceTree = "<group>"; };
+		6F60292E2726EE0F009359D4 /* ShipsClockFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShipsClockFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F6029352726EE0F009359D4 /* ShipsClockFrameworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipsClockFrameworkTests.swift; sourceTree = "<group>"; };
 		6F725BEC255D796200CC85A3 /* README.TXT */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.TXT; sourceTree = "<group>"; };
 		6F725BED255D796200CC85A3 /* ELP_PERT.S1 */ = {isa = PBXFileReference; lastKnownFileType = text; path = ELP_PERT.S1; sourceTree = "<group>"; };
 		6F725BEE255D796200CC85A3 /* ELP_MAIN.S3 */ = {isa = PBXFileReference; lastKnownFileType = text; path = ELP_MAIN.S3; sourceTree = "<group>"; };
@@ -186,10 +229,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6F6029222726EE0F009359D4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F60292B2726EE0F009359D4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F60292F2726EE0F009359D4 /* ShipsClockFramework.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6FE9AFA6243F9CA8002B45BA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F60293A2726EE0F009359D4 /* ShipsClockFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +272,8 @@
 		6F60290C2726D790009359D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6F6029262726EE0F009359D4 /* ShipsClockFramework */,
+				6F6029342726EE0F009359D4 /* ShipsClockFrameworkTests */,
 				6F60290D2726D790009359D4 /* WidgetKit.framework */,
 				6F60290F2726D790009359D4 /* SwiftUI.framework */,
 			);
@@ -227,6 +288,23 @@
 				6F6029162726D794009359D4 /* Info.plist */,
 			);
 			path = ShipsClockWidget;
+			sourceTree = "<group>";
+		};
+		6F6029262726EE0F009359D4 /* ShipsClockFramework */ = {
+			isa = PBXGroup;
+			children = (
+				6F6029272726EE0F009359D4 /* ShipsClockFramework.h */,
+				6F6029282726EE0F009359D4 /* ShipsClockFramework.docc */,
+			);
+			path = ShipsClockFramework;
+			sourceTree = "<group>";
+		};
+		6F6029342726EE0F009359D4 /* ShipsClockFrameworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				6F6029352726EE0F009359D4 /* ShipsClockFrameworkTests.swift */,
+			);
+			path = ShipsClockFrameworkTests;
 			sourceTree = "<group>";
 		};
 		6F725BEB255D796200CC85A3 /* ELPmpp02 */ = {
@@ -263,6 +341,8 @@
 				6F60290B2726D790009359D4 /* ShipsClockWidgetExtension.appex */,
 				6F6029112726D790009359D4 /* ShipsClockWidget */,
 				6F60290C2726D790009359D4 /* Frameworks */,
+				6F6029252726EE0F009359D4 /* ShipsClockFramework.framework */,
+				6F60292E2726EE0F009359D4 /* ShipsClockFrameworkTests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -344,6 +424,17 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		6F6029202726EE0F009359D4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F6029372726EE0F009359D4 /* ShipsClockFramework.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		6F60290A2726D790009359D4 /* ShipsClockWidgetExtension */ = {
 			isa = PBXNativeTarget;
@@ -362,6 +453,43 @@
 			productReference = 6F60290B2726D790009359D4 /* ShipsClockWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		6F6029242726EE0F009359D4 /* ShipsClockFramework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6F60293C2726EE0F009359D4 /* Build configuration list for PBXNativeTarget "ShipsClockFramework" */;
+			buildPhases = (
+				6F6029202726EE0F009359D4 /* Headers */,
+				6F6029212726EE0F009359D4 /* Sources */,
+				6F6029222726EE0F009359D4 /* Frameworks */,
+				6F6029232726EE0F009359D4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShipsClockFramework;
+			productName = ShipsClockFramework;
+			productReference = 6F6029252726EE0F009359D4 /* ShipsClockFramework.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6F60292D2726EE0F009359D4 /* ShipsClockFrameworkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6F6029402726EE0F009359D4 /* Build configuration list for PBXNativeTarget "ShipsClockFrameworkTests" */;
+			buildPhases = (
+				6F60292A2726EE0F009359D4 /* Sources */,
+				6F60292B2726EE0F009359D4 /* Frameworks */,
+				6F60292C2726EE0F009359D4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6F6029312726EE0F009359D4 /* PBXTargetDependency */,
+				6F6029332726EE0F009359D4 /* PBXTargetDependency */,
+			);
+			name = ShipsClockFrameworkTests;
+			productName = ShipsClockFrameworkTests;
+			productReference = 6F60292E2726EE0F009359D4 /* ShipsClockFrameworkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		6FE9AFA8243F9CA8002B45BA /* ShipsClock */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6FE9AFD3243F9CAA002B45BA /* Build configuration list for PBXNativeTarget "ShipsClock" */;
@@ -370,11 +498,13 @@
 				6FE9AFA6243F9CA8002B45BA /* Frameworks */,
 				6FE9AFA7243F9CA8002B45BA /* Resources */,
 				6F60291A2726D794009359D4 /* Embed App Extensions */,
+				6F60293F2726EE0F009359D4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				6F6029182726D794009359D4 /* PBXTargetDependency */,
+				6F6029392726EE0F009359D4 /* PBXTargetDependency */,
 			);
 			name = ShipsClock;
 			productName = ShipsClock;
@@ -430,6 +560,13 @@
 					6F60290A2726D790009359D4 = {
 						CreatedOnToolsVersion = 13.0;
 					};
+					6F6029242726EE0F009359D4 = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					6F60292D2726EE0F009359D4 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 6FE9AFA8243F9CA8002B45BA;
+					};
 					6FE9AFA8243F9CA8002B45BA = {
 						CreatedOnToolsVersion = 11.4;
 					};
@@ -461,6 +598,8 @@
 				6FE9AFBE243F9CAA002B45BA /* ShipsClockTests */,
 				6FE9AFC9243F9CAA002B45BA /* ShipsClockUITests */,
 				6F60290A2726D790009359D4 /* ShipsClockWidgetExtension */,
+				6F6029242726EE0F009359D4 /* ShipsClockFramework */,
+				6F60292D2726EE0F009359D4 /* ShipsClockFrameworkTests */,
 			);
 		};
 /* End PBXProject section */
@@ -471,6 +610,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F6029152726D794009359D4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F6029232726EE0F009359D4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F60292C2726EE0F009359D4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +663,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F6029132726D790009359D4 /* ShipsClockWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F6029212726EE0F009359D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F6029292726EE0F009359D4 /* ShipsClockFramework.docc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F60292A2726EE0F009359D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F6029362726EE0F009359D4 /* ShipsClockFrameworkTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,6 +754,21 @@
 			isa = PBXTargetDependency;
 			target = 6F60290A2726D790009359D4 /* ShipsClockWidgetExtension */;
 			targetProxy = 6F6029172726D794009359D4 /* PBXContainerItemProxy */;
+		};
+		6F6029312726EE0F009359D4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6F6029242726EE0F009359D4 /* ShipsClockFramework */;
+			targetProxy = 6F6029302726EE0F009359D4 /* PBXContainerItemProxy */;
+		};
+		6F6029332726EE0F009359D4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6FE9AFA8243F9CA8002B45BA /* ShipsClock */;
+			targetProxy = 6F6029322726EE0F009359D4 /* PBXContainerItemProxy */;
+		};
+		6F6029392726EE0F009359D4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6F6029242726EE0F009359D4 /* ShipsClockFramework */;
+			targetProxy = 6F6029382726EE0F009359D4 /* PBXContainerItemProxy */;
 		};
 		6FE9AFC1243F9CAA002B45BA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -667,6 +851,122 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6F60293D2726EE0F009359D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9QGTTGV2S5;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 Douglas Lovell. All rights reserved.";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wbreeze.ShipsClockFramework;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6F60293E2726EE0F009359D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9QGTTGV2S5;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 Douglas Lovell. All rights reserved.";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wbreeze.ShipsClockFramework;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6F6029412726EE0F009359D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9QGTTGV2S5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wbreeze.ShipsClockFrameworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShipsClock.app/ShipsClock";
+			};
+			name = Debug;
+		};
+		6F6029422726EE0F009359D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9QGTTGV2S5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wbreeze.ShipsClockFrameworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShipsClock.app/ShipsClock";
 			};
 			name = Release;
 		};
@@ -935,6 +1235,24 @@
 			buildConfigurations = (
 				6F60291B2726D794009359D4 /* Debug */,
 				6F60291C2726D794009359D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6F60293C2726EE0F009359D4 /* Build configuration list for PBXNativeTarget "ShipsClockFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F60293D2726EE0F009359D4 /* Debug */,
+				6F60293E2726EE0F009359D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6F6029402726EE0F009359D4 /* Build configuration list for PBXNativeTarget "ShipsClockFrameworkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F6029412726EE0F009359D4 /* Debug */,
+				6F6029422726EE0F009359D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

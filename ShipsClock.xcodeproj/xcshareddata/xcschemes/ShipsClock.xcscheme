@@ -48,6 +48,16 @@
                ReferencedContainer = "container:ShipsClock.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6F60292D2726EE0F009359D4"
+               BuildableName = "ShipsClockFrameworkTests.xctest"
+               BlueprintName = "ShipsClockFrameworkTests"
+               ReferencedContainer = "container:ShipsClock.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
