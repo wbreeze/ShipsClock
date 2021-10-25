@@ -66,8 +66,8 @@ struct ShipsClockWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             ShipsClockWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("Ships Clock")
+        .description("Display the time on a 24 hour clock and chime each half hour.")
     }
 }
 
