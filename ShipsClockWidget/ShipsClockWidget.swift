@@ -76,6 +76,7 @@ struct ShipsClockWidget: Widget {
         }
         .configurationDisplayName("Ships Clock")
         .description("Display the time on a 24 hour clock and chime each half hour.")
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
     }
 }
 
