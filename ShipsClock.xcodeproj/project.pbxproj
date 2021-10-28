@@ -37,7 +37,7 @@
 		6F60291F2726E175009359D4 /* BellNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F60291E2726E175009359D4 /* BellNotifier.swift */; };
 		6F6029292726EE0F009359D4 /* ShipsClockFramework.docc in Sources */ = {isa = PBXBuildFile; fileRef = 6F6029282726EE0F009359D4 /* ShipsClockFramework.docc */; };
 		6F60292F2726EE0F009359D4 /* ShipsClockFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6029252726EE0F009359D4 /* ShipsClockFramework.framework */; };
-		6F6029362726EE0F009359D4 /* ShipsClockFrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6029352726EE0F009359D4 /* ShipsClockFrameworkTests.swift */; };
+		6F6029362726EE0F009359D4 /* SharedStateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6029352726EE0F009359D4 /* SharedStateTest.swift */; };
 		6F6029372726EE0F009359D4 /* ShipsClockFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F6029272726EE0F009359D4 /* ShipsClockFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F60293A2726EE0F009359D4 /* ShipsClockFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6029252726EE0F009359D4 /* ShipsClockFramework.framework */; };
 		6F60293B2726EE0F009359D4 /* ShipsClockFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6029252726EE0F009359D4 /* ShipsClockFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -46,6 +46,8 @@
 		6F6029482726FF23009359D4 /* ClockHands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F40411D247F47DE00B1BF5D /* ClockHands.swift */; };
 		6F60294927270437009359D4 /* ShipsClockFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6029252726EE0F009359D4 /* ShipsClockFramework.framework */; platformFilter = ios; };
 		6F60294F27270626009359D4 /* CalendarTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F60294E27270626009359D4 /* CalendarTime.swift */; };
+		6F602955272A55C4009359D4 /* SharedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F602954272A55C4009359D4 /* SharedState.swift */; };
+		6F602956272A5EAB009359D4 /* SharedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F602954272A55C4009359D4 /* SharedState.swift */; };
 		6F77AF04244FDD4E0070DB57 /* ShipsClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F77AF03244FDD4E0070DB57 /* ShipsClock.swift */; };
 		6F7DAC21259430830053E24C /* LocationFormatterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DAC20259430830053E24C /* LocationFormatterTest.swift */; };
 		6F7DAC26259431510053E24C /* LocationFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DAC25259431510053E24C /* LocationFormatter.swift */; };
@@ -187,13 +189,14 @@
 		6F6029272726EE0F009359D4 /* ShipsClockFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShipsClockFramework.h; sourceTree = "<group>"; };
 		6F6029282726EE0F009359D4 /* ShipsClockFramework.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = ShipsClockFramework.docc; sourceTree = "<group>"; };
 		6F60292E2726EE0F009359D4 /* ShipsClockFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShipsClockFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6F6029352726EE0F009359D4 /* ShipsClockFrameworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipsClockFrameworkTests.swift; sourceTree = "<group>"; };
+		6F6029352726EE0F009359D4 /* SharedStateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedStateTest.swift; sourceTree = "<group>"; };
 		6F6029432726F65C009359D4 /* ClockGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockGeometry.swift; sourceTree = "<group>"; };
 		6F60294E27270626009359D4 /* CalendarTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTime.swift; sourceTree = "<group>"; };
 		6F6029502728561A009359D4 /* ShipsClock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShipsClock.entitlements; sourceTree = "<group>"; };
 		6F6029512728568A009359D4 /* ShipsClockWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShipsClockWidgetExtension.entitlements; sourceTree = "<group>"; };
 		6F6029522728573D009359D4 /* ShipsClockRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShipsClockRelease.entitlements; sourceTree = "<group>"; };
 		6F6029532728575B009359D4 /* ShipsClockWidgetExtensionRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShipsClockWidgetExtensionRelease.entitlements; sourceTree = "<group>"; };
+		6F602954272A55C4009359D4 /* SharedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedState.swift; sourceTree = "<group>"; };
 		6F725BEC255D796200CC85A3 /* README.TXT */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.TXT; sourceTree = "<group>"; };
 		6F725BED255D796200CC85A3 /* ELP_PERT.S1 */ = {isa = PBXFileReference; lastKnownFileType = text; path = ELP_PERT.S1; sourceTree = "<group>"; };
 		6F725BEE255D796200CC85A3 /* ELP_MAIN.S3 */ = {isa = PBXFileReference; lastKnownFileType = text; path = ELP_MAIN.S3; sourceTree = "<group>"; };
@@ -314,6 +317,7 @@
 				6F40411D247F47DE00B1BF5D /* ClockHands.swift */,
 				6F6029282726EE0F009359D4 /* ShipsClockFramework.docc */,
 				6F60294E27270626009359D4 /* CalendarTime.swift */,
+				6F602954272A55C4009359D4 /* SharedState.swift */,
 			);
 			path = ShipsClockFramework;
 			sourceTree = "<group>";
@@ -321,7 +325,7 @@
 		6F6029342726EE0F009359D4 /* ShipsClockFrameworkTests */ = {
 			isa = PBXGroup;
 			children = (
-				6F6029352726EE0F009359D4 /* ShipsClockFrameworkTests.swift */,
+				6F6029352726EE0F009359D4 /* SharedStateTest.swift */,
 			);
 			path = ShipsClockFrameworkTests;
 			sourceTree = "<group>";
@@ -694,6 +698,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F602955272A55C4009359D4 /* SharedState.swift in Sources */,
 				6F60294F27270626009359D4 /* CalendarTime.swift in Sources */,
 				6F6029462726F9D1009359D4 /* ClockGeometry.swift in Sources */,
 				6F6029482726FF23009359D4 /* ClockHands.swift in Sources */,
@@ -706,7 +711,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F6029362726EE0F009359D4 /* ShipsClockFrameworkTests.swift in Sources */,
+				6F602956272A5EAB009359D4 /* SharedState.swift in Sources */,
+				6F6029362726EE0F009359D4 /* SharedStateTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

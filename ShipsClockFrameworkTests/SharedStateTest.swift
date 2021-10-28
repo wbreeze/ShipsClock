@@ -16,30 +16,40 @@
    limitations under the License.
   */
   
-
 import XCTest
 @testable import ShipsClockFramework
 
-class ShipsClockFrameworkTests: XCTestCase {
+class SharedStateFrameworkTest: XCTestCase {
+    var ss = SharedState()
+    let fm = FileManager.default
 
+    func clearState() throws {
+        let path = ss.fileURL()?.path
+        if (fm.fileExists(atPath: path!)) {
+            try fm.removeItem(atPath: path!)
+        }
+    }
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        try clearState()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        try clearState()
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testPersistToFile() throws {
+        let path = ss.fileURL()?.path
+        ss.setWidgetToRing()
+        XCTAssertTrue(fm.fileExists(atPath: path!))
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+            
+    func testDefaultState() throws {
+        XCTAssertFalse(ss.widgetDoesRing())
     }
-
+    
+    func testReadState() throws {
+        ss.setWidgetToRing()
+        XCTAssertTrue(ss.widgetDoesRing())
+    }
 }
