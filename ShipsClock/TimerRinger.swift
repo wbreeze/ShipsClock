@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import ShipsClockFramework
 
 struct TimerRinger {
     let thirtyMinutes = 30 * 60

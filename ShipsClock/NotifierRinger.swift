@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import ShipsClockFramework
 
 class NotifierRinger: BellNotifier {
     var notificationCenter: UNUserNotificationCenter?

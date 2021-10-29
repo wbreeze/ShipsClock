@@ -22,33 +22,46 @@ import SwiftUI
 import ShipsClockFramework
 
 struct Provider: TimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date())
+    func placeholder(in context: Context) -> BellEntry {
+        BellEntry(date: Date(), sound: nil)
     }
 
-    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date())
+    func getSnapshot(in context: Context, completion: @escaping (BellEntry) -> ()) {
+        let entry = BellEntry(date: Date(), sound: nil)
         completion(entry)
     }
 
-    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [SimpleEntry] = []
+    func ringTimeline() -> [BellEntry] {
+        var entries: [BellEntry] = []
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate)
+        let bell = ShipsBell()
+
+        for period in bell.bellSchedule() {
+            let entry = BellEntry(date: period.timing.date ?? Date(), sound: period.bellSound)
             entries.append(entry)
         }
-
-        let timeline = Timeline(entries: entries, policy: .atEnd)
+        
+        return entries
+    }
+    
+    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+        var widgetState = SharedState()
+        var timeline : Timeline<BellEntry>
+        
+        if (widgetState.widgetDoesRing()) {
+            timeline = Timeline<BellEntry>(entries: ringTimeline(), policy: .atEnd)
+        } else {
+            timeline = Timeline<BellEntry>(entries: [], policy: .never)
+        }
+        
         completion(timeline)
     }
 }
 
-struct SimpleEntry: TimelineEntry {
-    let date: Date
+struct BellEntry: TimelineEntry {
+    var date: Date
+    let sound: String?
 }
 
 struct ShipsClockWidgetEntryView : View {
@@ -82,7 +95,7 @@ struct ShipsClockWidget: Widget {
 
 struct ShipsClockWidget_Previews: PreviewProvider {
     static var previews: some View {
-        ShipsClockWidgetEntryView(entry: SimpleEntry(date: Date()))
+        ShipsClockWidgetEntryView(entry: BellEntry(date: Date(), sound: nil))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
