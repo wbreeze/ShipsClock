@@ -28,7 +28,7 @@ class ShipsClock : ObservableObject {
         timeOfDayInSeconds = ShipsClock.nextTime()
         foregroundRinger = TimerRinger(bell: bell)
         if #available(iOS 15.0, *) {
-            backgroundRinger = BellNotifier()
+            backgroundRinger = WidgetRinger()
         } else {
             backgroundRinger = NotifierRinger(bell: bell)
         }

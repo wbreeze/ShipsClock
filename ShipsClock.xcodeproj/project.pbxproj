@@ -48,6 +48,7 @@
 		6F60294F27270626009359D4 /* CalendarTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F60294E27270626009359D4 /* CalendarTime.swift */; };
 		6F602955272A55C4009359D4 /* SharedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F602954272A55C4009359D4 /* SharedState.swift */; };
 		6F602956272A5EAB009359D4 /* SharedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F602954272A55C4009359D4 /* SharedState.swift */; };
+		6F602958272BFB3D009359D4 /* WidgetRinger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F602957272BFB3D009359D4 /* WidgetRinger.swift */; };
 		6F77AF04244FDD4E0070DB57 /* ShipsClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F77AF03244FDD4E0070DB57 /* ShipsClock.swift */; };
 		6F7DAC21259430830053E24C /* LocationFormatterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DAC20259430830053E24C /* LocationFormatterTest.swift */; };
 		6F7DAC26259431510053E24C /* LocationFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DAC25259431510053E24C /* LocationFormatter.swift */; };
@@ -197,6 +198,7 @@
 		6F6029522728573D009359D4 /* ShipsClockRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShipsClockRelease.entitlements; sourceTree = "<group>"; };
 		6F6029532728575B009359D4 /* ShipsClockWidgetExtensionRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShipsClockWidgetExtensionRelease.entitlements; sourceTree = "<group>"; };
 		6F602954272A55C4009359D4 /* SharedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedState.swift; sourceTree = "<group>"; };
+		6F602957272BFB3D009359D4 /* WidgetRinger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetRinger.swift; sourceTree = "<group>"; };
 		6F725BEC255D796200CC85A3 /* README.TXT */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.TXT; sourceTree = "<group>"; };
 		6F725BED255D796200CC85A3 /* ELP_PERT.S1 */ = {isa = PBXFileReference; lastKnownFileType = text; path = ELP_PERT.S1; sourceTree = "<group>"; };
 		6F725BEE255D796200CC85A3 /* ELP_MAIN.S3 */ = {isa = PBXFileReference; lastKnownFileType = text; path = ELP_MAIN.S3; sourceTree = "<group>"; };
@@ -409,6 +411,7 @@
 				6FE9AFB4243F9CAA002B45BA /* Preview Content */,
 				6F24FDAF246708860006590A /* NotifierRinger.swift */,
 				6F60291E2726E175009359D4 /* BellNotifier.swift */,
+				6F602957272BFB3D009359D4 /* WidgetRinger.swift */,
 				6F093CA926CFF7DA0091A4B7 /* ClockConfiguration.swift */,
 			);
 			path = ShipsClock;
@@ -728,6 +731,7 @@
 				6F8FEC97246C1F9F00A1FAE7 /* LocationTracker.swift in Sources */,
 				6FE9AFAD243F9CA8002B45BA /* AppDelegate.swift in Sources */,
 				6F24FD9E245D2D6A0006590A /* ShipsBell.swift in Sources */,
+				6F602958272BFB3D009359D4 /* WidgetRinger.swift in Sources */,
 				6F5F631A24D1E4B900172BC4 /* MoonCalculator.swift in Sources */,
 				6F8FEC8F2469B3D300A1FAE7 /* TimerRinger.swift in Sources */,
 				6FAECDAA2565897300B91A82 /* EclToEqu.swift in Sources */,
