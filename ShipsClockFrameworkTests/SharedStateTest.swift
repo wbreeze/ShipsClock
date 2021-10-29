@@ -52,4 +52,11 @@ class SharedStateFrameworkTest: XCTestCase {
         ss.setWidgetToRing()
         XCTAssertTrue(ss.widgetDoesRing())
     }
+    
+    func testClockDoesRing() throws {
+        ss.setWidgetToRing()
+        XCTAssertTrue(ss.widgetDoesRing())
+        ss.setClockToRing()
+        XCTAssertFalse(ss.widgetDoesRing())
+    }
 }

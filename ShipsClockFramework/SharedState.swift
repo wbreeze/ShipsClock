@@ -28,6 +28,8 @@ public struct SharedState {
         var widgetRings : Bool
     }
     
+    public init() {}
+    
     public func fileURL() -> URL? {
         let dirURL = fm.containerURL(forSecurityApplicationGroupIdentifier: SHIPSCLOCK_FILE_GROUP)?
             .appendingPathComponent("tmp")
@@ -72,6 +74,13 @@ public struct SharedState {
     public mutating func setWidgetToRing() {
         if (!state.widgetRings) {
             state.widgetRings = true
+            persistState()
+        }
+    }
+    
+    public mutating func setClockToRing() {
+        if (state.widgetRings) {
+            state.widgetRings = false
             persistState()
         }
     }
