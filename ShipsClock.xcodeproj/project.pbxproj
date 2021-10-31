@@ -314,13 +314,14 @@
 			isa = PBXGroup;
 			children = (
 				6F6029272726EE0F009359D4 /* ShipsClockFramework.h */,
+				6F60294E27270626009359D4 /* CalendarTime.swift */,
 				6F6029432726F65C009359D4 /* ClockGeometry.swift */,
 				6F40411B247F47CB00B1BF5D /* ClockBackground.swift */,
 				6F40411D247F47DE00B1BF5D /* ClockHands.swift */,
-				6F24FD9D245D2D6A0006590A /* ShipsBell.swift */,
-				6F6029282726EE0F009359D4 /* ShipsClockFramework.docc */,
-				6F60294E27270626009359D4 /* CalendarTime.swift */,
 				6F602954272A55C4009359D4 /* SharedState.swift */,
+				6F24FD9D245D2D6A0006590A /* ShipsBell.swift */,
+				6F8FEC8E2469B3D300A1FAE7 /* TimerRinger.swift */,
+				6F6029282726EE0F009359D4 /* ShipsClockFramework.docc */,
 			);
 			path = ShipsClockFramework;
 			sourceTree = "<group>";
@@ -401,7 +402,6 @@
 				6F1BBB4A24B779ED0092A54D /* Julian.swift */,
 				6F8FEC96246C1F9F00A1FAE7 /* LocationTracker.swift */,
 				6F7DAC25259431510053E24C /* LocationFormatter.swift */,
-				6F8FEC8E2469B3D300A1FAE7 /* TimerRinger.swift */,
 				6FE9AFDE243FBB79002B45BA /* ClockFace.swift */,
 				6F40411F2485DB4700B1BF5D /* ClockSun.swift */,
 				6FAECDBF2568138100B91A82 /* ClockMoon.swift */,

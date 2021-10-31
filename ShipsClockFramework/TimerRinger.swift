@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import ShipsClockFramework
 
-struct TimerRinger {
+public struct TimerRinger {
     let thirtyMinutes = 30 * 60
     let fourHours = 4 * 60 * 60
     
@@ -19,7 +19,7 @@ struct TimerRinger {
     var audioPlayer: AVAudioPlayer?
     var bell: ShipsBell
     
-    init(bell: ShipsBell) {
+    public init(bell: ShipsBell) {
         self.bell = bell
         audioSession = AVAudioSession.sharedInstance()
         do {
@@ -32,7 +32,7 @@ struct TimerRinger {
     /*:
      Play the bell sound for the given half hour interval
      */
-    mutating func ring(hourIndex index: Int) {
+    public mutating func ring(hourIndex index: Int) {
         if let url = Bundle.main.url(forResource: bell.soundFileBaseName(bellIndex: index), withExtension: "wav") {
             do {
                 try audioPlayer = AVAudioPlayer(contentsOf: url)
@@ -45,11 +45,11 @@ struct TimerRinger {
         }
     }
     
-    mutating func initializeLastPlayed(forTimeInSeconds time: Int) {
+    public mutating func initializeLastPlayed(forTimeInSeconds time: Int) {
         lastPlayedIndex = bell.halfHourIndex(forTimeInSeconds: time)
     }
     
-    mutating func maybeRing(forTimeInSeconds time: Int) {
+    public mutating func maybeRing(forTimeInSeconds time: Int) {
         let bellIndex = bell.halfHourIndex(forTimeInSeconds: time)
         if (bellIndex != lastPlayedIndex) {
             ring(hourIndex: bellIndex)
