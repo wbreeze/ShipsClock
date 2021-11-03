@@ -34,9 +34,7 @@ struct Provider: TimelineProvider {
     func ringTimeline() -> [BellEntry] {
         var entries: [BellEntry] = []
 
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let bell = ShipsBell()
-
         for period in bell.bellSchedule() {
             let entry = BellEntry(date: period.timing.date ?? Date(), sound: period.bellSound)
             entries.append(entry)
@@ -59,7 +57,7 @@ struct Provider: TimelineProvider {
     }
 }
 
-struct BellEntry: TimelineEntry {
+struct BellEntry: TimelineEntry, Equatable {
     var date: Date
     let sound: String?
 }
@@ -67,6 +65,14 @@ struct BellEntry: TimelineEntry {
 struct ShipsClockWidgetEntryView : View {
     var entry: Provider.Entry
 
+    func maybeRingBell(_ : Provider.Entry) {
+        if let soundName = entry.sound {
+            let bell = ShipsBell()
+            var ringer = TimerRinger(bell: bell)
+            ringer.playNamedSoundFile(soundName)
+        }
+    }
+    
     var body: some View {
         GeometryReader { geometry in
             let currentDiameter = ClockGeometry.diameter(geometry)
@@ -75,13 +81,14 @@ struct ShipsClockWidgetEntryView : View {
                 ClockBackground(radius: currentRadius)
                 ClockHands(radius: currentRadius, timeOfDayInSeconds: CalendarTime.timeOfDayInSeconds())
             }.frame(width: currentDiameter, height: currentDiameter, alignment: .top)
+                .onChange(of: entry, perform: maybeRingBell)
         }
     }
 }
 
 @main
 struct ShipsClockWidget: Widget {
-    let kind: String = "ShipsClockWidget"
+    let kind: String = "shipsclock.com.wbreeze"
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
