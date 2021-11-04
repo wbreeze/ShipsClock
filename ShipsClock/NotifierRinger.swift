@@ -28,7 +28,7 @@ class NotifierRinger: NSObject {
     }
     
     func seekPermission() {
-        center().requestAuthorization(options: [.sound]) { granted, error in
+        center().requestAuthorization(options: [.sound, .criticalAlert]) { granted, error in
             if let error = error {
                 print("Error requesting notification authorization is \(String(describing: error))")
             }
@@ -53,6 +53,7 @@ class NotifierRinger: NSObject {
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         let content = UNMutableNotificationContent()
         content.sound = UNNotificationSound(named: UNNotificationSoundName(sound))
+        content.title = String.localizedStringWithFormat("%02d:%02d", dateComponents.hour ?? 0, dateComponents.minute ?? 0)
         content.categoryIdentifier = ringerCategoryID
         let request = UNNotificationRequest(identifier: UUID().uuidString,
                     content: content, trigger: trigger)
