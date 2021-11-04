@@ -26,7 +26,7 @@ struct ClockUTC: View {
     let pointerRadiusMultiplier = 0.83
     
     var body: some View {
-        let hourAngle = ClockFace.hourAngle(forTimeInSeconds: shipsClock.utcTimeInSeconds)
+        let hourAngle = ClockFace.hourAngle(forTimeInSeconds: self.shipsClock.utcTimeInSeconds)
         let center = ClockFace.pointOnRadius(forAngle: hourAngle, givenRadius: radius, atPosition: pointerRadiusMultiplier)
         let scale = CGFloat(radius / 120.0)
         let transform = CGAffineTransform.identity
