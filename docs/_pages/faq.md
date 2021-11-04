@@ -69,6 +69,18 @@ play the bells for you using notifications. The app is not available to play
 the bells directly when it is in this state.
 The notifications method is the best allowed by the operating system.
 
+## What do I do about the half hourly notifications visual clutter?
+In iOS 15, the notification sounds no longer play.
+In order to fix this, we had to add a title to the notification. We simply put the time.
+There's no real benefit to seeing the notification.
+In the notification settings for ShipsClock, under "alerts":
+- turn off "Lock Screen"
+- turn off "Notification Center"
+- Leave on "Allow Notifications" and "Sounds"
+
+Here is a screen shot. These settings will give you bell sounds without visual clutter.
+![notification settings]({{ 'assets/screenshot/NotificationSettings.png' | relative_url }})
+
 ## Will the silence switch silence the bells?
 
 When the app is using notifications, yes. The silence switch will silence
