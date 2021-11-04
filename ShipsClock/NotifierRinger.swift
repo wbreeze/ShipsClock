@@ -53,7 +53,7 @@ class NotifierRinger: NSObject {
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         let content = UNMutableNotificationContent()
         content.sound = UNNotificationSound(named: UNNotificationSoundName(sound))
-        content.title = "\(dateComponents.hour ?? 0):\(dateComponents.minute ?? 0)"
+        content.title = String.localizedStringWithFormat("%02d:%02d", dateComponents.hour ?? 0, dateComponents.minute ?? 0)
         content.categoryIdentifier = ringerCategoryID
         let request = UNNotificationRequest(identifier: UUID().uuidString,
                     content: content, trigger: trigger)
