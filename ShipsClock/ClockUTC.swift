@@ -23,12 +23,13 @@ struct ClockUTC: View {
     @EnvironmentObject var shipsClock: ShipsClock
     var radius : Double
 
-    let pointerRadiusMultiplier = 0.83
+    let pointerPositionMultiplier = 0.77
+    let pointerSizeMultiplier = 44.0
     
     var body: some View {
         let hourAngle = ClockFace.hourAngle(forTimeInSeconds: self.shipsClock.utcTimeInSeconds)
-        let center = ClockFace.pointOnRadius(forAngle: hourAngle, givenRadius: radius, atPosition: pointerRadiusMultiplier)
-        let scale = CGFloat(radius / 120.0)
+        let center = ClockFace.pointOnRadius(forAngle: hourAngle, givenRadius: radius, atPosition: pointerPositionMultiplier)
+        let scale = CGFloat(radius / pointerSizeMultiplier)
         let transform = CGAffineTransform.identity
             .concatenating(CGAffineTransform.identity.scaledBy(x: scale, y: scale))
             .concatenating(CGAffineTransform.identity.rotated(by: CGFloat(-hourAngle + 3.0 * Double.pi / 2.0)))
