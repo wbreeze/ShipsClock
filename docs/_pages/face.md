@@ -44,7 +44,7 @@ The letters correspond to the following descriptions:
   meridian, as directly overhead as it will get during the day.
   Before then it will be moving higher. After then it will be moving lower.
   It reaches its lowest (out of sight, below you, on the other side of the
-  earth) at midnight.
+  earth) when the sun is at midnight.
   See [hour angle](https://en.wikipedia.org/wiki/Hour_angle) on Wikipedia
   for more regarding the hour angle.
 - **O**: The moon appears if location is enabled. Knowing your time and your longitude,
