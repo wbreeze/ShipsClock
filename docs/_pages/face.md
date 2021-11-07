@@ -8,7 +8,7 @@ include_in_header: false
 
 ## The elements of the clock
 
-![clock face annotated]({{ 'assets/screenshot/face_annot.jpeg' | relative_url }})
+![clock face annotated]({{ 'assets/screenshot/face_annot.png' | relative_url }})
 
 The screen capture shows the elements of the clock face annotated with letters.
 The letters correspond to the following descriptions:
@@ -51,6 +51,7 @@ The letters correspond to the following descriptions:
   the app computes the local hour angle of the moon and displays it next to the
   numbered hour scale. See the description of **S**, the local hour angle of the
   sun, for more detail.
+  **U**: A triangle indicating the hour UTC (Universal time)
 - **LAT**: Your current latitude (if location is enabled). It reads degrees,
   minutes, and seconds. It will have an "N" for north latitudes and an "S"
   for south latitudes.
@@ -58,12 +59,13 @@ The letters correspond to the following descriptions:
   minutes, and seconds. It will have a "W" for west latitudes (West of
   Greenwich). It will have an "E" for east latitudes (East of Greenwich).
 - **VEL**: Your current velocity in tenths of knots and cardinal direction.
-  A "knot" is one nautical
-  mile per hour. It is the measure of speed used by ships on the sea.
-  The clock displays sixteen cardinal directions. They are, moving around
-  the compass from the north-- N, NNE, NE, ENE, E, ESE, SE, SSE, S, SSW, SW,
-  WSW, W, WNW, NW, NNW. Thus the clock shows your direction to the nearest
-  twenty-two and one-half degrees.
+  - A "knot" is one nautical mile per hour. It is the measure of speed used by
+    ships on the sea.  A nautical mile is slightly larger than a statute mile
+    and slightly smaller than two kilometers.
+  - The clock displays sixteen cardinal directions. They are, moving clockwise
+    around the compass from the north-- N, NNE, NE, ENE, E, ESE, SE, SSE, S,
+    SSW, SW, WSW, W, WNW, NW, NNW. Thus the clock shows your direction to the
+    nearest twenty-two and one-half degrees.
 - **WT**: These heavy, outer tics correspond to the watch (**W**) hand. See a
   further description in the following.
 - **HT**: These light, inner tics correspond to the hour (**H**) hand. See a
