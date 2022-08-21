@@ -6,6 +6,9 @@ include_in_header: true
 
 # Changelog
 
+## Version 1.1.3
+- Adds an indicator for hour UTC
+
 ## Version 1.1.2
 - Provide a title for notifications such that their sound is played in iOS 15
 
