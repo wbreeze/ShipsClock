@@ -79,6 +79,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		6F19EEA928B9AC12009C0738 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6F60291A2726D794009359D4 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -115,8 +125,8 @@
 		6F24FDA7245E48730006590A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		6F24FDA8245E48730006590A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
 		6F24FDAC245F8EC10006590A /* ShipsClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShipsClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6F24FDAD245F8EC10006590A /* ShipsClockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShipsClockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6F24FDAE245F8EC10006590A /* ShipsClockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShipsClockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F24FDAD245F8EC10006590A /* ShipsClockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = ShipsClockTests.xctest; path = "/Users/dcl/Documents/p.swift/ShipsClock/build/Debug-iphoneos/ShipsClockTests.xctest"; sourceTree = "<absolute>"; };
+		6F24FDAE245F8EC10006590A /* ShipsClockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = ShipsClockUITests.xctest; path = "/Users/dcl/Documents/p.swift/ShipsClock/build/Debug-iphoneos/ShipsClockUITests.xctest"; sourceTree = "<absolute>"; };
 		6F24FDAF246708860006590A /* NotifierRinger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifierRinger.swift; sourceTree = "<group>"; };
 		6F37A35E27339E190016A38C /* ClockUTC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockUTC.swift; sourceTree = "<group>"; };
 		6F40411B247F47CB00B1BF5D /* ClockBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockBackground.swift; sourceTree = "<group>"; };
@@ -127,14 +137,6 @@
 		6F4758882561608200E78298 /* CelestialTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelestialTime.swift; sourceTree = "<group>"; };
 		6F5F631924D1E4B900172BC4 /* MoonCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonCalculator.swift; sourceTree = "<group>"; };
 		6F5F631B24D47E3A00172BC4 /* MoonCalcTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonCalcTest.swift; sourceTree = "<group>"; };
-		6F60290D2726D790009359D4 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
-		6F60290F2726D790009359D4 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		6F6029122726D790009359D4 /* ShipsClockWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipsClockWidget.swift; sourceTree = "<group>"; };
-		6F6029142726D794009359D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6F6029162726D794009359D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6F6029272726EE0F009359D4 /* ShipsClockFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShipsClockFramework.h; sourceTree = "<group>"; };
-		6F6029282726EE0F009359D4 /* ShipsClockFramework.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = ShipsClockFramework.docc; sourceTree = "<group>"; };
-		6F6029352726EE0F009359D4 /* ShipsClockFrameworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipsClockFrameworkTests.swift; sourceTree = "<group>"; };
 		6F6029432726F65C009359D4 /* ClockGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockGeometry.swift; sourceTree = "<group>"; };
 		6F725BEC255D796200CC85A3 /* README.TXT */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.TXT; sourceTree = "<group>"; };
 		6F725BED255D796200CC85A3 /* ELP_PERT.S1 */ = {isa = PBXFileReference; lastKnownFileType = text; path = ELP_PERT.S1; sourceTree = "<group>"; };
@@ -202,44 +204,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6F60290C2726D790009359D4 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				6F6029262726EE0F009359D4 /* ShipsClockFramework */,
-				6F6029342726EE0F009359D4 /* ShipsClockFrameworkTests */,
-				6F60290D2726D790009359D4 /* WidgetKit.framework */,
-				6F60290F2726D790009359D4 /* SwiftUI.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		6F6029112726D790009359D4 /* ShipsClockWidget */ = {
-			isa = PBXGroup;
-			children = (
-				6F6029122726D790009359D4 /* ShipsClockWidget.swift */,
-				6F6029142726D794009359D4 /* Assets.xcassets */,
-				6F6029162726D794009359D4 /* Info.plist */,
-			);
-			path = ShipsClockWidget;
-			sourceTree = "<group>";
-		};
-		6F6029262726EE0F009359D4 /* ShipsClockFramework */ = {
-			isa = PBXGroup;
-			children = (
-				6F6029272726EE0F009359D4 /* ShipsClockFramework.h */,
-				6F6029282726EE0F009359D4 /* ShipsClockFramework.docc */,
-			);
-			path = ShipsClockFramework;
-			sourceTree = "<group>";
-		};
-		6F6029342726EE0F009359D4 /* ShipsClockFrameworkTests */ = {
-			isa = PBXGroup;
-			children = (
-				6F6029352726EE0F009359D4 /* ShipsClockFrameworkTests.swift */,
-			);
-			path = ShipsClockFrameworkTests;
-			sourceTree = "<group>";
-		};
 		6F725BEB255D796200CC85A3 /* ELPmpp02 */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,10 +233,6 @@
 				6FE9AFC2243F9CAA002B45BA /* ShipsClockTests */,
 				6FE9AFCD243F9CAA002B45BA /* ShipsClockUITests */,
 				6F24FDAC245F8EC10006590A /* ShipsClock.app */,
-				6F24FDAD245F8EC10006590A /* ShipsClockTests.xctest */,
-				6F24FDAE245F8EC10006590A /* ShipsClockUITests.xctest */,
-				6F6029112726D790009359D4 /* ShipsClockWidget */,
-				6F60290C2726D790009359D4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -365,6 +325,7 @@
 				6FE9AFA7243F9CA8002B45BA /* Resources */,
 				6F60291A2726D794009359D4 /* Embed App Extensions */,
 				6F60293F2726EE0F009359D4 /* Embed Frameworks */,
+				6F19EEA928B9AC12009C0738 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
@@ -417,7 +378,7 @@
 		6FE9AFA1243F9CA8002B45BA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1300;
+				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1210;
 				ORGANIZATIONNAME = "Douglas Lovell";
 				TargetAttributes = {
