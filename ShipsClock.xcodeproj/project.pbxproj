@@ -112,6 +112,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6F06BD1A28BA00E700DC874C /* ShipsClockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = ShipsClockTests.xctest; path = "/Users/dcl/Documents/p.swift/ShipsClock/build/Debug-iphoneos/ShipsClockTests.xctest"; sourceTree = "<absolute>"; };
+		6F06BD1B28BA00E700DC874C /* ShipsClockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = ShipsClockUITests.xctest; path = "/Users/dcl/Documents/p.swift/ShipsClock/build/Debug-iphoneos/ShipsClockUITests.xctest"; sourceTree = "<absolute>"; };
 		6F093CA726CFF42E0091A4B7 /* SettingsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTest.swift; sourceTree = "<group>"; };
 		6F093CA926CFF7DA0091A4B7 /* ClockConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockConfiguration.swift; sourceTree = "<group>"; };
 		6F1BBB4A24B779ED0092A54D /* Julian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Julian.swift; sourceTree = "<group>"; };
@@ -125,8 +127,6 @@
 		6F24FDA7245E48730006590A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		6F24FDA8245E48730006590A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
 		6F24FDAC245F8EC10006590A /* ShipsClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShipsClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6F24FDAD245F8EC10006590A /* ShipsClockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = ShipsClockTests.xctest; path = "/Users/dcl/Documents/p.swift/ShipsClock/build/Debug-iphoneos/ShipsClockTests.xctest"; sourceTree = "<absolute>"; };
-		6F24FDAE245F8EC10006590A /* ShipsClockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = ShipsClockUITests.xctest; path = "/Users/dcl/Documents/p.swift/ShipsClock/build/Debug-iphoneos/ShipsClockUITests.xctest"; sourceTree = "<absolute>"; };
 		6F24FDAF246708860006590A /* NotifierRinger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifierRinger.swift; sourceTree = "<group>"; };
 		6F37A35E27339E190016A38C /* ClockUTC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockUTC.swift; sourceTree = "<group>"; };
 		6F40411B247F47CB00B1BF5D /* ClockBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockBackground.swift; sourceTree = "<group>"; };
@@ -351,7 +351,7 @@
 			);
 			name = ShipsClockTests;
 			productName = ShipsClockTests;
-			productReference = 6F24FDAD245F8EC10006590A /* ShipsClockTests.xctest */;
+			productReference = 6F06BD1A28BA00E700DC874C /* ShipsClockTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		6FE9AFC9243F9CAA002B45BA /* ShipsClockUITests */ = {
@@ -369,7 +369,7 @@
 			);
 			name = ShipsClockUITests;
 			productName = ShipsClockUITests;
-			productReference = 6F24FDAE245F8EC10006590A /* ShipsClockUITests.xctest */;
+			productReference = 6F06BD1B28BA00E700DC874C /* ShipsClockUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
