@@ -40,6 +40,7 @@
 		6F8FEC8F2469B3D300A1FAE7 /* TimerRinger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8FEC8E2469B3D300A1FAE7 /* TimerRinger.swift */; };
 		6F8FEC97246C1F9F00A1FAE7 /* LocationTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8FEC96246C1F9F00A1FAE7 /* LocationTracker.swift */; };
 		6F8FEC99246C4FE000A1FAE7 /* SituationDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8FEC98246C4FE000A1FAE7 /* SituationDisplay.swift */; };
+		6F94CAD628C5065100941D26 /* CelestialComputer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCCEE872497051A00F18212 /* CelestialComputer.swift */; };
 		6FAC63B8256C1EF800C2C834 /* MoonPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAC63B7256C1EF800C2C834 /* MoonPhase.swift */; };
 		6FAC63BD256C419400C2C834 /* MoonPhaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAC63BC256C419400C2C834 /* MoonPhaseTest.swift */; };
 		6FAC63C1256C424E00C2C834 /* MoonPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAC63B7256C1EF800C2C834 /* MoonPhase.swift */; };
@@ -48,6 +49,7 @@
 		6FAECDB025658BFC00B91A82 /* EclToEquTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAECDAF25658BFC00B91A82 /* EclToEquTest.swift */; };
 		6FAECDBB2566C0E800B91A82 /* CelestialTimeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAECDBA2566C0E800B91A82 /* CelestialTimeTest.swift */; };
 		6FAECDC02568138100B91A82 /* ClockMoon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAECDBF2568138100B91A82 /* ClockMoon.swift */; };
+		6FB9E6AA28C50E050089E60C /* LocationTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8FEC96246C1F9F00A1FAE7 /* LocationTracker.swift */; };
 		6FCCEE85249652D800F18212 /* SunCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCCEE84249652D800F18212 /* SunCalculator.swift */; };
 		6FCCEE862496531D00F18212 /* SunCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCCEE84249652D800F18212 /* SunCalculator.swift */; };
 		6FCCEE882497051A00F18212 /* CelestialComputer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCCEE872497051A00F18212 /* CelestialComputer.swift */; };
@@ -112,8 +114,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6F06BD1A28BA00E700DC874C /* ShipsClockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = ShipsClockTests.xctest; path = "/Users/dcl/Documents/p.swift/ShipsClock/build/Debug-iphoneos/ShipsClockTests.xctest"; sourceTree = "<absolute>"; };
-		6F06BD1B28BA00E700DC874C /* ShipsClockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = ShipsClockUITests.xctest; path = "/Users/dcl/Documents/p.swift/ShipsClock/build/Debug-iphoneos/ShipsClockUITests.xctest"; sourceTree = "<absolute>"; };
 		6F093CA726CFF42E0091A4B7 /* SettingsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTest.swift; sourceTree = "<group>"; };
 		6F093CA926CFF7DA0091A4B7 /* ClockConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockConfiguration.swift; sourceTree = "<group>"; };
 		6F1BBB4A24B779ED0092A54D /* Julian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Julian.swift; sourceTree = "<group>"; };
@@ -158,6 +158,8 @@
 		6F8FEC8E2469B3D300A1FAE7 /* TimerRinger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerRinger.swift; sourceTree = "<group>"; };
 		6F8FEC96246C1F9F00A1FAE7 /* LocationTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTracker.swift; sourceTree = "<group>"; };
 		6F8FEC98246C4FE000A1FAE7 /* SituationDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SituationDisplay.swift; sourceTree = "<group>"; };
+		6F94CAC828C4DDA700941D26 /* ShipsClockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShipsClockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F94CAC928C4DDA700941D26 /* ShipsClockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShipsClockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FAC63B7256C1EF800C2C834 /* MoonPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonPhase.swift; sourceTree = "<group>"; };
 		6FAC63BC256C419400C2C834 /* MoonPhaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonPhaseTest.swift; sourceTree = "<group>"; };
 		6FAECDA92565897300B91A82 /* EclToEqu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EclToEqu.swift; sourceTree = "<group>"; };
@@ -233,6 +235,8 @@
 				6FE9AFC2243F9CAA002B45BA /* ShipsClockTests */,
 				6FE9AFCD243F9CAA002B45BA /* ShipsClockUITests */,
 				6F24FDAC245F8EC10006590A /* ShipsClock.app */,
+				6F94CAC828C4DDA700941D26 /* ShipsClockTests.xctest */,
+				6F94CAC928C4DDA700941D26 /* ShipsClockUITests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -351,7 +355,7 @@
 			);
 			name = ShipsClockTests;
 			productName = ShipsClockTests;
-			productReference = 6F06BD1A28BA00E700DC874C /* ShipsClockTests.xctest */;
+			productReference = 6F94CAC828C4DDA700941D26 /* ShipsClockTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		6FE9AFC9243F9CAA002B45BA /* ShipsClockUITests */ = {
@@ -369,7 +373,7 @@
 			);
 			name = ShipsClockUITests;
 			productName = ShipsClockUITests;
-			productReference = 6F06BD1B28BA00E700DC874C /* ShipsClockUITests.xctest */;
+			productReference = 6F94CAC928C4DDA700941D26 /* ShipsClockUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -491,6 +495,8 @@
 				6F404123248BD0D600B1BF5D /* SunCalcTest.swift in Sources */,
 				6F5F631D24D481B100172BC4 /* MoonCalculator.swift in Sources */,
 				6F1BBB4E24B77B350092A54D /* Julian.swift in Sources */,
+				6F94CAD628C5065100941D26 /* CelestialComputer.swift in Sources */,
+				6FB9E6AA28C50E050089E60C /* LocationTracker.swift in Sources */,
 				6F1BBB5224B79B2A0092A54D /* ArcsTest.swift in Sources */,
 				6F1BBB5324B79C070092A54D /* Arcs.swift in Sources */,
 				6FAECDB025658BFC00B91A82 /* EclToEquTest.swift in Sources */,
