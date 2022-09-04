@@ -17,6 +17,7 @@ struct ClockFace: View {
             ZStack {
                 let currentRadius = ClockGeometry.radius(geometry)
                 ClockBackground(radius: currentRadius)
+                ClockUTC(radius: currentRadius).environmentObject(self.shipsClock)
                 ClockSun(radius: currentRadius).environmentObject(self.shipsClock.celestialComputer)
                 ClockMoon(radius: currentRadius).environmentObject(self.shipsClock.celestialComputer)
                 ClockHands(radius: currentRadius).environmentObject(self.shipsClock)
