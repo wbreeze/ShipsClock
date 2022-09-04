@@ -27,8 +27,8 @@ struct ClockUTC: View {
     let pointerSizeMultiplier = 44.0
     
     var body: some View {
-        let hourAngle = ClockFace.hourAngle(forTimeInSeconds: self.shipsClock.utcTimeInSeconds)
-        let center = ClockFace.pointOnRadius(forAngle: hourAngle, givenRadius: radius, atPosition: pointerPositionMultiplier)
+        let hourAngle = ClockGeometry.hourAngle(forTimeInSeconds: self.shipsClock.utcTimeInSeconds)
+        let center = ClockGeometry.pointOnRadius(forAngle: hourAngle, givenRadius: radius, atPosition: pointerPositionMultiplier)
         let scale = CGFloat(radius / pointerSizeMultiplier)
         let transform = CGAffineTransform.identity
             .concatenating(CGAffineTransform.identity.scaledBy(x: scale, y: scale))

@@ -32,6 +32,12 @@ class ClockGeometry {
         return degrees * Double.pi / 180.0
     }
     
+    static func hourAngle(forTimeInSeconds: Int) -> Double {
+        let lengthOfDayInSeconds = 24 * 60 * 60
+        let partOfDay = Double(forTimeInSeconds) / Double(lengthOfDayInSeconds)
+        return 3.0 * Double.pi / 2.0 - partOfDay * Double.pi * 2.0
+    }
+    
     static func pointOnRadius(
         forAngle angle: Double,
         givenRadius radius: Double,
