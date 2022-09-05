@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ClockHands: View {
-    @EnvironmentObject var shipsClock: ShipsClock
+    @EnvironmentObject var shipsClock: ClockModel
     var radius : Double
 
     var body: some View {
@@ -118,13 +118,13 @@ struct ClockHands: View {
             return Circle()
                 .size(width: centerSize, height: centerSize)
                 .offset(x: offset, y: offset)
-                .fill(Color(UIColor.systemBackground))
+                .fill(Color(UIColor.clear))
         }
     }
 }
 
 struct ClockHands_Previews: PreviewProvider {
     static var previews: some View {
-        ClockHands(radius: 200.0).environmentObject(ShipsClock())
+        ClockHands(radius: 200.0).environmentObject(ClockModel())
     }
 }
