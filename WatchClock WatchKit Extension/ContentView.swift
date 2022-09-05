@@ -21,8 +21,13 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
-            .padding()
+        GeometryReader { geometry in
+            let currentDiameter = ClockGeometry.diameter(geometry)
+            ZStack {
+                let currentRadius = ClockGeometry.radius(geometry)
+                ClockBackground(radius: currentRadius)
+            }.frame(width: currentDiameter, height: currentDiameter, alignment: .top)
+        }
     }
 }
 
