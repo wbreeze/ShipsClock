@@ -20,12 +20,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var clockModel: ClockModel
+    
     var body: some View {
         GeometryReader { geometry in
             let currentDiameter = ClockGeometry.diameter(geometry)
             ZStack {
                 let currentRadius = ClockGeometry.radius(geometry)
                 ClockBackground(radius: currentRadius)
+                ClockHands(radius: currentRadius).environmentObject(clockModel)
             }.frame(width: currentDiameter, height: currentDiameter, alignment: .top)
         }
     }
@@ -33,6 +36,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(ClockModel())
     }
 }

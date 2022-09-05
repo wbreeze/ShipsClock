@@ -24,7 +24,7 @@ struct ShipsClockApp: App {
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView()
+                ContentView().environmentObject(ClockModel())
             }
         }
 
