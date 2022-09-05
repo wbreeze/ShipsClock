@@ -29,7 +29,7 @@ struct ContentView: View {
                 let currentRadius = ClockGeometry.radius(geometry)
                 ClockBackground(radius: currentRadius)
                 ClockHands(radius: currentRadius).environmentObject(clockModel)
-            }.frame(width: currentDiameter, height: currentDiameter, alignment: .top)
+            }.frame(width: currentDiameter, height: currentDiameter).offset(x:CGFloat((geometry.size.width - currentDiameter) / 2.0), y:CGFloat(4.0 + (geometry.size.height - currentDiameter) / 2.0))
         }
     }
 }
