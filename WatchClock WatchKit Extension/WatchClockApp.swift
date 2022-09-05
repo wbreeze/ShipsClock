@@ -20,7 +20,7 @@
 import SwiftUI
 
 @main
-struct ShipsClockApp: App {
+struct WatchClockApp: App {
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {
