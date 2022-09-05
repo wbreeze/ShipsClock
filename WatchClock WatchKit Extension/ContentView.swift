@@ -36,6 +36,10 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environmentObject(ClockModel())
+        let model = ClockModel()
+        Group {
+            ContentView().previewDevice("Apple Watch Series 5 - 40mm").environmentObject(model)
+            ContentView().previewDevice("Apple Watch Series 7 - 45mm").environmentObject(model)
+        }
     }
 }
