@@ -11,9 +11,7 @@ import Foundation
 /*:
  Application model for the Ships Clock
  */
-class ShipsClock : ObservableObject {
-    @Published var timeOfDayInSeconds = 0
-    @Published var utcTimeInSeconds = 0
+class ShipsClock : ClockModel {
     @Published var locationTracker: LocationTracker
     @Published var celestialComputer: CelestialComputer
     
@@ -24,14 +22,15 @@ class ShipsClock : ObservableObject {
     
     private let tickInterval = 1.0 // seconds
     
-    init() {
-        timeOfDayInSeconds = ShipsClock.nextTime()
-        utcTimeInSeconds = ShipsClock.utcTime()
+    override init() {
         foregroundRinger = TimerRinger(bell: bell)
         backgroundRinger = NotifierRinger(bell: bell)
         let lt = LocationTracker()
         locationTracker = lt
         celestialComputer = CelestialComputer(locationTracker: lt)
+        super.init()
+        timeOfDayInSeconds = ShipsClock.nextTime()
+        utcTimeInSeconds = ShipsClock.utcTime()
     }
     
     func prepareForStart() {
