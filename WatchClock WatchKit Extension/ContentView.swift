@@ -20,7 +20,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var clockModel: ClockModel
+    @EnvironmentObject var clockModel: WatchClock
     
     var body: some View {
         GeometryReader { geometry in
@@ -28,7 +28,7 @@ struct ContentView: View {
             ZStack {
                 let currentRadius = ClockGeometry.radius(geometry)
                 ClockBackground(radius: currentRadius)
-                ClockHands(radius: currentRadius).environmentObject(clockModel)
+                ClockHands(clockModel: clockModel, radius: currentRadius)
             }.frame(width: currentDiameter, height: currentDiameter).offset(x:CGFloat((geometry.size.width - currentDiameter) / 2.0), y:CGFloat(4.0 + (geometry.size.height - currentDiameter) / 2.0))
         }
     }
@@ -36,7 +36,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let model = ClockModel()
+        let model = WatchClock()
         Group {
             ContentView().previewDevice("Apple Watch Series 5 - 40mm").environmentObject(model)
             ContentView().previewDevice("Apple Watch Series 7 - 45mm").environmentObject(model)

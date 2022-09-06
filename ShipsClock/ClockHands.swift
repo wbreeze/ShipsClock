@@ -9,17 +9,17 @@
 import SwiftUI
 
 struct ClockHands: View {
-    @EnvironmentObject var shipsClock: ClockModel
+    @ObservedObject var clockModel: ClockModel
     var radius : Double
 
     var body: some View {
         ZStack {
             MinuteHand(
-                radius: self.radius, timeInSeconds: self.shipsClock.timeOfDayInSeconds)
+                radius: self.radius, timeInSeconds: clockModel.timeOfDayInSeconds)
             HourHand(
-                radius: self.radius, timeInSeconds: self.shipsClock.timeOfDayInSeconds)
+                radius: self.radius, timeInSeconds: clockModel.timeOfDayInSeconds)
             WatchHand(
-                radius: self.radius, timeInSeconds: self.shipsClock.timeOfDayInSeconds)
+                radius: self.radius, timeInSeconds: clockModel.timeOfDayInSeconds)
             CenterCircle(radius: self.radius)
         }
     }
@@ -125,6 +125,6 @@ struct ClockHands: View {
 
 struct ClockHands_Previews: PreviewProvider {
     static var previews: some View {
-        ClockHands(radius: 200.0).environmentObject(ClockModel())
+        ClockHands(clockModel: ClockModel(), radius: 200.0)
     }
 }

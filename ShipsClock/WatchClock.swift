@@ -1,6 +1,6 @@
 //
   // WatchClock WatchKit Extension
-  // Created by Douglas Lovell on 4/9/22.
+  // Created by Douglas Lovell on 5/9/22.
   // Copyright © 2022 Douglas Lovell
   /*
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,17 +17,19 @@
   */
   
 
-import SwiftUI
+import Foundation
 
-@main
-struct WatchClockApp: App {
-    @SceneBuilder var body: some Scene {
-        WindowGroup {
-            NavigationView {
-                ContentView().environmentObject(WatchClock())
-            }
-        }
+class WatchClock : ClockModel {
+    private var bell = ShipsBell()
+    private var foregroundRinger: TimerRinger
 
-        WKNotificationScene(controller: NotificationController.self, category: "myCategory")
+    override init() {
+        foregroundRinger = TimerRinger(bell: bell)
+        super.init()
+    }
+    
+    override func updateClock() {
+        super.updateClock()
+        foregroundRinger.maybeRing(forTimeInSeconds: timeOfDayInSeconds)
     }
 }
