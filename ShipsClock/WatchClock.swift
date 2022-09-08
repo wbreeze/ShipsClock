@@ -28,6 +28,11 @@ class WatchClock : ClockModel {
         super.init()
     }
     
+    override  func moveToForeground() {
+        foregroundRinger.initializeLastPlayed(forTimeInSeconds: timeOfDayInSeconds)
+        super.moveToForeground()
+    }
+    
     override func updateClock() {
         super.updateClock()
         foregroundRinger.maybeRing(forTimeInSeconds: timeOfDayInSeconds)

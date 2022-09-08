@@ -21,10 +21,32 @@ import SwiftUI
 
 @main
 struct WatchClockApp: App {
+    @Environment(\.scenePhase) private var scenePhase
+    let clockModel = WatchClock()
+    
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView().environmentObject(WatchClock())
+                ContentView().environmentObject(clockModel).onChange(of: scenePhase) { phase in
+                    switch phase {
+                    case .active:
+                        // The app has become active.
+                        print("State: active")
+                        clockModel.moveToForeground()
+                        break
+                    case .inactive:
+                        // The app has become inactive.
+                        print("State: inactive")
+                        break
+                    case .background:
+                        // The app has moved to the background.
+                        print("State: background")
+                        clockModel.moveToBackground()
+                        break
+                    @unknown default:
+                        fatalError("WatchClock has entered an unknown state.")
+                    }
+                }
             }
         }
 

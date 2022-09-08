@@ -303,8 +303,8 @@
 		6F73EBA328C57DB00049C1BF /* WatchClock WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				6F73EBC928C6B3650049C1BF /* WatchClock.swift */,
 				6F73EBA428C57DB00049C1BF /* WatchClockApp.swift */,
+				6F73EBC928C6B3650049C1BF /* WatchClock.swift */,
 				6F73EBA628C57DB00049C1BF /* ContentView.swift */,
 				6F73EBA828C57DB00049C1BF /* NotificationController.swift */,
 				6F73EBAA28C57DB00049C1BF /* NotificationView.swift */,
@@ -368,6 +368,7 @@
 				6F7DAC25259431510053E24C /* LocationFormatter.swift */,
 				6F24FD9D245D2D6A0006590A /* ShipsBell.swift */,
 				6F8FEC8E2469B3D300A1FAE7 /* TimerRinger.swift */,
+				6F24FDAF246708860006590A /* NotifierRinger.swift */,
 				6F6029432726F65C009359D4 /* ClockGeometry.swift */,
 				6FE9AFDE243FBB79002B45BA /* ClockFace.swift */,
 				6F40411F2485DB4700B1BF5D /* ClockSun.swift */,
@@ -375,12 +376,11 @@
 				6F37A35E27339E190016A38C /* ClockUTC.swift */,
 				6F40411B247F47CB00B1BF5D /* ClockBackground.swift */,
 				6F40411D247F47DE00B1BF5D /* ClockHands.swift */,
+				6F093CA926CFF7DA0091A4B7 /* ClockConfiguration.swift */,
 				6FE9AFB2243F9CAA002B45BA /* Assets.xcassets */,
 				6FE9AFB7243F9CAA002B45BA /* LaunchScreen.storyboard */,
 				6FE9AFBA243F9CAA002B45BA /* Info.plist */,
 				6FE9AFB4243F9CAA002B45BA /* Preview Content */,
-				6F24FDAF246708860006590A /* NotifierRinger.swift */,
-				6F093CA926CFF7DA0091A4B7 /* ClockConfiguration.swift */,
 			);
 			path = ShipsClock;
 			sourceTree = "<group>";
