@@ -55,6 +55,7 @@
 		6F7DAC21259430830053E24C /* LocationFormatterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DAC20259430830053E24C /* LocationFormatterTest.swift */; };
 		6F7DAC26259431510053E24C /* LocationFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DAC25259431510053E24C /* LocationFormatter.swift */; };
 		6F7DAC27259431510053E24C /* LocationFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DAC25259431510053E24C /* LocationFormatter.swift */; };
+		6F86FA3828CAC664003F7B0C /* sounds in Resources */ = {isa = PBXBuildFile; fileRef = 6F24FDA3245E48480006590A /* sounds */; };
 		6F8FEC8F2469B3D300A1FAE7 /* TimerRinger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8FEC8E2469B3D300A1FAE7 /* TimerRinger.swift */; };
 		6F8FEC97246C1F9F00A1FAE7 /* LocationTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8FEC96246C1F9F00A1FAE7 /* LocationTracker.swift */; };
 		6F8FEC99246C4FE000A1FAE7 /* SituationDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8FEC98246C4FE000A1FAE7 /* SituationDisplay.swift */; };
@@ -581,6 +582,7 @@
 			files = (
 				6F73EBB228C57DB10049C1BF /* Preview Assets.xcassets in Resources */,
 				6F73EBAF28C57DB10049C1BF /* Assets.xcassets in Resources */,
+				6F86FA3828CAC664003F7B0C /* sounds in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
