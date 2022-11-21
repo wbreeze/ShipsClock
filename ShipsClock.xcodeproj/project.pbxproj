@@ -91,14 +91,14 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6F60291A2726D794009359D4 /* Embed App Extensions */ = {
+		6F60291A2726D794009359D4 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		6F60293F2726EE0F009359D4 /* Embed Frameworks */ = {
@@ -327,7 +327,7 @@
 				6FE9AFA5243F9CA8002B45BA /* Sources */,
 				6FE9AFA6243F9CA8002B45BA /* Frameworks */,
 				6FE9AFA7243F9CA8002B45BA /* Resources */,
-				6F60291A2726D794009359D4 /* Embed App Extensions */,
+				6F60291A2726D794009359D4 /* Embed Foundation Extensions */,
 				6F60293F2726EE0F009359D4 /* Embed Frameworks */,
 				6F19EEA928B9AC12009C0738 /* Embed Watch Content */,
 			);
@@ -383,7 +383,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1340;
-				LastUpgradeCheck = 1210;
+				LastUpgradeCheck = 1410;
 				ORGANIZATIONNAME = "Douglas Lovell";
 				TargetAttributes = {
 					6FE9AFA8243F9CA8002B45BA = {
