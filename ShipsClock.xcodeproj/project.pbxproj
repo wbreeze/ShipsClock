@@ -34,7 +34,6 @@
 		6F5F631D24D481B100172BC4 /* MoonCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F631924D1E4B900172BC4 /* MoonCalculator.swift */; };
 		6F6029442726F65C009359D4 /* ClockGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6029432726F65C009359D4 /* ClockGeometry.swift */; };
 		6F73EB9A28C57DB00049C1BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F73EB9928C57DB00049C1BF /* Assets.xcassets */; };
-		6F73EBA028C57DB00049C1BF /* WatchClock WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6F73EB9F28C57DB00049C1BF /* WatchClock WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6F73EBA528C57DB00049C1BF /* WatchClockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F73EBA428C57DB00049C1BF /* WatchClockApp.swift */; };
 		6F73EBA728C57DB00049C1BF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F73EBA628C57DB00049C1BF /* ContentView.swift */; };
 		6F73EBA928C57DB00049C1BF /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F73EBA828C57DB00049C1BF /* NotificationController.swift */; };
@@ -83,13 +82,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		6F73EBA128C57DB00049C1BF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6FE9AFA1243F9CA8002B45BA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6F73EB9E28C57DB00049C1BF;
-			remoteInfo = "WatchClock WatchKit Extension";
-		};
 		6F73EBB528C57DB10049C1BF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6FE9AFA1243F9CA8002B45BA /* Project object */;
@@ -145,17 +137,6 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6F73EBBA28C57DB10049C1BF /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				6F73EBA028C57DB00049C1BF /* WatchClock WatchKit Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -199,7 +180,6 @@
 		6F725C03255D8A8900CC85A3 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		6F73EB9728C57DAD0049C1BF /* WatchClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F73EB9928C57DB00049C1BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6F73EB9F28C57DB00049C1BF /* WatchClock WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WatchClock WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F73EBA428C57DB00049C1BF /* WatchClockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchClockApp.swift; sourceTree = "<group>"; };
 		6F73EBA628C57DB00049C1BF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6F73EBA828C57DB00049C1BF /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
@@ -338,7 +318,6 @@
 				6F94CAC928C4DDA700941D26 /* ShipsClockUITests.xctest */,
 				6F73EB9728C57DAD0049C1BF /* WatchClock.app */,
 				6F73EB9828C57DAD0049C1BF /* WatchClock */,
-				6F73EB9F28C57DB00049C1BF /* WatchClock WatchKit Extension.appex */,
 				6F73EBA328C57DB00049C1BF /* WatchClock WatchKit Extension */,
 			);
 			sourceTree = "<group>";
@@ -429,34 +408,17 @@
 			buildConfigurationList = 6F73EBBE28C57DB10049C1BF /* Build configuration list for PBXNativeTarget "WatchClock" */;
 			buildPhases = (
 				6F73EB9528C57DAD0049C1BF /* Resources */,
-				6F73EBBA28C57DB10049C1BF /* Embed App Extensions */,
+				6F73EB9B28C57DB00049C1BF /* Sources */,
+				6F73EB9C28C57DB00049C1BF /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6F73EBA228C57DB00049C1BF /* PBXTargetDependency */,
 			);
 			name = WatchClock;
 			productName = WatchClock;
 			productReference = 6F73EB9728C57DAD0049C1BF /* WatchClock.app */;
-			productType = "com.apple.product-type.application.watchapp2";
-		};
-		6F73EB9E28C57DB00049C1BF /* WatchClock WatchKit Extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6F73EBBD28C57DB10049C1BF /* Build configuration list for PBXNativeTarget "WatchClock WatchKit Extension" */;
-			buildPhases = (
-				6F73EB9B28C57DB00049C1BF /* Sources */,
-				6F73EB9C28C57DB00049C1BF /* Frameworks */,
-				6F73EB9D28C57DB00049C1BF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "WatchClock WatchKit Extension";
-			productName = "WatchClock WatchKit Extension";
-			productReference = 6F73EB9F28C57DB00049C1BF /* WatchClock WatchKit Extension.appex */;
-			productType = "com.apple.product-type.watchkit2-extension";
+			productType = "com.apple.product-type.application";
 		};
 		6FE9AFA8243F9CA8002B45BA /* ShipsClock */ = {
 			isa = PBXNativeTarget;
@@ -522,13 +484,10 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1340;
-				LastUpgradeCheck = 1410;
+				LastUpgradeCheck = 1420;
 				ORGANIZATIONNAME = "Douglas Lovell";
 				TargetAttributes = {
 					6F73EB9628C57DAD0049C1BF = {
-						CreatedOnToolsVersion = 13.4.1;
-					};
-					6F73EB9E28C57DB00049C1BF = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
 					6FE9AFA8243F9CA8002B45BA = {
@@ -562,7 +521,6 @@
 				6FE9AFBE243F9CAA002B45BA /* ShipsClockTests */,
 				6FE9AFC9243F9CAA002B45BA /* ShipsClockUITests */,
 				6F73EB9628C57DAD0049C1BF /* WatchClock */,
-				6F73EB9E28C57DB00049C1BF /* WatchClock WatchKit Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -572,17 +530,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F73EB9A28C57DB00049C1BF /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6F73EB9D28C57DB00049C1BF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 				6F73EBB228C57DB10049C1BF /* Preview Assets.xcassets in Resources */,
 				6F73EBAF28C57DB10049C1BF /* Assets.xcassets in Resources */,
 				6F86FA3828CAC664003F7B0C /* sounds in Resources */,
+				6F73EB9A28C57DB00049C1BF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,11 +659,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6F73EBA228C57DB00049C1BF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6F73EB9E28C57DB00049C1BF /* WatchClock WatchKit Extension */;
-			targetProxy = 6F73EBA128C57DB00049C1BF /* PBXContainerItemProxy */;
-		};
 		6F73EBB628C57DB10049C1BF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6F73EB9628C57DAD0049C1BF /* WatchClock */;
@@ -747,6 +693,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -754,10 +701,16 @@
 				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 9QGTTGV2S5;
 				GENERATE_INFOPLIST_FILE = YES;
-				IBSC_MODULE = WatchClock_WatchKit_Extension;
 				INFOPLIST_KEY_CFBundleDisplayName = WatchClock;
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Douglas Lovell. All rights reserved.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.wbreeze.ShipsClock;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wbreeze.ShipsClock.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -775,6 +728,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -782,79 +736,19 @@
 				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 9QGTTGV2S5;
 				GENERATE_INFOPLIST_FILE = YES;
-				IBSC_MODULE = WatchClock_WatchKit_Extension;
 				INFOPLIST_KEY_CFBundleDisplayName = WatchClock;
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Douglas Lovell. All rights reserved.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.wbreeze.ShipsClock;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wbreeze.ShipsClock.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.5;
-			};
-			name = Release;
-		};
-		6F73EBBB28C57DB10049C1BF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
-				DEVELOPMENT_ASSET_PATHS = "\"WatchClock WatchKit Extension/Preview Content\"";
-				DEVELOPMENT_TEAM = 9QGTTGV2S5;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "WatchClock WatchKit Extension/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "WatchClock WatchKit Extension";
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = WatchClock_WatchKit_Extension.ComplicationController;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Douglas Lovell. All rights reserved.";
-				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.2.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.wbreeze.ShipsClock.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.5;
-			};
-			name = Debug;
-		};
-		6F73EBBC28C57DB10049C1BF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
-				DEVELOPMENT_ASSET_PATHS = "\"WatchClock WatchKit Extension/Preview Content\"";
-				DEVELOPMENT_TEAM = 9QGTTGV2S5;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "WatchClock WatchKit Extension/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "WatchClock WatchKit Extension";
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = WatchClock_WatchKit_Extension.ComplicationController;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Douglas Lovell. All rights reserved.";
-				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.2.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.wbreeze.ShipsClock.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1124,15 +1018,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6F73EBBD28C57DB10049C1BF /* Build configuration list for PBXNativeTarget "WatchClock WatchKit Extension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6F73EBBB28C57DB10049C1BF /* Debug */,
-				6F73EBBC28C57DB10049C1BF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		6F73EBBE28C57DB10049C1BF /* Build configuration list for PBXNativeTarget "WatchClock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
