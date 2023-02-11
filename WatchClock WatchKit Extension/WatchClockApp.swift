@@ -22,28 +22,29 @@ import SwiftUI
 @main
 struct WatchClockApp: App {
     @Environment(\.scenePhase) private var scenePhase
-    let clockModel = WatchClock()
+    let clockModel = ClockModel()
     
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView().environmentObject(clockModel).onChange(of: scenePhase) { phase in
-                    switch phase {
-                    case .active:
-                        clockModel.moveToForeground()
-                        break
-                    case .inactive:
-                        break
-                    case .background:
-                        clockModel.moveToBackground()
-                        break
-                    @unknown default:
-                        fatalError("WatchClock has entered an unknown state.")
-                    }
-                }
+                ContentView().environmentObject(clockModel)
+//                    .onChange(of: scenePhase) { phase in
+//                    switch phase {
+//                    case .active:
+//                        clockModel.moveToForeground()
+//                        break
+//                    case .inactive:
+//                        break
+//                    case .background:
+//                        clockModel.moveToBackground()
+//                        break
+//                    @unknown default:
+//                        fatalError("WatchClock has entered an unknown state.")
+//                    }
+//                }
             }
         }
 
-        WKNotificationScene(controller: NotificationController.self, category: "myCategory")
+//        WKNotificationScene(controller: NotificationController.self, category: "myCategory")
     }
 }

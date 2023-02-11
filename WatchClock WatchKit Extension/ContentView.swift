@@ -20,7 +20,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var clockModel: WatchClock
+    @EnvironmentObject var clockModel: ClockModel
     
     var body: some View {
         GeometryReader { geometry in
@@ -36,7 +36,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let model = WatchClock()
+        let model = ClockModel()
         Group {
             ContentView().previewDevice("Apple Watch Series 5 - 40mm").environmentObject(model)
             ContentView().previewDevice("Apple Watch Series 7 - 45mm").environmentObject(model)
