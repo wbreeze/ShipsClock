@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ClockFace: View {
-    @EnvironmentObject var shipsClock: ShipsClock
+    @ObservedObject var shipsClock: ShipsClock
 
     var body: some View {
         GeometryReader { geometry in
@@ -20,7 +20,7 @@ struct ClockFace: View {
                 ClockUTC(radius: currentRadius).environmentObject(self.shipsClock)
                 ClockSun(radius: currentRadius).environmentObject(self.shipsClock.celestialComputer)
                 ClockMoon(radius: currentRadius).environmentObject(self.shipsClock.celestialComputer)
-                ClockHands(radius: currentRadius).environmentObject(self.shipsClock)
+                ClockHands(clockModel: self.shipsClock, radius: currentRadius)
             }.frame(width: currentDiameter, height: currentDiameter, alignment: .top)
         }
     }
@@ -28,6 +28,6 @@ struct ClockFace: View {
 
 struct ClockFace_Previews: PreviewProvider {
     static var previews: some View {
-        ClockFace().environmentObject(ShipsClock())
+        ClockFace(shipsClock: ShipsClock())
     }
 }

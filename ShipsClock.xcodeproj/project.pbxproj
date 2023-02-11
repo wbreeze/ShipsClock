@@ -33,10 +33,28 @@
 		6F5F631C24D47E3A00172BC4 /* MoonCalcTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F631B24D47E3A00172BC4 /* MoonCalcTest.swift */; };
 		6F5F631D24D481B100172BC4 /* MoonCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F631924D1E4B900172BC4 /* MoonCalculator.swift */; };
 		6F6029442726F65C009359D4 /* ClockGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6029432726F65C009359D4 /* ClockGeometry.swift */; };
+		6F73EB9A28C57DB00049C1BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F73EB9928C57DB00049C1BF /* Assets.xcassets */; };
+		6F73EBA528C57DB00049C1BF /* WatchClockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F73EBA428C57DB00049C1BF /* WatchClockApp.swift */; };
+		6F73EBA728C57DB00049C1BF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F73EBA628C57DB00049C1BF /* ContentView.swift */; };
+		6F73EBA928C57DB00049C1BF /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F73EBA828C57DB00049C1BF /* NotificationController.swift */; };
+		6F73EBAB28C57DB00049C1BF /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F73EBAA28C57DB00049C1BF /* NotificationView.swift */; };
+		6F73EBAD28C57DB00049C1BF /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F73EBAC28C57DB00049C1BF /* ComplicationController.swift */; };
+		6F73EBAF28C57DB10049C1BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F73EBAE28C57DB10049C1BF /* Assets.xcassets */; };
+		6F73EBB228C57DB10049C1BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F73EBB128C57DB10049C1BF /* Preview Assets.xcassets */; };
+		6F73EBB728C57DB10049C1BF /* WatchClock.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 6F73EB9728C57DAD0049C1BF /* WatchClock.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6F73EBBF28C588B10049C1BF /* ClockGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6029432726F65C009359D4 /* ClockGeometry.swift */; };
+		6F73EBC028C588CD0049C1BF /* ClockBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F40411B247F47CB00B1BF5D /* ClockBackground.swift */; };
+		6F73EBC328C594880049C1BF /* ClockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F73EBC228C594880049C1BF /* ClockModel.swift */; };
+		6F73EBC528C595260049C1BF /* ClockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F73EBC228C594880049C1BF /* ClockModel.swift */; };
+		6F73EBC628C59A3B0049C1BF /* ClockHands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F40411D247F47DE00B1BF5D /* ClockHands.swift */; };
+		6F73EBC728C6AEDB0049C1BF /* ShipsBell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F24FD9D245D2D6A0006590A /* ShipsBell.swift */; };
+		6F73EBC828C6AF220049C1BF /* TimerRinger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8FEC8E2469B3D300A1FAE7 /* TimerRinger.swift */; };
+		6F73EBCA28C6B3650049C1BF /* WatchClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F73EBC928C6B3650049C1BF /* WatchClock.swift */; };
 		6F77AF04244FDD4E0070DB57 /* ShipsClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F77AF03244FDD4E0070DB57 /* ShipsClock.swift */; };
 		6F7DAC21259430830053E24C /* LocationFormatterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DAC20259430830053E24C /* LocationFormatterTest.swift */; };
 		6F7DAC26259431510053E24C /* LocationFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DAC25259431510053E24C /* LocationFormatter.swift */; };
 		6F7DAC27259431510053E24C /* LocationFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DAC25259431510053E24C /* LocationFormatter.swift */; };
+		6F86FA3828CAC664003F7B0C /* sounds in Resources */ = {isa = PBXBuildFile; fileRef = 6F24FDA3245E48480006590A /* sounds */; };
 		6F8FEC8F2469B3D300A1FAE7 /* TimerRinger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8FEC8E2469B3D300A1FAE7 /* TimerRinger.swift */; };
 		6F8FEC97246C1F9F00A1FAE7 /* LocationTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8FEC96246C1F9F00A1FAE7 /* LocationTracker.swift */; };
 		6F8FEC99246C4FE000A1FAE7 /* SituationDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8FEC98246C4FE000A1FAE7 /* SituationDisplay.swift */; };
@@ -64,6 +82,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6F73EBB528C57DB10049C1BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6FE9AFA1243F9CA8002B45BA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6F73EB9628C57DAD0049C1BF;
+			remoteInfo = WatchClock;
+		};
 		6FE9AFC0243F9CAA002B45BA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6FE9AFA1243F9CA8002B45BA /* Project object */;
@@ -87,6 +112,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
+				6F73EBB728C57DB10049C1BF /* WatchClock.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,6 +178,19 @@
 		6F725BF7255D796200CC85A3 /* aa3101.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = aa3101.pdf; sourceTree = "<group>"; };
 		6F725BF8255D796200CC85A3 /* ELPMPP02.for */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.fortran; path = ELPMPP02.for; sourceTree = "<group>"; };
 		6F725C03255D8A8900CC85A3 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		6F73EB9728C57DAD0049C1BF /* WatchClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F73EB9928C57DB00049C1BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6F73EBA428C57DB00049C1BF /* WatchClockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchClockApp.swift; sourceTree = "<group>"; };
+		6F73EBA628C57DB00049C1BF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6F73EBA828C57DB00049C1BF /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		6F73EBAA28C57DB00049C1BF /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		6F73EBAC28C57DB00049C1BF /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		6F73EBAE28C57DB10049C1BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6F73EBB128C57DB10049C1BF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6F73EBB328C57DB10049C1BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6F73EBB428C57DB10049C1BF /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		6F73EBC228C594880049C1BF /* ClockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockModel.swift; sourceTree = "<group>"; };
+		6F73EBC928C6B3650049C1BF /* WatchClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WatchClock.swift; path = ShipsClock/WatchClock.swift; sourceTree = SOURCE_ROOT; };
 		6F77AF03244FDD4E0070DB57 /* ShipsClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipsClock.swift; sourceTree = "<group>"; };
 		6F7DAC20259430830053E24C /* LocationFormatterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFormatterTest.swift; sourceTree = "<group>"; };
 		6F7DAC25259431510053E24C /* LocationFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationFormatter.swift; sourceTree = "<group>"; };
@@ -182,6 +221,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6F73EB9C28C57DB00049C1BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6FE9AFA6243F9CA8002B45BA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -227,6 +273,39 @@
 			path = ELPmpp02;
 			sourceTree = "<group>";
 		};
+		6F73EB9828C57DAD0049C1BF /* WatchClock */ = {
+			isa = PBXGroup;
+			children = (
+				6F73EB9928C57DB00049C1BF /* Assets.xcassets */,
+			);
+			path = WatchClock;
+			sourceTree = "<group>";
+		};
+		6F73EBA328C57DB00049C1BF /* WatchClock WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				6F73EBA428C57DB00049C1BF /* WatchClockApp.swift */,
+				6F73EBC928C6B3650049C1BF /* WatchClock.swift */,
+				6F73EBA628C57DB00049C1BF /* ContentView.swift */,
+				6F73EBA828C57DB00049C1BF /* NotificationController.swift */,
+				6F73EBAA28C57DB00049C1BF /* NotificationView.swift */,
+				6F73EBAC28C57DB00049C1BF /* ComplicationController.swift */,
+				6F73EBAE28C57DB10049C1BF /* Assets.xcassets */,
+				6F73EBB328C57DB10049C1BF /* Info.plist */,
+				6F73EBB428C57DB10049C1BF /* PushNotificationPayload.apns */,
+				6F73EBB028C57DB10049C1BF /* Preview Content */,
+			);
+			path = "WatchClock WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		6F73EBB028C57DB10049C1BF /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				6F73EBB128C57DB10049C1BF /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		6FE9AFA0243F9CA8002B45BA = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +316,9 @@
 				6F24FDAC245F8EC10006590A /* ShipsClock.app */,
 				6F94CAC828C4DDA700941D26 /* ShipsClockTests.xctest */,
 				6F94CAC928C4DDA700941D26 /* ShipsClockUITests.xctest */,
+				6F73EB9728C57DAD0049C1BF /* WatchClock.app */,
+				6F73EB9828C57DAD0049C1BF /* WatchClock */,
+				6F73EBA328C57DB00049C1BF /* WatchClock WatchKit Extension */,
 			);
 			sourceTree = "<group>";
 		};
@@ -254,6 +336,7 @@
 				6F8FEC98246C4FE000A1FAE7 /* SituationDisplay.swift */,
 				6FE9AFAE243F9CA8002B45BA /* SceneDelegate.swift */,
 				6F77AF03244FDD4E0070DB57 /* ShipsClock.swift */,
+				6F73EBC228C594880049C1BF /* ClockModel.swift */,
 				6FCCEE872497051A00F18212 /* CelestialComputer.swift */,
 				6FAC63B7256C1EF800C2C834 /* MoonPhase.swift */,
 				6FCCEE84249652D800F18212 /* SunCalculator.swift */,
@@ -265,6 +348,7 @@
 				6F7DAC25259431510053E24C /* LocationFormatter.swift */,
 				6F24FD9D245D2D6A0006590A /* ShipsBell.swift */,
 				6F8FEC8E2469B3D300A1FAE7 /* TimerRinger.swift */,
+				6F24FDAF246708860006590A /* NotifierRinger.swift */,
 				6F6029432726F65C009359D4 /* ClockGeometry.swift */,
 				6FE9AFDE243FBB79002B45BA /* ClockFace.swift */,
 				6F40411F2485DB4700B1BF5D /* ClockSun.swift */,
@@ -272,12 +356,11 @@
 				6F37A35E27339E190016A38C /* ClockUTC.swift */,
 				6F40411B247F47CB00B1BF5D /* ClockBackground.swift */,
 				6F40411D247F47DE00B1BF5D /* ClockHands.swift */,
+				6F093CA926CFF7DA0091A4B7 /* ClockConfiguration.swift */,
 				6FE9AFB2243F9CAA002B45BA /* Assets.xcassets */,
 				6FE9AFB7243F9CAA002B45BA /* LaunchScreen.storyboard */,
 				6FE9AFBA243F9CAA002B45BA /* Info.plist */,
 				6FE9AFB4243F9CAA002B45BA /* Preview Content */,
-				6F24FDAF246708860006590A /* NotifierRinger.swift */,
-				6F093CA926CFF7DA0091A4B7 /* ClockConfiguration.swift */,
 			);
 			path = ShipsClock;
 			sourceTree = "<group>";
@@ -320,6 +403,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		6F73EB9628C57DAD0049C1BF /* WatchClock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6F73EBBE28C57DB10049C1BF /* Build configuration list for PBXNativeTarget "WatchClock" */;
+			buildPhases = (
+				6F73EB9528C57DAD0049C1BF /* Resources */,
+				6F73EB9B28C57DB00049C1BF /* Sources */,
+				6F73EB9C28C57DB00049C1BF /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WatchClock;
+			productName = WatchClock;
+			productReference = 6F73EB9728C57DAD0049C1BF /* WatchClock.app */;
+			productType = "com.apple.product-type.application";
+		};
 		6FE9AFA8243F9CA8002B45BA /* ShipsClock */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6FE9AFD3243F9CAA002B45BA /* Build configuration list for PBXNativeTarget "ShipsClock" */;
@@ -334,6 +434,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				6F73EBB628C57DB10049C1BF /* PBXTargetDependency */,
 			);
 			name = ShipsClock;
 			productName = ShipsClock;
@@ -383,9 +484,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1340;
-				LastUpgradeCheck = 1410;
+				LastUpgradeCheck = 1420;
 				ORGANIZATIONNAME = "Douglas Lovell";
 				TargetAttributes = {
+					6F73EB9628C57DAD0049C1BF = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
 					6FE9AFA8243F9CA8002B45BA = {
 						CreatedOnToolsVersion = 11.4;
 					};
@@ -416,11 +520,23 @@
 				6FE9AFA8243F9CA8002B45BA /* ShipsClock */,
 				6FE9AFBE243F9CAA002B45BA /* ShipsClockTests */,
 				6FE9AFC9243F9CAA002B45BA /* ShipsClockUITests */,
+				6F73EB9628C57DAD0049C1BF /* WatchClock */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6F73EB9528C57DAD0049C1BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F73EBB228C57DB10049C1BF /* Preview Assets.xcassets in Resources */,
+				6F73EBAF28C57DB10049C1BF /* Assets.xcassets in Resources */,
+				6F86FA3828CAC664003F7B0C /* sounds in Resources */,
+				6F73EB9A28C57DB00049C1BF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6FE9AFA7243F9CA8002B45BA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -452,6 +568,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6F73EB9B28C57DB00049C1BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F73EBC728C6AEDB0049C1BF /* ShipsBell.swift in Sources */,
+				6F73EBA928C57DB00049C1BF /* NotificationController.swift in Sources */,
+				6F73EBC628C59A3B0049C1BF /* ClockHands.swift in Sources */,
+				6F73EBC528C595260049C1BF /* ClockModel.swift in Sources */,
+				6F73EBA728C57DB00049C1BF /* ContentView.swift in Sources */,
+				6F73EBBF28C588B10049C1BF /* ClockGeometry.swift in Sources */,
+				6F73EBCA28C6B3650049C1BF /* WatchClock.swift in Sources */,
+				6F73EBAD28C57DB00049C1BF /* ComplicationController.swift in Sources */,
+				6F73EBA528C57DB00049C1BF /* WatchClockApp.swift in Sources */,
+				6F73EBAB28C57DB00049C1BF /* NotificationView.swift in Sources */,
+				6F73EBC828C6AF220049C1BF /* TimerRinger.swift in Sources */,
+				6F73EBC028C588CD0049C1BF /* ClockBackground.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6FE9AFA5243F9CA8002B45BA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -466,6 +601,7 @@
 				6F8FEC97246C1F9F00A1FAE7 /* LocationTracker.swift in Sources */,
 				6FE9AFAD243F9CA8002B45BA /* AppDelegate.swift in Sources */,
 				6F24FD9E245D2D6A0006590A /* ShipsBell.swift in Sources */,
+				6F73EBC328C594880049C1BF /* ClockModel.swift in Sources */,
 				6F5F631A24D1E4B900172BC4 /* MoonCalculator.swift in Sources */,
 				6F40411C247F47CB00B1BF5D /* ClockBackground.swift in Sources */,
 				6F8FEC8F2469B3D300A1FAE7 /* TimerRinger.swift in Sources */,
@@ -523,6 +659,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		6F73EBB628C57DB10049C1BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6F73EB9628C57DAD0049C1BF /* WatchClock */;
+			targetProxy = 6F73EBB528C57DB10049C1BF /* PBXContainerItemProxy */;
+		};
 		6FE9AFC1243F9CAA002B45BA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6FE9AFA8243F9CA8002B45BA /* ShipsClock */;
@@ -547,6 +688,76 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		6F73EBB828C57DB10049C1BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 11;
+				DEVELOPMENT_TEAM = 9QGTTGV2S5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = WatchClock;
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Douglas Lovell. All rights reserved.";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.wbreeze.ShipsClock;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.2.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wbreeze.ShipsClock.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Debug;
+		};
+		6F73EBB928C57DB10049C1BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 11;
+				DEVELOPMENT_TEAM = 9QGTTGV2S5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = WatchClock;
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Douglas Lovell. All rights reserved.";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.wbreeze.ShipsClock;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.2.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wbreeze.ShipsClock.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Release;
+		};
 		6FE9AFD1243F9CAA002B45BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -670,17 +881,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_ASSET_PATHS = "\"ShipsClock/Preview Content\"";
 				DEVELOPMENT_TEAM = 9QGTTGV2S5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ShipsClock/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.4;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wbreeze.ShipsClock;
 				PRODUCT_NAME = ShipsClock;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -696,17 +907,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_ASSET_PATHS = "\"ShipsClock/Preview Content\"";
 				DEVELOPMENT_TEAM = 9QGTTGV2S5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ShipsClock/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.4;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wbreeze.ShipsClock;
 				PRODUCT_NAME = ShipsClock;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -807,6 +1018,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6F73EBBE28C57DB10049C1BF /* Build configuration list for PBXNativeTarget "WatchClock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F73EBB828C57DB10049C1BF /* Debug */,
+				6F73EBB928C57DB10049C1BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6FE9AFA4243F9CA8002B45BA /* Build configuration list for PBXProject "ShipsClock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -11,9 +11,7 @@ import Foundation
 /*:
  Application model for the Ships Clock
  */
-class ShipsClock : ObservableObject {
-    @Published var timeOfDayInSeconds = 0
-    @Published var utcTimeInSeconds = 0
+class ShipsClock : ClockModel {
     @Published var locationTracker: LocationTracker
     @Published var celestialComputer: CelestialComputer
     
@@ -24,14 +22,13 @@ class ShipsClock : ObservableObject {
     
     private let tickInterval = 1.0 // seconds
     
-    init() {
-        timeOfDayInSeconds = ShipsClock.nextTime()
-        utcTimeInSeconds = ShipsClock.utcTime()
+    override init() {
         foregroundRinger = TimerRinger(bell: bell)
         backgroundRinger = NotifierRinger(bell: bell)
         let lt = LocationTracker()
         locationTracker = lt
         celestialComputer = CelestialComputer(locationTracker: lt)
+        super.init()
     }
     
     func prepareForStart() {
@@ -45,52 +42,22 @@ class ShipsClock : ObservableObject {
         backgroundRinger.disableNotifications()
     }
     
-    func moveToForeground() {
+    override func moveToForeground() {
+        super.moveToForeground()
         backgroundRinger.disableNotifications()
-        foregroundRinger.initializeLastPlayed(forTimeInSeconds: ShipsClock.nextTime())
-        updateClock() // right away, not at next tick
-        ticker = Timer.scheduledTimer(withTimeInterval: tickInterval, repeats: true, block: updateTimeCallback)
+        foregroundRinger.initializeLastPlayed(forTimeInSeconds: timeOfDayInSeconds)
         locationTracker.activate()
     }
     
-    func moveToBackground() {
-        ticker?.invalidate()
+    override func moveToBackground() {
+        super.moveToBackground()
         backgroundRinger.scheduleBellNotificationsIfAuthorized()
         locationTracker.deactivate()
     }
 
-    private func updateTimeCallback(_: Timer) {
-        updateClock()
-    }
-    
-    private func updateClock() {
-        timeOfDayInSeconds = ShipsClock.nextTime()
-        utcTimeInSeconds = ShipsClock.utcTime()
+    override func updateClock() {
+        super.updateClock()
         celestialComputer.maybeUpdateTheSky(timeOfDayInSeconds: timeOfDayInSeconds)
         foregroundRinger.maybeRing(forTimeInSeconds: timeOfDayInSeconds)
-    }
-    
-    fileprivate static func timeInSeconds(_ hms: DateComponents) -> Int {
-        if let hour = hms.hour, let minute = hms.minute, let second = hms.second {
-            return (hour * 60 + minute) * 60 + second
-        } else {
-            return 0
-        }
-    }
-    
-    fileprivate static func timeInSeconds(_ cal: Calendar) -> Int {
-        let now = Date()
-        let hms = cal.dateComponents([.hour, .minute, .second], from: now)
-        return timeInSeconds(hms)
-    }
-    
-    private static func nextTime() -> Int {
-        return timeInSeconds(Calendar.current)
-    }
-
-    private static func utcTime() -> Int {
-        var cal = Calendar.current
-        cal.timeZone = TimeZone.init(secondsFromGMT: 0) ?? TimeZone.current
-        return timeInSeconds(cal)
     }
 }
