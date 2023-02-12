@@ -27,21 +27,20 @@ struct WatchClockApp: App {
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView().environmentObject(clockModel)
-//                    .onChange(of: scenePhase) { phase in
-//                    switch phase {
-//                    case .active:
-//                        clockModel.moveToForeground()
-//                        break
-//                    case .inactive:
-//                        break
-//                    case .background:
-//                        clockModel.moveToBackground()
-//                        break
-//                    @unknown default:
-//                        fatalError("WatchClock has entered an unknown state.")
-//                    }
-//                }
+                ContentView().environmentObject(clockModel).onChange(of: scenePhase) { phase in
+                    switch phase {
+                    case .active:
+                        clockModel.moveToForeground()
+                        break
+                    case .inactive:
+                        break
+                    case .background:
+                        clockModel.moveToBackground()
+                        break
+                    @unknown default:
+                        fatalError("WatchClock has entered an unknown state.")
+                    }
+                }
             }
         }
 
