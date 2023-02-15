@@ -192,6 +192,7 @@
 		6F73EBC228C594880049C1BF /* ClockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockModel.swift; sourceTree = "<group>"; };
 		6F73EBC928C6B3650049C1BF /* WatchClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WatchClock.swift; path = ShipsClock/WatchClock.swift; sourceTree = SOURCE_ROOT; };
 		6F77AF03244FDD4E0070DB57 /* ShipsClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipsClock.swift; sourceTree = "<group>"; };
+		6F7B2C2A299D0E0800979037 /* ShipsClock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShipsClock.entitlements; sourceTree = "<group>"; };
 		6F7DAC20259430830053E24C /* LocationFormatterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFormatterTest.swift; sourceTree = "<group>"; };
 		6F7DAC25259431510053E24C /* LocationFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationFormatter.swift; sourceTree = "<group>"; };
 		6F8FEC8E2469B3D300A1FAE7 /* TimerRinger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerRinger.swift; sourceTree = "<group>"; };
@@ -325,6 +326,7 @@
 		6FE9AFAB243F9CA8002B45BA /* ShipsClock */ = {
 			isa = PBXGroup;
 			children = (
+				6F7B2C2A299D0E0800979037 /* ShipsClock.entitlements */,
 				6F24FDA8245E48730006590A /* LICENSE */,
 				6F24FDA6245E48730006590A /* NOTICE.md */,
 				6F24FDA7245E48730006590A /* README.md */,
@@ -879,6 +881,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ShipsClock/ShipsClock.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 14;
@@ -905,6 +908,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ShipsClock/ShipsClock.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 14;

@@ -55,6 +55,10 @@ class NotifierRinger: NSObject {
         content.sound = UNNotificationSound(named: UNNotificationSoundName(sound))
         content.title = String.localizedStringWithFormat("%02d:%02d", dateComponents.hour ?? 0, dateComponents.minute ?? 0)
         content.categoryIdentifier = ringerCategoryID
+        if #available(iOS 15.0, *) {
+            content.interruptionLevel = .timeSensitive
+            content.relevanceScore = 0.0
+        }
         let request = UNNotificationRequest(identifier: UUID().uuidString,
                     content: content, trigger: trigger)
 
