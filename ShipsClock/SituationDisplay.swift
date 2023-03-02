@@ -28,9 +28,9 @@ struct SituationDisplay: View {
         VStack(alignment: .leading, spacing: nil) {
             if location.isValidLocation {
                 VStack {
-                    Text(LocationTracker.format(degrees: location.latitude, isLongitude: false))
-                    Text(LocationTracker.format(degrees: location.longitude, isLongitude: true))
-                    Text(location.courseAndSpeed())
+                    Text(LocationFormatter.formatDMS(degrees: location.latitude, isLongitude: false))
+                    Text(LocationFormatter.formatDMS(degrees: location.longitude, isLongitude: true))
+                    Text(LocationFormatter.formatCourseAndSpeed(location.course, location.velocity))
                 }.lineLimit(1)
                     .font(.system(size: CGFloat(displayWidth / 10.0), weight: .bold, design: .monospaced))
                     .minimumScaleFactor(0.5)

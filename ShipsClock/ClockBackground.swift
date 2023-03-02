@@ -34,9 +34,9 @@ struct ClockBackground: View {
             let baseLineWidth = CGFloat(radius / 60.0)
             return Path { path in
                 for hour in stride(from: 0, to: 23, by: hourInterval) {
-                    let angle = ClockFace.hourAngle(forHour: hour)
-                    path.move(to: ClockFace.pointOnRadius(forAngle: angle, givenRadius: radius, atPosition: self.tickOutside))
-                    path.addLine(to: ClockFace.pointOnRadius(forAngle: angle, givenRadius: radius, atPosition: self.tickInside))
+                    let angle = ClockGeometry.hourAngle(forHour: hour)
+                    path.move(to: ClockGeometry.pointOnRadius(forAngle: angle, givenRadius: radius, atPosition: self.tickOutside))
+                    path.addLine(to: ClockGeometry.pointOnRadius(forAngle: angle, givenRadius: radius, atPosition: self.tickInside))
                 }
             }
             .stroke(lineWidth: CGFloat(widthMultiplier) * baseLineWidth)
@@ -67,20 +67,19 @@ struct ClockBackground: View {
         
         var body: some View {
             Text(hour.description)
-                .position(ClockFace.pointOnRadius(forAngle: angle, givenRadius: radius, atPosition: textRadiusMultiplier))
+                .position(ClockGeometry.pointOnRadius(forAngle: angle, givenRadius: radius, atPosition: textRadiusMultiplier))
         }
     }
     
     struct Numbers: View {
-        let hourCount = 24
         let radius: Double
         
         var body: some View {
-            return ForEach(0..<self.hourCount, content: { hour in
+            return ForEach(0..<24, content: { hour in
                 PositionedHourLabel(
                     hour: hour,
                     radius: self.radius,
-                    angle: ClockFace.hourAngle(forHour: hour)
+                    angle: ClockGeometry.hourAngle(forHour: hour)
                 ).font(.system(size: CGFloat(self.radius / 9.0), weight: .black, design: .default))
             })
         }

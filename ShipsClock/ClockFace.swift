@@ -9,47 +9,25 @@
 import SwiftUI
 
 struct ClockFace: View {
-    @EnvironmentObject var shipsClock: ShipsClock
-
-    func diameter(_ geometry : GeometryProxy) -> CGFloat {
-        CGFloat.minimum(geometry.size.width, geometry.size.height)
-    }
-
-    func radius(_ geometry : GeometryProxy) -> Double {
-        Double(self.diameter(geometry)) / 2.0
-    }
-    
-    static func hourAngle(forHour hour : Int) -> Double {
-        let degrees = -Double(hour) * 360.0 / 24.0 - 90.0
-        return degrees * Double.pi / 180.0
-    }
-
-    static func pointOnRadius(
-        forAngle angle: Double,
-        givenRadius radius: Double,
-        atPosition position: Double
-    ) -> CGPoint
-    {
-        CGPoint(
-            x: radius + cos(angle) * radius * position,
-            y: radius - sin(angle) * radius * position
-        )
-    }
+    @ObservedObject var shipsClock: ShipsClock
 
     var body: some View {
         GeometryReader { geometry in
+            let currentDiameter = ClockGeometry.diameter(geometry)
             ZStack {
-                ClockBackground(radius: self.radius(geometry))
-                ClockSun(radius: self.radius(geometry)).environmentObject(self.shipsClock.celestialComputer)
-                ClockMoon(radius: self.radius(geometry)).environmentObject(self.shipsClock.celestialComputer)
-                ClockHands(radius: self.radius(geometry)).environmentObject(self.shipsClock)
-            }.frame(width: self.diameter(geometry), height: self.diameter(geometry), alignment: .top)
+                let currentRadius = ClockGeometry.radius(geometry)
+                ClockBackground(radius: currentRadius)
+                ClockUTC(radius: currentRadius).environmentObject(self.shipsClock)
+                ClockSun(radius: currentRadius).environmentObject(self.shipsClock.celestialComputer)
+                ClockMoon(radius: currentRadius).environmentObject(self.shipsClock.celestialComputer)
+                ClockHands(clockModel: self.shipsClock, radius: currentRadius)
+            }.frame(width: currentDiameter, height: currentDiameter, alignment: .top)
         }
     }
 }
 
 struct ClockFace_Previews: PreviewProvider {
     static var previews: some View {
-        ClockFace()
+        ClockFace(shipsClock: ShipsClock())
     }
 }

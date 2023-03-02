@@ -16,7 +16,7 @@ struct ContentView: View {
         
         var body: some View {
             VStack {
-                ClockFace()
+                ClockFace(shipsClock: shipsClock)
                 SituationDisplay(displayWidth: displaySize)
                     .environmentObject(shipsClock.locationTracker)
             }
@@ -30,7 +30,7 @@ struct ContentView: View {
         
         var body: some View {
             HStack(alignment: .top, spacing: nil) {
-                ClockFace()
+                ClockFace(shipsClock: shipsClock)
                 SituationDisplay(displayWidth: displaySize)
                     .environmentObject(shipsClock.locationTracker)
             }

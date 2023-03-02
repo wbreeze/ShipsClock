@@ -11,8 +11,7 @@ import Foundation
 /*:
  Application model for the Ships Clock
  */
-class ShipsClock : ObservableObject {
-    @Published var timeOfDayInSeconds = 0
+class ShipsClock : ClockModel {
     @Published var locationTracker: LocationTracker
     @Published var celestialComputer: CelestialComputer
     
@@ -23,13 +22,13 @@ class ShipsClock : ObservableObject {
     
     private let tickInterval = 1.0 // seconds
     
-    init() {
-        timeOfDayInSeconds = ShipsClock.nextTime()
+    override init() {
         foregroundRinger = TimerRinger(bell: bell)
         backgroundRinger = NotifierRinger(bell: bell)
         let lt = LocationTracker()
         locationTracker = lt
         celestialComputer = CelestialComputer(locationTracker: lt)
+        super.init()
     }
     
     func prepareForStart() {
@@ -43,38 +42,22 @@ class ShipsClock : ObservableObject {
         backgroundRinger.disableNotifications()
     }
     
-    func moveToForeground() {
+    override func moveToForeground() {
+        super.moveToForeground()
         backgroundRinger.disableNotifications()
-        foregroundRinger.initializeLastPlayed(forTimeInSeconds: ShipsClock.nextTime())
-        updateTime() // right away, not at next tick
-        ticker = Timer.scheduledTimer(withTimeInterval: tickInterval, repeats: true, block: updateTimeCallback)
+        foregroundRinger.initializeLastPlayed(forTimeInSeconds: timeOfDayInSeconds)
         locationTracker.activate()
     }
     
-    func moveToBackground() {
-        ticker?.invalidate()
+    override func moveToBackground() {
+        super.moveToBackground()
         backgroundRinger.scheduleBellNotificationsIfAuthorized()
         locationTracker.deactivate()
     }
 
-    private func updateTimeCallback(_: Timer) {
-        updateTime()
-    }
-
-    private func updateTime() {
-        timeOfDayInSeconds = ShipsClock.nextTime()
+    override func updateClock() {
+        super.updateClock()
         celestialComputer.maybeUpdateTheSky(timeOfDayInSeconds: timeOfDayInSeconds)
         foregroundRinger.maybeRing(forTimeInSeconds: timeOfDayInSeconds)
-    }
-    
-    private static func nextTime() -> Int {
-        let now = Date()
-        let cal = Calendar.current
-        let hms = cal.dateComponents([.hour, .minute, .second], from: now)
-        if let hour = hms.hour, let minute = hms.minute, let second = hms.second {
-            return (hour * 60 + minute) * 60 + second
-        } else {
-            return 0
-        }
     }
 }

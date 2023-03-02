@@ -28,57 +28,11 @@ class LocationTracker: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var velocity: CLLocationSpeed
     @Published var course: CLLocationDirection
 
-    static let compassPoints = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"]
-
     override init() {
         latitude = 0.0
         longitude = 0.0
         velocity = 0.0
         course = 0.0
-    }
-    
-    static func degreesMinutesSeconds(degrees: CLLocationDegrees) -> (Int, Int, Int) {
-        let mf = degrees.truncatingRemainder(dividingBy: 1.0) * 60.0
-        let s = round(mf.truncatingRemainder(dividingBy: 1.0) * 60.0)
-        return (Int(degrees), Int(mf), Int(s))
-    }
-    
-    static func format(degrees latorlon: CLLocationDegrees, isLongitude isLon: Bool) -> String {
-        var dForm: String
-        if isLon {
-            dForm = latorlon < 0 ? "W %03d" : "E %03d"
-        } else {
-            dForm = latorlon < 0 ? "S  %02d" : "N  %02d"
-        }
-        let (d, m, s) = degreesMinutesSeconds(degrees: abs(latorlon))
-        return String(format: "\(dForm)º %02d' %02d\"", locale: Locale.current, arguments: [d, m, s])
-    }
-    
-    func courseCompassPoint() -> String {
-        let point = Int(course.advanced(by: 11.25).truncatingRemainder(dividingBy: 360.0) / 22.5)
-        if (0 <= point && point < LocationTracker.compassPoints.count) {
-            return LocationTracker.compassPoints[point]
-        } else {
-            return "\(course)?"
-        }
-    }
-    
-    // report velicity stored in m/s as knots, nautical miles per hour
-    func velocityInKnots() -> Float {
-        return (0.0 <= velocity) ? Float(velocity * 360.0 / 1852.0) : 0.0
-    }
-    
-    func courseAndSpeed() -> String {
-        if (0.0 <= course && 0.0 < velocity) {
-            let ccp = courseCompassPoint()
-            let kts = velocityInKnots()
-            return String.localizedStringWithFormat(
-                "%.1f kts %@",
-                kts, ccp
-            )
-        } else {
-            return("No way on")
-        }
     }
     
     func seekPermission() {

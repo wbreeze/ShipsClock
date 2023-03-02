@@ -6,6 +6,37 @@ include_in_header: true
 
 # FAQ
 
+## Would you explain each part of the clock?
+
+![clock face]({{ 'assets/screenshot/face.png' | relative_url }})
+
+It is a twenty-four hour clock.
+- the hour hand is the shortest, it goes around once per day.
+- the minute hand is the longest, it goes around once per hour.
+- the watch hand, that is the narrowest, goes around once every four hours.
+- the sun and moon are shown in position relative to your meridian. When at
+  noon they are as high in the sky as they will be for the day, at the noon
+  meridian. What is shown is referred to in celestial navigation as the
+  "local hour angle".
+- the ticks every four hours correspond to the hour hand. They deliniate the
+  beginnings and ends of four hour watch periods.
+- the heavier ticks every six hours correspond to the watch hand. They
+  deliniate the four hours of the watch.
+
+For some examples, see [reading the clock face]({{ 'face' | relative_url }})
+
+## What are the numbers?
+
+The big bold numbers next to or below the clock face
+display your current latitude, longitude, speed, and direction.
+- the latitude, for example, N 24º 17' 55" decodes as north latitude
+  twenty-four degrees, seventeen minutes, fifty-five seconds.
+- the longitude, for example, W 110º 19' 54" decodes as west longitude
+  one-hundred ten degrees, nineteen minutes, fifty-four seconds.
+- the velocity, for example, 0.3 kts NW decodes as moving three tenths of a
+  knot toward the northwest. The clock shows sixteen cardinal directions,
+  for example, N, NNW, NW, WNW, W, ... and so forth.
+
 ## How do I tell time by the bells?
 
 A ship's watch begins every four hours. Generally, we know what time it is
@@ -37,6 +68,18 @@ When the app is not displayed on your device, but nevertheless open, it can
 play the bells for you using notifications. The app is not available to play
 the bells directly when it is in this state.
 The notifications method is the best allowed by the operating system.
+
+## What do I do about the half hourly notifications visual clutter?
+In iOS 15, the notification sounds no longer play.
+In order to fix this, we had to add a title to the notification. We simply put the time.
+There's no real benefit to seeing the notification.
+In the notification settings for ShipsClock, under "alerts":
+- turn off "Lock Screen"
+- turn off "Notification Center"
+- Leave on "Allow Notifications" and "Sounds"
+
+Here is a screen shot. These settings will give you bell sounds without visual clutter.
+![notification settings]({{ 'assets/screenshot/NotificationSettings.png' | relative_url }})
 
 ## Will the silence switch silence the bells?
 

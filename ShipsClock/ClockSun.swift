@@ -24,6 +24,7 @@ struct ClockSun: View {
     var radius : Double
     
     let textRadiusMultiplier = 0.75
+    static var fontSizeDivisor = 9.0
     
     var body: some View {
         var sun = ""
@@ -32,13 +33,14 @@ struct ClockSun: View {
             sun = "🌞"
             angle = (90.0 - sunAngle) * Double.pi / 180.0
         }
-        return Text(sun).position(ClockFace.pointOnRadius(forAngle: angle, givenRadius: radius, atPosition: textRadiusMultiplier))
-            .font(.system(size: CGFloat(self.radius / 9.0), weight: .black, design: .default))
+        return Text(sun).position(ClockGeometry.pointOnRadius(forAngle: angle, givenRadius: radius, atPosition: textRadiusMultiplier))
+            .font(.system(size: CGFloat(self.radius / ClockSun.fontSizeDivisor), weight: .black, design: .default))
     }
 }
 
 struct ClockSun_Previews: PreviewProvider {
     static var previews: some View {
-        ClockSun(radius: 1.0)
+        let lt = LocationTracker()
+        ClockSun(radius: 14.0 * ClockSun.fontSizeDivisor).environmentObject(CelestialComputer(locationTracker: lt))
     }
 }
