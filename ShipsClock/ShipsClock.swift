@@ -14,7 +14,6 @@ Application controller for the Ships Clock
 class ShipsClock {
     
     private var bell = ShipsBell()
-    private var backgroundRinger: NotifierRinger
     private var foregroundRinger: TimerRinger
     private var ticker: Timer?
     var model: ClockModel
@@ -24,13 +23,11 @@ class ShipsClock {
     
     init() {
         foregroundRinger = TimerRinger(bell: bell)
-        backgroundRinger = NotifierRinger(bell: bell)
         location = LocationTracker()
         model = ClockModel(locationTracker: location)
     }
     
     func prepareForStart() {
-        backgroundRinger.seekPermission()
         location.seekPermission()
         foregroundRinger.initializeLastPlayed(forTimeInSeconds: model.timeOfDayInSeconds)
     }
@@ -42,11 +39,9 @@ class ShipsClock {
     
     func prepareForShutdown() {
         shutdownForeground()
-        backgroundRinger.disableNotifications()
     }
     
     func moveToForeground() {
-        backgroundRinger.disableNotifications()
         model.updateClock()
         ticker = Timer.scheduledTimer(withTimeInterval: tickInterval, repeats: true, block: updateTimeCallback)
         location.activate()
@@ -54,7 +49,6 @@ class ShipsClock {
     
     func moveToBackground() {
         shutdownForeground()
-        backgroundRinger.scheduleBellNotificationsIfAuthorized()
     }
     
     private func updateTimeCallback(_: Timer) {
