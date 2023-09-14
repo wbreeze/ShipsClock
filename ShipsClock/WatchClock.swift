@@ -19,22 +19,21 @@
 
 import Foundation
 
-class WatchClock : ClockModel {
+class WatchClock {
     private var bell = ShipsBell()
     private var foregroundRinger: TimerRinger
+    private var model: TimeModel
 
-    override init() {
+    init() {
         foregroundRinger = TimerRinger(bell: bell)
-        super.init()
+        model = TimeModel()
     }
     
-    override  func moveToForeground() {
-        foregroundRinger.initializeLastPlayed(forTimeInSeconds: timeOfDayInSeconds)
-        super.moveToForeground()
+    func moveToForeground() {
+        foregroundRinger.initializeLastPlayed(forTimeInSeconds: model.timeOfDayInSeconds)
     }
     
-    override func updateClock() {
-        super.updateClock()
-        foregroundRinger.maybeRing(forTimeInSeconds: timeOfDayInSeconds)
+    func updateClock() {
+        foregroundRinger.maybeRing(forTimeInSeconds: model.timeOfDayInSeconds)
     }
 }

@@ -45,7 +45,6 @@
 		6F73EBBF28C588B10049C1BF /* ClockGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6029432726F65C009359D4 /* ClockGeometry.swift */; };
 		6F73EBC028C588CD0049C1BF /* ClockBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F40411B247F47CB00B1BF5D /* ClockBackground.swift */; };
 		6F73EBC328C594880049C1BF /* ClockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F73EBC228C594880049C1BF /* ClockModel.swift */; };
-		6F73EBC528C595260049C1BF /* ClockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F73EBC228C594880049C1BF /* ClockModel.swift */; };
 		6F73EBC628C59A3B0049C1BF /* ClockHands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F40411D247F47DE00B1BF5D /* ClockHands.swift */; };
 		6F73EBC728C6AEDB0049C1BF /* ShipsBell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F24FD9D245D2D6A0006590A /* ShipsBell.swift */; };
 		6F73EBC828C6AF220049C1BF /* TimerRinger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8FEC8E2469B3D300A1FAE7 /* TimerRinger.swift */; };
@@ -67,6 +66,9 @@
 		6FAECDB025658BFC00B91A82 /* EclToEquTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAECDAF25658BFC00B91A82 /* EclToEquTest.swift */; };
 		6FAECDBB2566C0E800B91A82 /* CelestialTimeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAECDBA2566C0E800B91A82 /* CelestialTimeTest.swift */; };
 		6FAECDC02568138100B91A82 /* ClockMoon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAECDBF2568138100B91A82 /* ClockMoon.swift */; };
+		6FB8A1312AB3806F003D4FF8 /* TimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB8A1302AB3806F003D4FF8 /* TimeModel.swift */; };
+		6FB8A1322AB380E7003D4FF8 /* TimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB8A1302AB3806F003D4FF8 /* TimeModel.swift */; };
+		6FB8A1332AB380EC003D4FF8 /* TimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB8A1302AB3806F003D4FF8 /* TimeModel.swift */; };
 		6FB9E6AA28C50E050089E60C /* LocationTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8FEC96246C1F9F00A1FAE7 /* LocationTracker.swift */; };
 		6FCCEE85249652D800F18212 /* SunCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCCEE84249652D800F18212 /* SunCalculator.swift */; };
 		6FCCEE862496531D00F18212 /* SunCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCCEE84249652D800F18212 /* SunCalculator.swift */; };
@@ -79,6 +81,7 @@
 		6FE9AFB9243F9CAA002B45BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FE9AFB7243F9CAA002B45BA /* LaunchScreen.storyboard */; };
 		6FE9AFCF243F9CAA002B45BA /* ShipsClockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE9AFCE243F9CAA002B45BA /* ShipsClockUITests.swift */; };
 		6FE9AFDF243FBB79002B45BA /* ClockFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE9AFDE243FBB79002B45BA /* ClockFace.swift */; };
+		6FEB9E7129F3C2BE00DA3F06 /* BackgroundRinger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEB9E7029F3C2BE00DA3F06 /* BackgroundRinger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -206,6 +209,7 @@
 		6FAECDAF25658BFC00B91A82 /* EclToEquTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EclToEquTest.swift; sourceTree = "<group>"; };
 		6FAECDBA2566C0E800B91A82 /* CelestialTimeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelestialTimeTest.swift; sourceTree = "<group>"; };
 		6FAECDBF2568138100B91A82 /* ClockMoon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockMoon.swift; sourceTree = "<group>"; };
+		6FB8A1302AB3806F003D4FF8 /* TimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeModel.swift; sourceTree = "<group>"; };
 		6FCCEE84249652D800F18212 /* SunCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunCalculator.swift; sourceTree = "<group>"; };
 		6FCCEE872497051A00F18212 /* CelestialComputer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CelestialComputer.swift; path = ShipsClock/CelestialComputer.swift; sourceTree = SOURCE_ROOT; };
 		6FE9AFAC243F9CA8002B45BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -219,6 +223,7 @@
 		6FE9AFCE243F9CAA002B45BA /* ShipsClockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipsClockUITests.swift; sourceTree = "<group>"; };
 		6FE9AFD0243F9CAA002B45BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6FE9AFDE243FBB79002B45BA /* ClockFace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockFace.swift; sourceTree = "<group>"; };
+		6FEB9E7029F3C2BE00DA3F06 /* BackgroundRinger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundRinger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -338,6 +343,7 @@
 				6F8FEC98246C4FE000A1FAE7 /* SituationDisplay.swift */,
 				6FE9AFAE243F9CA8002B45BA /* SceneDelegate.swift */,
 				6F77AF03244FDD4E0070DB57 /* ShipsClock.swift */,
+				6FB8A1302AB3806F003D4FF8 /* TimeModel.swift */,
 				6F73EBC228C594880049C1BF /* ClockModel.swift */,
 				6FCCEE872497051A00F18212 /* CelestialComputer.swift */,
 				6FAC63B7256C1EF800C2C834 /* MoonPhase.swift */,
@@ -351,6 +357,7 @@
 				6F24FD9D245D2D6A0006590A /* ShipsBell.swift */,
 				6F8FEC8E2469B3D300A1FAE7 /* TimerRinger.swift */,
 				6F24FDAF246708860006590A /* NotifierRinger.swift */,
+				6FEB9E7029F3C2BE00DA3F06 /* BackgroundRinger.swift */,
 				6F6029432726F65C009359D4 /* ClockGeometry.swift */,
 				6FE9AFDE243FBB79002B45BA /* ClockFace.swift */,
 				6F40411F2485DB4700B1BF5D /* ClockSun.swift */,
@@ -577,13 +584,13 @@
 				6F73EBC728C6AEDB0049C1BF /* ShipsBell.swift in Sources */,
 				6F73EBA928C57DB00049C1BF /* NotificationController.swift in Sources */,
 				6F73EBC628C59A3B0049C1BF /* ClockHands.swift in Sources */,
-				6F73EBC528C595260049C1BF /* ClockModel.swift in Sources */,
 				6F73EBA728C57DB00049C1BF /* ContentView.swift in Sources */,
 				6F73EBBF28C588B10049C1BF /* ClockGeometry.swift in Sources */,
 				6F73EBCA28C6B3650049C1BF /* WatchClock.swift in Sources */,
 				6F73EBAD28C57DB00049C1BF /* ComplicationController.swift in Sources */,
 				6F73EBA528C57DB00049C1BF /* WatchClockApp.swift in Sources */,
 				6F73EBAB28C57DB00049C1BF /* NotificationView.swift in Sources */,
+				6FB8A1312AB3806F003D4FF8 /* TimeModel.swift in Sources */,
 				6F73EBC828C6AF220049C1BF /* TimerRinger.swift in Sources */,
 				6F73EBC028C588CD0049C1BF /* ClockBackground.swift in Sources */,
 			);
@@ -613,10 +620,12 @@
 				6F093CAA26CFF7DA0091A4B7 /* ClockConfiguration.swift in Sources */,
 				6F6029442726F65C009359D4 /* ClockGeometry.swift in Sources */,
 				6F1BBB4B24B779ED0092A54D /* Julian.swift in Sources */,
+				6FB8A1322AB380E7003D4FF8 /* TimeModel.swift in Sources */,
 				6F8FEC99246C4FE000A1FAE7 /* SituationDisplay.swift in Sources */,
 				6F1BBB5024B7987B0092A54D /* Arcs.swift in Sources */,
 				6FE9AFAF243F9CA8002B45BA /* SceneDelegate.swift in Sources */,
 				6F7DAC26259431510053E24C /* LocationFormatter.swift in Sources */,
+				6FEB9E7129F3C2BE00DA3F06 /* BackgroundRinger.swift in Sources */,
 				6FCCEE882497051A00F18212 /* CelestialComputer.swift in Sources */,
 				6FCCEE85249652D800F18212 /* SunCalculator.swift in Sources */,
 				6FE9AFB1243F9CA8002B45BA /* ContentView.swift in Sources */,
@@ -637,6 +646,7 @@
 				6FB9E6AA28C50E050089E60C /* LocationTracker.swift in Sources */,
 				6F1BBB5224B79B2A0092A54D /* ArcsTest.swift in Sources */,
 				6F1BBB5324B79C070092A54D /* Arcs.swift in Sources */,
+				6FB8A1332AB380EC003D4FF8 /* TimeModel.swift in Sources */,
 				6FAECDB025658BFC00B91A82 /* EclToEquTest.swift in Sources */,
 				6F093CAB26CFF7DA0091A4B7 /* ClockConfiguration.swift in Sources */,
 				6F7DAC27259431510053E24C /* LocationFormatter.swift in Sources */,

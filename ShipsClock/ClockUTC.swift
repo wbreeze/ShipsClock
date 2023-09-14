@@ -20,14 +20,14 @@
 import SwiftUI
 
 struct ClockUTC: View {
-    @EnvironmentObject var shipsClock: ShipsClock
+    @ObservedObject var timeModel: TimeModel
     var radius : Double
 
     let pointerPositionMultiplier = 0.77
     let pointerSizeMultiplier = 44.0
     
     var body: some View {
-        let hourAngle = ClockGeometry.hourAngle(forTimeInSeconds: self.shipsClock.utcTimeInSeconds)
+        let hourAngle = ClockGeometry.hourAngle(forTimeInSeconds: self.timeModel.utcTimeInSeconds)
         let center = ClockGeometry.pointOnRadius(forAngle: hourAngle, givenRadius: radius, atPosition: pointerPositionMultiplier)
         let scale = CGFloat(radius / pointerSizeMultiplier)
         let transform = CGAffineTransform.identity
@@ -47,6 +47,6 @@ struct ClockUTC: View {
 
 struct ClockUTC_Previews: PreviewProvider {
     static var previews: some View {
-        ClockUTC(radius: 200.0).environmentObject(ShipsClock())
+        ClockUTC(timeModel: TimeModel(), radius: 200.0)
     }
 }

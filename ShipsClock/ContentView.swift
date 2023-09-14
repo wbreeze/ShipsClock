@@ -10,29 +10,29 @@ import SwiftUI
 
 struct ContentView: View {
     struct Vertical: View {
-        @EnvironmentObject var shipsClock: ShipsClock
+        @EnvironmentObject var clock: ClockModel
         
         var displaySize: CGFloat
         
         var body: some View {
             VStack {
-                ClockFace(shipsClock: shipsClock)
+                ClockFace(clockModel: clock)
                 SituationDisplay(displayWidth: displaySize)
-                    .environmentObject(shipsClock.locationTracker)
+                    .environmentObject(clock.location)
             }
         }
     }
     
     struct Horizontal: View {
-        @EnvironmentObject var shipsClock: ShipsClock
+        @EnvironmentObject var clock: ClockModel
         
         var displaySize: CGFloat
         
         var body: some View {
             HStack(alignment: .top, spacing: nil) {
-                ClockFace(shipsClock: shipsClock)
+                ClockFace(clockModel: clock)
                 SituationDisplay(displayWidth: displaySize)
-                    .environmentObject(shipsClock.locationTracker)
+                    .environmentObject(clock.location)
             }
         }
     }
