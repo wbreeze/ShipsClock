@@ -1,5 +1,5 @@
 //
-//  ShipsBell.swift
+//  BellSoundFile.swift
 //  ShipsClock
 //
 //  Created by Douglas Lovell on 5/2/20.
@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-struct ShipsBell {
+struct BellSoundFile {
     let thirtyMinutes = 30 * 60
     let fourHours = 4 * 60 * 60
     let soundsDir = "sounds"
@@ -25,19 +25,5 @@ struct ShipsBell {
     
     func halfHourIndex(forTimeInSeconds time: Int) -> Int {
         return (time % fourHours) / thirtyMinutes
-    }
-    
-    struct HourStrike {
-        let timing: DateComponents
-        let bellSound: String
-    }
-    
-    func bellSchedule() -> [HourStrike] {
-        return (0...47).map { halfHour in
-            var dateComponents = DateComponents()
-            dateComponents.hour = halfHour / 2
-            dateComponents.minute = (halfHour % 2) * 30
-            return HourStrike(timing: dateComponents, bellSound: soundFileName(bellIndex: halfHour))
-        }
     }
 }

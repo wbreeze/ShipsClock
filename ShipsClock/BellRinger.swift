@@ -9,17 +9,13 @@
 import UIKit
 import AVFoundation
 
-struct TimerRinger {
-    let thirtyMinutes = 30 * 60
-    let fourHours = 4 * 60 * 60
-    
-    var lastPlayedIndex = 0
-    var audioSession : AVAudioSession
-    var audioPlayer: AVAudioPlayer?
-    var bell: ShipsBell
-    
-    init(bell: ShipsBell) {
-        self.bell = bell
+struct BellRinger {
+    private var lastPlayedIndex = 0
+    private var audioSession : AVAudioSession
+    private var audioPlayer: AVAudioPlayer?
+    private var bell = BellSoundFile()
+
+    init() {
         audioSession = AVAudioSession.sharedInstance()
         do {
             try audioSession.setCategory(.playback, mode: .default, options: .mixWithOthers)

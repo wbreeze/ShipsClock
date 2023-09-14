@@ -13,8 +13,7 @@ Application controller for the Ships Clock
  */
 class ShipsClock {
     
-    private var bell = ShipsBell()
-    private var foregroundRinger: TimerRinger
+    private var foregroundRinger: BellRinger
     private var ticker: Timer?
     var model: ClockModel
     private var location: LocationTracker
@@ -22,7 +21,7 @@ class ShipsClock {
     private let tickInterval = 1.0 // seconds
     
     init() {
-        foregroundRinger = TimerRinger(bell: bell)
+        foregroundRinger = BellRinger()
         location = LocationTracker()
         model = ClockModel(locationTracker: location)
     }
