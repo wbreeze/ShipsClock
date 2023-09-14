@@ -12,27 +12,26 @@ import Foundation
 Application controller for the Ships Clock
  */
 class ShipsClock {
-    
-    private var foregroundRinger: BellRinger
-    private var ticker: Timer?
-    var model: ClockModel
+    private var ringer: BellRinger
     private var location: LocationTracker
+    private var foregroundTicker: TimerTicker
+    var model: ClockModel
 
-    private let tickInterval = 1.0 // seconds
-    
     init() {
-        foregroundRinger = BellRinger()
+        ringer = BellRinger()
         location = LocationTracker()
         model = ClockModel(locationTracker: location)
+        foregroundTicker = TimerTicker(clock: model, bell: ringer)
     }
     
     func prepareForStart() {
         location.seekPermission()
-        foregroundRinger.initializeLastPlayed(forTimeInSeconds: model.timeOfDayInSeconds)
+        model.updateClock()
+        ringer.initializeLastPlayed(forTimeInSeconds: model.timeOfDayInSeconds)
     }
     
     private func shutdownForeground() {
-        ticker?.invalidate()
+        foregroundTicker.stopTicking()
         location.deactivate()
     }
     
@@ -42,20 +41,11 @@ class ShipsClock {
     
     func moveToForeground() {
         model.updateClock()
-        ticker = Timer.scheduledTimer(withTimeInterval: tickInterval, repeats: true, block: updateTimeCallback)
         location.activate()
+        foregroundTicker.startTicking()
     }
     
     func moveToBackground() {
         shutdownForeground()
-    }
-    
-    private func updateTimeCallback(_: Timer) {
-        updateState()
-    }
-    
-    func updateState() {
-        model.updateClock()
-        foregroundRinger.maybeRing(forTimeInSeconds: model.timeOfDayInSeconds)
     }
 }

@@ -1,7 +1,7 @@
 //
-  // WatchClock WatchKit Extension
-  // Created by Douglas Lovell on 5/9/22.
-  // Copyright © 2022 Douglas Lovell
+  // ShipsClock
+  // Created by Douglas Lovell on 14/9/23.
+  // Copyright © 2023 Douglas Lovell
   /*
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -19,18 +19,7 @@
 
 import Foundation
 
-class WatchClock {
-    private var bell = BellRinger()
-    private var foregroundTicker: TimerTicker
-    private var model: TimeModel
-
-    init() {
-        model = TimeModel()
-        foregroundTicker = TimerTicker(clock: model, bell: bell)
-    }
-    
-    func moveToForeground() {
-        bell.initializeLastPlayed(forTimeInSeconds: model.timeOfDayInSeconds)
-        foregroundTicker.startTicking()
-    }
+protocol UpdatableClock {
+    var timeOfDayInSeconds: Int { get };
+    func updateClock()
 }

@@ -22,7 +22,7 @@ import Foundation
 /**
  Basic time model for the clock.
  */
-class TimeModel : ObservableObject {
+class TimeModel : UpdatableClock, ObservableObject {
     @Published var timeOfDayInSeconds = 0
     @Published var utcTimeInSeconds = 0
     
