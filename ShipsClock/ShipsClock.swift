@@ -7,15 +7,17 @@
 //
 
 import Foundation
+import BackgroundTasks
 
 /**
 Application controller for the Ships Clock
  */
 class ShipsClock {
-    private var ringer: BellRinger
+    var ringer: BellRinger
+    var model: ClockModel
+
     private var location: LocationTracker
     private var foregroundTicker: TimerTicker
-    var model: ClockModel
 
     init() {
         ringer = BellRinger()
@@ -24,28 +26,37 @@ class ShipsClock {
         foregroundTicker = TimerTicker(clock: model, bell: ringer)
     }
     
+    func requestBackgroundScheduledTick() {
+        let request = BGProcessingTaskRequest(identifier: "com.wbreeze.ShipsClock.updateMaybeRing")
+        request.earliestBeginDate = Date(timeIntervalSinceNow: 10)
+        
+        do {
+            try BGTaskScheduler.shared.submit(request)
+        } catch {
+            print("Could not schedule background task: \(error)")
+        }
+    }
+    
     func prepareForStart() {
         location.seekPermission()
         model.updateClock()
         ringer.initializeLastPlayed(forTimeInSeconds: model.timeOfDayInSeconds)
     }
-    
-    private func shutdownForeground() {
+        
+    func prepareForShutdown() {
         foregroundTicker.stopTicking()
         location.deactivate()
     }
     
-    func prepareForShutdown() {
-        shutdownForeground()
-    }
-    
     func moveToForeground() {
         model.updateClock()
+        ringer.initializeLastPlayed(forTimeInSeconds: model.timeOfDayInSeconds)
         location.activate()
         foregroundTicker.startTicking()
     }
     
     func moveToBackground() {
-        shutdownForeground()
+        foregroundTicker.stopTicking()
+        requestBackgroundScheduledTick()
     }
 }
