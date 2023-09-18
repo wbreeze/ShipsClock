@@ -27,36 +27,42 @@ class ShipsClock {
     }
     
     func requestBackgroundScheduledTick() {
-        let request = BGProcessingTaskRequest(identifier: "com.wbreeze.ShipsClock.updateMaybeRing")
-        request.earliestBeginDate = Date(timeIntervalSinceNow: 10)
+        print("RequestBackgroundTick doing just that.")
+        let request = BGAppRefreshTaskRequest(identifier: "com.wbreeze.ShipsClock.updateMaybeRing")
+        request.earliestBeginDate = Date(timeIntervalSinceNow: 30) // seconds
         
         do {
             try BGTaskScheduler.shared.submit(request)
         } catch {
             print("Could not schedule background task: \(error)")
         }
+        print("Request \(request) submitted")
     }
     
     func prepareForStart() {
+        print("PrepareForStart seeking permission, updating clock, initializing last played")
         location.seekPermission()
         model.updateClock()
         ringer.initializeLastPlayed(forTimeInSeconds: model.timeOfDayInSeconds)
     }
         
     func prepareForShutdown() {
+        print("PrepareForShutdown stopping ticker, deactivating location")
         foregroundTicker.stopTicking()
         location.deactivate()
     }
     
     func moveToForeground() {
+        print("MoveToForeground updating clock, activating location, starting ticker")
         model.updateClock()
-        ringer.initializeLastPlayed(forTimeInSeconds: model.timeOfDayInSeconds)
         location.activate()
         foregroundTicker.startTicking()
     }
     
     func moveToBackground() {
+        print("MoveToBackground stopping ticker, deactivating location, requesting BG processing")
         foregroundTicker.stopTicking()
+        location.deactivate()
         requestBackgroundScheduledTick()
     }
 }

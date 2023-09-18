@@ -14,21 +14,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let clock = ShipsClock()
 
-    func handleBackgroundUpdateMaybeRing(task: BGProcessingTask) {
-        let model = clock.model
-        
-        model.updateClock()
-        clock.ringer.maybeRing(forTimeInSeconds: model.timeOfDayInSeconds)
+    func handleBackgroundUpdateMaybeRing(task: BGAppRefreshTask) {
         clock.requestBackgroundScheduledTick()
-        
-        task.setTaskCompleted(success: true)
+
+        task.expirationHandler = {
+            print("Background refresh task expired before completion.")
+        }
+
+        DispatchQueue.main.async {
+            let model = self.clock.model
+            model.updateClock()
+            self.clock.ringer.maybeRing(forTimeInSeconds: model.timeOfDayInSeconds)
+            task.setTaskCompleted(success: true)
+        }
     }
                                     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         clock.prepareForStart()
         BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.wbreeze.ShipsClock.updateMaybeRing", using: nil) {
-            task in self.handleBackgroundUpdateMaybeRing(task: task as! BGProcessingTask)
+            task in self.handleBackgroundUpdateMaybeRing(task: task as! BGAppRefreshTask)
         }
         return true
     }
