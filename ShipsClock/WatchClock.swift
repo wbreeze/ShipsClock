@@ -20,11 +20,13 @@
 import Foundation
 
 class WatchClock {
-    private var bell = BellRinger()
+    private var bell: BellRinger
     private var foregroundTicker: TimerTicker
     private var model: TimeModel
 
     init() {
+        let bellSounds = BellSoundFile()
+        bell = BellRinger(bell: bellSounds)
         model = TimeModel()
         foregroundTicker = TimerTicker(clock: model, bell: bell)
     }
