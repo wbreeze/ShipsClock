@@ -18,29 +18,20 @@ class ShipsClock {
 
     private var location: LocationTracker
     private var foregroundTicker: TimerTicker
+    private var backgroundRinger: NotifierRinger
 
     init() {
-        ringer = BellRinger()
+        let bellSound = BellSoundFile()
+        ringer = BellRinger(bell: bellSound)
         location = LocationTracker()
         model = ClockModel(locationTracker: location)
         foregroundTicker = TimerTicker(clock: model, bell: ringer)
-    }
-    
-    func requestBackgroundScheduledTick() {
-        print("RequestBackgroundTick doing just that.")
-        let request = BGAppRefreshTaskRequest(identifier: "com.wbreeze.ShipsClock.updateMaybeRing")
-        request.earliestBeginDate = Date(timeIntervalSinceNow: 30) // seconds
-        
-        do {
-            try BGTaskScheduler.shared.submit(request)
-        } catch {
-            print("Could not schedule background task: \(error)")
-        }
-        print("Request \(request) submitted")
+        backgroundRinger = NotifierRinger(bell: bellSound)
     }
     
     func prepareForStart() {
         print("PrepareForStart seeking permission, updating clock, initializing last played")
+        backgroundRinger.seekPermission()
         location.seekPermission()
         model.updateClock()
         ringer.initializeLastPlayed(forTimeInSeconds: model.timeOfDayInSeconds)
@@ -49,11 +40,13 @@ class ShipsClock {
     func prepareForShutdown() {
         print("PrepareForShutdown stopping ticker, deactivating location")
         foregroundTicker.stopTicking()
+        backgroundRinger.disableNotifications()
         location.deactivate()
     }
     
     func moveToForeground() {
         print("MoveToForeground updating clock, activating location, starting ticker")
+        backgroundRinger.disableNotifications()
         model.updateClock()
         location.activate()
         foregroundTicker.startTicking()
@@ -63,6 +56,6 @@ class ShipsClock {
         print("MoveToBackground stopping ticker, deactivating location, requesting BG processing")
         foregroundTicker.stopTicking()
         location.deactivate()
-        requestBackgroundScheduledTick()
+        backgroundRinger.scheduleBellNotificationsIfAuthorized()
     }
 }

@@ -13,9 +13,10 @@ struct BellRinger {
     private var lastPlayedIndex = 0
     private var audioSession : AVAudioSession
     private var audioPlayer: AVAudioPlayer?
-    private var bell = BellSoundFile()
+    private var bell: BellSoundFile
 
-    init() {
+    init(bell: BellSoundFile) {
+        self.bell = bell
         audioSession = AVAudioSession.sharedInstance()
         do {
             try audioSession.setCategory(.playback, mode: .default, options: .mixWithOthers)
