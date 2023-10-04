@@ -26,4 +26,18 @@ struct BellSoundFile {
     func halfHourIndex(forTimeInSeconds time: Int) -> Int {
         return (time % fourHours) / thirtyMinutes
     }
+    
+    struct HourStrike {
+        let timing: DateComponents
+        let bellSound: String
+    }
+    
+    func bellSchedule() -> [HourStrike] {
+        return (0...47).map { halfHour in
+            var dateComponents = DateComponents()
+            dateComponents.hour = halfHour / 2
+            dateComponents.minute = (halfHour % 2) * 30
+            return HourStrike(timing: dateComponents, bellSound: soundFileName(bellIndex: halfHour))
+        }
+    }
 }

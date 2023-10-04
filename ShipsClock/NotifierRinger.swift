@@ -12,9 +12,9 @@ import UIKit
 class NotifierRinger: NSObject {
     var notificationCenter: UNUserNotificationCenter?
     let ringerCategoryID = UUID().uuidString
-    var bell: ShipsBell
+    var bell: BellSoundFile
 
-    init(bell: ShipsBell) {
+    init(bell: BellSoundFile) {
         self.bell = bell
     }
     
