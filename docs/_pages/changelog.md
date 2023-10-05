@@ -7,9 +7,14 @@ include_in_header: true
 # Changelog
 
 ## Version 1.3.2
-- Removed support for the watch because presence of the watch disables the bells.
-  See [Issue 42 : Watch / phone interaction : Notification goes to watch with no sound](
-    https://github.com/wbreeze/ShipsClock/issues/42)
+- [Issue 42](https://github.com/wbreeze/ShipsClock/issues/42):
+  Removed support for the watch because presence of the watch disables the bells.
+- [Issue 44](https://github.com/wbreeze/ShipsClock/issues/44):
+  Notifications (bells) will no longer play after dismissing the app while it is
+  running in the background.
+- [Issue 45](https://github.com/wbreeze/ShipsClock/issues/45):
+  The bell will no longer play when the app is started or moved to
+  foreground after being in background.
 
 ## Version 1.2.2
 - Added Apple Watch display
