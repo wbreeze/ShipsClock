@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-struct BellRinger {
+class BellRinger {
     private var lastPlayedIndex = 0
     private var audioSession : AVAudioSession
     private var audioPlayer: AVAudioPlayer?
@@ -28,7 +28,7 @@ struct BellRinger {
     /*:
      Play the bell sound for the given half hour interval
      */
-    mutating func ring(hourIndex index: Int) {
+    func ring(hourIndex index: Int) {
         if let url = Bundle.main.url(forResource: bell.soundFileBaseName(bellIndex: index), withExtension: "wav") {
             do {
                 try audioPlayer = AVAudioPlayer(contentsOf: url)
@@ -41,11 +41,11 @@ struct BellRinger {
         }
     }
     
-    mutating func initializeLastPlayed(forTimeInSeconds time: Int) {
+    func initializeLastPlayed(forTimeInSeconds time: Int) {
         lastPlayedIndex = bell.halfHourIndex(forTimeInSeconds: time)
     }
     
-    mutating func maybeRing(forTimeInSeconds time: Int) {
+    func maybeRing(forTimeInSeconds time: Int) {
         let bellIndex = bell.halfHourIndex(forTimeInSeconds: time)
         if (bellIndex != lastPlayedIndex) {
             ring(hourIndex: bellIndex)

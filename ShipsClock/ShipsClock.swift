@@ -25,35 +25,31 @@ class ShipsClock {
         ringer = BellRinger(bell: bellSound)
         location = LocationTracker()
         model = ClockModel(locationTracker: location)
+        ringer.initializeLastPlayed(forTimeInSeconds: model.timeOfDayInSeconds)
         foregroundTicker = TimerTicker(clock: model, bell: ringer)
         backgroundRinger = NotifierRinger(bell: bellSound)
     }
     
     func prepareForStart() {
-        print("PrepareForStart seeking permission, updating clock, initializing last played")
         backgroundRinger.seekPermission()
         location.seekPermission()
-        model.updateClock()
-        ringer.initializeLastPlayed(forTimeInSeconds: model.timeOfDayInSeconds)
     }
         
     func prepareForShutdown() {
-        print("PrepareForShutdown stopping ticker, deactivating location")
         foregroundTicker.stopTicking()
         backgroundRinger.disableNotifications()
         location.deactivate()
     }
     
     func moveToForeground() {
-        print("MoveToForeground updating clock, activating location, starting ticker")
         backgroundRinger.disableNotifications()
-        model.updateClock()
         location.activate()
+        model.updateClock()
+        ringer.initializeLastPlayed(forTimeInSeconds: model.timeOfDayInSeconds)
         foregroundTicker.startTicking()
     }
     
     func moveToBackground() {
-        print("MoveToBackground stopping ticker, deactivating location, requesting BG processing")
         foregroundTicker.stopTicking()
         location.deactivate()
         backgroundRinger.scheduleBellNotificationsIfAuthorized()
