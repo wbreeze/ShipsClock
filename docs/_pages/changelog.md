@@ -6,6 +6,14 @@ include_in_header: true
 
 # Changelog
 
+## Version 1.3.2
+- Removed support for the watch because presence of the watch disables the bells.
+  See [Issue 42 : Watch / phone interaction : Notification goes to watch with no sound](
+    https://github.com/wbreeze/ShipsClock/issues/42)
+
+## Version 1.2.2
+- Added Apple Watch display
+
 ## Version 1.1.3
 - Adds an indicator for hour UTC
 

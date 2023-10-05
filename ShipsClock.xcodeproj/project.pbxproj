@@ -166,8 +166,8 @@
 		6F8FEC96246C1F9F00A1FAE7 /* LocationTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTracker.swift; sourceTree = "<group>"; };
 		6F8FEC98246C4FE000A1FAE7 /* SituationDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SituationDisplay.swift; sourceTree = "<group>"; };
 		6F94C92D2ACE0764005C1A8E /* NotifierRinger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifierRinger.swift; sourceTree = "<group>"; };
-		6F94CAC828C4DDA700941D26 /* ShipsClockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShipsClockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6F94CAC928C4DDA700941D26 /* ShipsClockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShipsClockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F94CAC828C4DDA700941D26 /* ShipsClockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = ShipsClockTests.xctest; path = "/Users/dcl/Documents/p.swift/ShipsClock/build/Debug-iphoneos/ShipsClockTests.xctest"; sourceTree = "<absolute>"; };
+		6F94CAC928C4DDA700941D26 /* ShipsClockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = ShipsClockUITests.xctest; path = "/Users/dcl/Documents/p.swift/ShipsClock/build/Debug-iphoneos/ShipsClockUITests.xctest"; sourceTree = "<absolute>"; };
 		6FAC63B7256C1EF800C2C834 /* MoonPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonPhase.swift; sourceTree = "<group>"; };
 		6FAC63BC256C419400C2C834 /* MoonPhaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonPhaseTest.swift; sourceTree = "<group>"; };
 		6FAECDA92565897300B91A82 /* EclToEqu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EclToEqu.swift; sourceTree = "<group>"; };
@@ -246,8 +246,6 @@
 				6FE9AFC2243F9CAA002B45BA /* ShipsClockTests */,
 				6FE9AFCD243F9CAA002B45BA /* ShipsClockUITests */,
 				6F24FDAC245F8EC10006590A /* ShipsClock.app */,
-				6F94CAC828C4DDA700941D26 /* ShipsClockTests.xctest */,
-				6F94CAC928C4DDA700941D26 /* ShipsClockUITests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -708,7 +706,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.4;
+				MARKETING_VERSION = 1.3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wbreeze.ShipsClock;
 				PRODUCT_NAME = ShipsClock;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -735,7 +733,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.4;
+				MARKETING_VERSION = 1.3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wbreeze.ShipsClock;
 				PRODUCT_NAME = ShipsClock;
 				PROVISIONING_PROFILE_SPECIFIER = "";
