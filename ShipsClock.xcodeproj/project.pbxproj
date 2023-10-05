@@ -157,18 +157,7 @@
 		6F725BF7255D796200CC85A3 /* aa3101.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = aa3101.pdf; sourceTree = "<group>"; };
 		6F725BF8255D796200CC85A3 /* ELPMPP02.for */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.fortran; path = ELPMPP02.for; sourceTree = "<group>"; };
 		6F725C03255D8A8900CC85A3 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
-		6F73EB9928C57DB00049C1BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6F73EBA428C57DB00049C1BF /* WatchClockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchClockApp.swift; sourceTree = "<group>"; };
-		6F73EBA628C57DB00049C1BF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		6F73EBA828C57DB00049C1BF /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
-		6F73EBAA28C57DB00049C1BF /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
-		6F73EBAC28C57DB00049C1BF /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
-		6F73EBAE28C57DB10049C1BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6F73EBB128C57DB10049C1BF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		6F73EBB328C57DB10049C1BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6F73EBB428C57DB10049C1BF /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		6F73EBC228C594880049C1BF /* ClockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockModel.swift; sourceTree = "<group>"; };
-		6F73EBC928C6B3650049C1BF /* WatchClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WatchClock.swift; path = ShipsClock/WatchClock.swift; sourceTree = SOURCE_ROOT; };
 		6F77AF03244FDD4E0070DB57 /* ShipsClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipsClock.swift; sourceTree = "<group>"; };
 		6F7B2C2A299D0E0800979037 /* ShipsClock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShipsClock.entitlements; sourceTree = "<group>"; };
 		6F7DAC20259430830053E24C /* LocationFormatterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFormatterTest.swift; sourceTree = "<group>"; };
@@ -249,39 +238,6 @@
 			path = ELPmpp02;
 			sourceTree = "<group>";
 		};
-		6F73EB9828C57DAD0049C1BF /* WatchClock */ = {
-			isa = PBXGroup;
-			children = (
-				6F73EB9928C57DB00049C1BF /* Assets.xcassets */,
-			);
-			path = WatchClock;
-			sourceTree = "<group>";
-		};
-		6F73EBA328C57DB00049C1BF /* WatchClock WatchKit Extension */ = {
-			isa = PBXGroup;
-			children = (
-				6F73EBA428C57DB00049C1BF /* WatchClockApp.swift */,
-				6F73EBC928C6B3650049C1BF /* WatchClock.swift */,
-				6F73EBA628C57DB00049C1BF /* ContentView.swift */,
-				6F73EBA828C57DB00049C1BF /* NotificationController.swift */,
-				6F73EBAA28C57DB00049C1BF /* NotificationView.swift */,
-				6F73EBAC28C57DB00049C1BF /* ComplicationController.swift */,
-				6F73EBAE28C57DB10049C1BF /* Assets.xcassets */,
-				6F73EBB328C57DB10049C1BF /* Info.plist */,
-				6F73EBB428C57DB10049C1BF /* PushNotificationPayload.apns */,
-				6F73EBB028C57DB10049C1BF /* Preview Content */,
-			);
-			path = "WatchClock WatchKit Extension";
-			sourceTree = "<group>";
-		};
-		6F73EBB028C57DB10049C1BF /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				6F73EBB128C57DB10049C1BF /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
 		6FE9AFA0243F9CA8002B45BA = {
 			isa = PBXGroup;
 			children = (
@@ -292,8 +248,6 @@
 				6F24FDAC245F8EC10006590A /* ShipsClock.app */,
 				6F94CAC828C4DDA700941D26 /* ShipsClockTests.xctest */,
 				6F94CAC928C4DDA700941D26 /* ShipsClockUITests.xctest */,
-				6F73EB9828C57DAD0049C1BF /* WatchClock */,
-				6F73EBA328C57DB00049C1BF /* WatchClock WatchKit Extension */,
 			);
 			sourceTree = "<group>";
 		};
