@@ -58,6 +58,7 @@
 		6F8FEC99246C4FE000A1FAE7 /* SituationDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8FEC98246C4FE000A1FAE7 /* SituationDisplay.swift */; };
 		6F94C92E2ACE0764005C1A8E /* NotifierRinger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F94C92D2ACE0764005C1A8E /* NotifierRinger.swift */; };
 		6F94CAD628C5065100941D26 /* CelestialComputer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCCEE872497051A00F18212 /* CelestialComputer.swift */; };
+		6F9877A12ACEEDB700605AF6 /* UpdatableClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB8A1362AB3ABCA003D4FF8 /* UpdatableClock.swift */; };
 		6FAC63B8256C1EF800C2C834 /* MoonPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAC63B7256C1EF800C2C834 /* MoonPhase.swift */; };
 		6FAC63BD256C419400C2C834 /* MoonPhaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAC63BC256C419400C2C834 /* MoonPhaseTest.swift */; };
 		6FAC63C1256C424E00C2C834 /* MoonPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAC63B7256C1EF800C2C834 /* MoonPhase.swift */; };
@@ -660,6 +661,7 @@
 				6F093CAB26CFF7DA0091A4B7 /* ClockConfiguration.swift in Sources */,
 				6F7DAC27259431510053E24C /* LocationFormatter.swift in Sources */,
 				6FAC63C1256C424E00C2C834 /* MoonPhase.swift in Sources */,
+				6F9877A12ACEEDB700605AF6 /* UpdatableClock.swift in Sources */,
 				6F47588A2561608200E78298 /* CelestialTime.swift in Sources */,
 				6F093CA826CFF42E0091A4B7 /* SettingsTest.swift in Sources */,
 				6F5F631C24D47E3A00172BC4 /* MoonCalcTest.swift in Sources */,
