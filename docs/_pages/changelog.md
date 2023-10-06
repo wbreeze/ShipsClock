@@ -15,6 +15,9 @@ include_in_header: true
 - [Issue 45](https://github.com/wbreeze/ShipsClock/issues/45):
   The bell will no longer play when the app is started or moved to
   foreground after being in background.
+- [Issue 40](https://github.com/wbreeze/ShipsClock/issues/40):
+  The sun and moon will no longer sometimes hang-up at midnight. Most probably
+  no longer.
 
 ## Version 1.2.2
 - Added Apple Watch display
