@@ -36,6 +36,7 @@ class CelestialComputer : ObservableObject {
     func maybeUpdateTheSky(timeOfDayInSeconds: Int) {
         if locationTracker.isValidLocation {
             if sunHourAngle == nil || moonHourAngle == nil ||
+                timeOfDayInSeconds <= lastCelestialCalc ||
                 60 < timeOfDayInSeconds - lastCelestialCalc
             {
                 let jd = jules.julianDay(for: Date())
