@@ -139,6 +139,8 @@
 		6F40411F2485DB4700B1BF5D /* ClockSun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockSun.swift; sourceTree = "<group>"; };
 		6F404121248BD0D500B1BF5D /* ShipsClockTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShipsClockTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		6F404122248BD0D600B1BF5D /* SunCalcTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunCalcTest.swift; sourceTree = "<group>"; };
+		6F4197032AD44E5800654890 /* ShipsClockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShipsClockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F4197042AD44E5800654890 /* ShipsClockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShipsClockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F4758882561608200E78298 /* CelestialTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelestialTime.swift; sourceTree = "<group>"; };
 		6F5F631924D1E4B900172BC4 /* MoonCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonCalculator.swift; sourceTree = "<group>"; };
 		6F5F631B24D47E3A00172BC4 /* MoonCalcTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonCalcTest.swift; sourceTree = "<group>"; };
@@ -166,8 +168,6 @@
 		6F8FEC96246C1F9F00A1FAE7 /* LocationTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTracker.swift; sourceTree = "<group>"; };
 		6F8FEC98246C4FE000A1FAE7 /* SituationDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SituationDisplay.swift; sourceTree = "<group>"; };
 		6F94C92D2ACE0764005C1A8E /* NotifierRinger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifierRinger.swift; sourceTree = "<group>"; };
-		6F94CAC828C4DDA700941D26 /* ShipsClockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = ShipsClockTests.xctest; path = "/Users/dcl/Documents/p.swift/ShipsClock/build/Debug-iphoneos/ShipsClockTests.xctest"; sourceTree = "<absolute>"; };
-		6F94CAC928C4DDA700941D26 /* ShipsClockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = ShipsClockUITests.xctest; path = "/Users/dcl/Documents/p.swift/ShipsClock/build/Debug-iphoneos/ShipsClockUITests.xctest"; sourceTree = "<absolute>"; };
 		6FAC63B7256C1EF800C2C834 /* MoonPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonPhase.swift; sourceTree = "<group>"; };
 		6FAC63BC256C419400C2C834 /* MoonPhaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonPhaseTest.swift; sourceTree = "<group>"; };
 		6FAECDA92565897300B91A82 /* EclToEqu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EclToEqu.swift; sourceTree = "<group>"; };
@@ -246,6 +246,8 @@
 				6FE9AFC2243F9CAA002B45BA /* ShipsClockTests */,
 				6FE9AFCD243F9CAA002B45BA /* ShipsClockUITests */,
 				6F24FDAC245F8EC10006590A /* ShipsClock.app */,
+				6F4197032AD44E5800654890 /* ShipsClockTests.xctest */,
+				6F4197042AD44E5800654890 /* ShipsClockUITests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -369,7 +371,7 @@
 			);
 			name = ShipsClockTests;
 			productName = ShipsClockTests;
-			productReference = 6F94CAC828C4DDA700941D26 /* ShipsClockTests.xctest */;
+			productReference = 6F4197032AD44E5800654890 /* ShipsClockTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		6FE9AFC9243F9CAA002B45BA /* ShipsClockUITests */ = {
@@ -387,7 +389,7 @@
 			);
 			name = ShipsClockUITests;
 			productName = ShipsClockUITests;
-			productReference = 6F94CAC928C4DDA700941D26 /* ShipsClockUITests.xctest */;
+			productReference = 6F4197042AD44E5800654890 /* ShipsClockUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -696,11 +698,12 @@
 				CODE_SIGN_ENTITLEMENTS = ShipsClock/ShipsClock.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_ASSET_PATHS = "\"ShipsClock/Preview Content\"";
 				DEVELOPMENT_TEAM = 9QGTTGV2S5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ShipsClock/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -723,11 +726,12 @@
 				CODE_SIGN_ENTITLEMENTS = ShipsClock/ShipsClock.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_ASSET_PATHS = "\"ShipsClock/Preview Content\"";
 				DEVELOPMENT_TEAM = 9QGTTGV2S5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ShipsClock/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
