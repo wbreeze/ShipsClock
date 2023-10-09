@@ -39,6 +39,7 @@ struct ClockMoon: View {
             angle = (90.0 - moonAngle) * Double.pi / 180.0
         }
         return Text(moon)
+            .rotationEffect(.radians(Double.pi/2.0 - angle))
             .position(ClockGeometry.pointOnRadius(forAngle: angle, givenRadius: radius, atPosition: textRadiusMultiplier))
             .font(.system(size: CGFloat(self.radius / ClockMoon.fontSizeDivisor), weight: .black, design: .default))
     }
@@ -48,7 +49,8 @@ struct ClockMoon_Previews: PreviewProvider {
     static var previews: some View {
         let radius = 14.0 * ClockMoon.fontSizeDivisor
         let lt = LocationTracker()
-        ClockMoon(radius: radius).environmentObject(CelestialComputer(locationTracker: lt))
+        ClockMoon(radius: radius)
+            .environmentObject(CelestialComputer(locationTracker: lt))
     }
 }
 
