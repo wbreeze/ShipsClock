@@ -22,6 +22,8 @@ import CoreLocation
 class LocationTracker: NSObject, ObservableObject, CLLocationManagerDelegate {
     var manager = CLLocationManager()
     var isAuthorized = false
+    var failCount = 0
+    let MAX_FAIL = 3
     @Published var isValidLocation = false
     @Published var latitude: CLLocationDegrees
     @Published var longitude: CLLocationDegrees
@@ -74,7 +76,10 @@ class LocationTracker: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Location error \(error)")
-        isValidLocation = false
+        if failCount == MAX_FAIL {
+            self.isValidLocation = false
+        }
+        failCount += 1;
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -84,6 +89,7 @@ class LocationTracker: NSObject, ObservableObject, CLLocationManagerDelegate {
             self.velocity = current.speed
             self.course = current.course
             self.isValidLocation = true
+            self.failCount = 0
         }
     }
 }
